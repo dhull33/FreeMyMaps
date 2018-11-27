@@ -1,0 +1,17 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "prettier/prettier": ["error"],
+    "no-console": "off",
+    "camelcase": "off",
+    "arrow-body-style": ["error", "always"],
+    "func-style": ["error", "expression", { "allowArrowFunctions": true }],
+    "block-scoped-var": "error",
+    "np-plusplus": { "allowForLoopAfterthoughts": true }
+  }
+}
