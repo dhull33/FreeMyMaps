@@ -1,5 +1,5 @@
 /* eslint-disable global-require,prettier/prettier */
-// configures sqree
+// configures sqreen
 if (process.env.NODE_ENV === 'production') {
   require('sqreen');
 }
@@ -21,9 +21,9 @@ Raven.context(() => {
   const pgStore = require('connect-pg-simple');
   const passport = require('passport');
   const flash = require('connect-flash');
+  const compression = require('compression');
   
   const app = express();
-  const compression = require('compression');
   app.use(compression());
   
   // db connection string
@@ -74,38 +74,11 @@ Raven.context(() => {
   
   // ===================ROUTES=============
   const indexRouter = require('./routes/index');
-  // const sign_up_router = require('./routes/authentication/signup');
-  // const login_router = require('./routes/authentication/login');
-  // const logout_router = require('./routes/authentication/logout');
-  // const verification_router = require('./routes/authentication/verify.js');
-  // const payment_router = require('./routes/payments/payments');
-  // const imageUpload = require('./routes/api/image-upload/image-upload');
-  // const insert = require('./routes/api/insert');
-  // const deleteRoute = require('./routes/api/delete');
-  // const harvest = require('./routes/api/harvest-api');
-  // const weather = require('./routes/api/darkSkyWeather');
-  // const gamePhotos = require('./routes/api/gamePhotos');
-  // const huntClubRouter = require('./routes/huntClubs/huntClub');
-  // const gameTrends = require('./routes/api/gameTrends');
-  // const home = require('./routes/api/home');
-  // const propertyEdit = require('./routes/api/propertyEdit');
-  // const nutrition = require('./routes/api/nutrition');
+  const mapsRouter = require('./routes/properties/properties.js');
   
-  const propertiesRouter = require('./routes/properties/properties.js');
-  
-  app.use('/', propertiesRouter);
+  app.use('/', mapsRouter);
   
   app.use('/', indexRouter);
-  
-  // app.use('/', sign_up_router);
-  // app.use('/', login_router);
-  // app.use('/', logout_router);
-  // app.use('/', payment_router);
-  // app.use('/', huntClubRouter);
-  // app.use('/verification', verification_router);
-  // app.use('/home', home);
-  // app.use('/property-edit', propertyEdit);
-  // app.use('/nutrition', nutrition);
   
   // view engine setup
   app.set('views', path.join(__dirname, 'views'));
