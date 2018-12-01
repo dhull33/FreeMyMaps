@@ -74,7 +74,7 @@ Raven.context(() => {
   
   // ===================ROUTES=============
   const indexRouter = require('./routes/index');
-  const mapsRouter = require('./routes/properties/properties.js');
+  const mapsRouter = require('./routes/maps/mapRoute.js');
   
   app.use('/', mapsRouter);
   

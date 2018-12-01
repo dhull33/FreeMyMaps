@@ -13,7 +13,7 @@ module.exports = () => {
       .tx(async (t) => {
         const user2 = await t.any('SELECT * FROM users WHERE user_id=$1', [user.user_id]);
         const properties = await t.any(
-          'SELECT * FROM properties WHERE user_id=$1 AND active = true ORDER BY title',
+          'SELECT * FROM maps WHERE user_id=$1 AND active = true ORDER BY title',
           [user.user_id]
         );
         user2[0].properties = properties;
@@ -33,15 +33,15 @@ module.exports = () => {
         user2[0].hunt_clubs = huntClubList;
 
         const foodPlot = await t.any(
-          'SELECT food_plot.*, properties.title FROM food_plot INNER JOIN properties ON food_plot.property_id = properties.property_id WHERE food_plot.user_id=$1 ORDER BY properties.title, food_plot.date_planted',
+          'SELECT food_plot.*, maps.title FROM food_plot INNER JOIN maps ON food_plot.property_id = maps.property_id WHERE food_plot.user_id=$1 ORDER BY maps.title, food_plot.date_planted',
           [user.user_id]
         );
         const supplementation = await t.any(
-          'SELECT supplementation.*, properties.title FROM supplementation INNER JOIN properties ON supplementation.property_id = properties.property_id WHERE supplementation.user_id=$1 ORDER BY properties.title, supplementation.date_applied',
+          'SELECT supplementation.*, maps.title FROM supplementation INNER JOIN maps ON supplementation.property_id = maps.property_id WHERE supplementation.user_id=$1 ORDER BY maps.title, supplementation.date_applied',
           [user.user_id]
         );
         const mineralBlock = await t.any(
-          'SELECT mineral_block.*, properties.title FROM mineral_block INNER JOIN properties ON mineral_block.property_id = properties.property_id WHERE mineral_block.user_id=$1 ORDER BY properties.title, mineral_block.date_applied',
+          'SELECT mineral_block.*, maps.title FROM mineral_block INNER JOIN maps ON mineral_block.property_id = maps.property_id WHERE mineral_block.user_id=$1 ORDER BY maps.title, mineral_block.date_applied',
           [user.user_id]
         );
         user2[0].nutrition = {
@@ -60,7 +60,7 @@ module.exports = () => {
         user2[0].leaseListings = leaseListings;
 
         const harvestData = await t.any(
-          'SELECT properties.title, harvest.* FROM harvest INNER JOIN properties ON harvest.property_id = properties.property_id WHERE harvest.user_id = $1 ORDER BY properties.title, harvest.harvest_date',
+          'SELECT maps.title, harvest.* FROM harvest INNER JOIN maps ON harvest.property_id = maps.property_id WHERE harvest.user_id = $1 ORDER BY maps.title, harvest.harvest_date',
           [user.user_id]
         );
         user2[0].harvest = harvestData;

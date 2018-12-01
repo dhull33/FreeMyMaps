@@ -14,7 +14,7 @@ export const defaultMap = (layers, coords) => {
     zoomed = 10;
   }
   const map = new Map({
-    target: 'map-container',
+    target: 'map',
     layers,
     view: new View({
       center: coords,

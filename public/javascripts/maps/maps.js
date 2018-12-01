@@ -27,32 +27,32 @@ import { selectMap, drawType, whatKindOfHand } from './mapModules/controls';
 import { moveToMap } from './mapModules/markers';
 import { PoPUp, submitPopUpForm } from './mapModules/popUp';
 // eslint-disable-next-line import/named
-import { getFeaturesFromBackEnd } from './mapModules/getSourceFeatures';
+// import { getFeaturesFromBackEnd } from './mapModules/getSourceFeatures';
 import moveModifyErase from './mapModules/editFeatures';
 
-const appId = 'Uy491QNzSMXrTJfNf2oO';
-const appCode = 'nHG049FB0BTjn3mwOo3gAA';
+const appId = '5uYRdU92ZZBGTmh7cSJA';
+const appCode = 'W_mc_u3M-N76CJEDLk7FKA';
 
 // eslint-disable-next-line consistent-return
 $(document).ready(async () => {
-  const theProperty = await getFeaturesFromBackEnd();
+  // const theProperty = await getFeaturesFromBackEnd();
   // console.log('==========THEPROPERTY==========')
   // console.log(theProperty);
   let features;
   let mapCenterString;
-  if (theProperty.map_features !== null && theProperty.map_features !== '') {
-    features = theProperty.map_features;
-    mapCenterString = theProperty.map_center;
-  }
-  let coords;
-  if (mapCenterString === '' || mapCenterString === null || mapCenterString === undefined) {
-    coords = Transform([-98.569336, 39.774769], 'EPSG:4326', 'EPSG:3857');
-  } else {
-    const splitCenter = mapCenterString.split(/[^-.0123456789]/);
-    const longitude = parseFloat(splitCenter[1]);
-    const latitude = parseFloat(splitCenter[2]);
-    coords = [longitude, latitude];
-  }
+  // if (theProperty.map_features !== null && theProperty.map_features !== '') {
+  //   features = theProperty.map_features;
+  //   mapCenterString = theProperty.map_center;
+  // }
+  // let coords;
+  // if (mapCenterString === '' || mapCenterString === null || mapCenterString === undefined) {
+  //   coords = Transform([-98.569336, 39.774769], 'EPSG:4326', 'EPSG:3857');
+  // } else {
+  //   const splitCenter = mapCenterString.split(/[^-.0123456789]/);
+  //   const longitude = parseFloat(splitCenter[1]);
+  //   const latitude = parseFloat(splitCenter[2]);
+  //   coords = [longitude, latitude];
+  // }
 
   // Creating HERE Layers
   const hereLayers = [
@@ -77,7 +77,8 @@ $(document).ready(async () => {
       scheme: 'topo.image'
     }
   ];
-
+  
+  const coords = Transform([-98.569336, 39.774769], 'EPSG:4326', 'EPSG:3857');
   // initialize map, layers, and source
   const layers = createLayers(hereLayers);
   const map = defaultMap(layers, coords);
@@ -230,9 +231,9 @@ $(document).ready(async () => {
 
   // Adding controls to the map
   // Selects which layer to display
-  map.addControl(selectMap);
-  map.addControl(drawType);
-  map.addControl(whatKindOfHand);
+  // map.addControl(selectMap);
+  // map.addControl(drawType);
+  // map.addControl(whatKindOfHand);
 
   const markerTypes = [
     'feeder-marker',
@@ -438,147 +439,154 @@ $(document).ready(async () => {
     // console.log(output);
     return output;
   };
-  /**
+  /** ============================
    * Creates a new help tooltip
-   */
-  const createHelpTooltip = () => {
-    if (helpTooltipElement) {
-      helpTooltipElement.parentNode.removeChild(helpTooltipElement);
-    }
-    helpTooltipElement = document.createElement('div');
-    helpTooltipElement.className = 'tooltip hidden';
-    helpTooltip = new Overlay({
-      element: helpTooltipElement,
-      offset: [15, 20],
-      positioning: 'center-left'
-    });
-    map.addOverlay(helpTooltip);
-  };
-  /**
+   * =============================
+   * */
+  // const createHelpTooltip = () => {
+  //   if (helpTooltipElement) {
+  //     helpTooltipElement.parentNode.removeChild(helpTooltipElement);
+  //   }
+  //   helpTooltipElement = document.createElement('div');
+  //   helpTooltipElement.className = 'tooltip hidden';
+  //   helpTooltip = new Overlay({
+  //     element: helpTooltipElement,
+  //     offset: [15, 20],
+  //     positioning: 'center-left'
+  //   });
+  //   map.addOverlay(helpTooltip);
+  // };
+  
+  /** ============================
    * Creates a new measure tooltip
-   */
-  const createMeasureTooltip = () => {
-    if (measureTooltipElement) {
-      measureTooltipElement.parentNode.removeChild(measureTooltipElement);
-    }
-    measureTooltipElement = document.createElement('div');
-    measureTooltipElement.className = 'tooltip tooltip-measure';
-    measureTooltip = new Overlay({
-      element: measureTooltipElement,
-      offset: [10, 900],
-      positioning: 'bottom-center'
-    });
-    map.addOverlay(measureTooltip);
-  };
+   * =============================
+   * */
+  
+  // const createMeasureTooltip = () => {
+  //   if (measureTooltipElement) {
+  //     measureTooltipElement.parentNode.removeChild(measureTooltipElement);
+  //   }
+  //   measureTooltipElement = document.createElement('div');
+  //   measureTooltipElement.className = 'tooltip tooltip-measure';
+  //   measureTooltip = new Overlay({
+  //     element: measureTooltipElement,
+  //     offset: [10, 900],
+  //     positioning: 'bottom-center'
+  //   });
+  //   map.addOverlay(measureTooltip);
+  // };
 
-  // Adds drawing to map
-  const addDrawInteraction = () => {
-    const type = typeSelect.value;
-    // console.log(type);
-    const freehands = freeOrNah.value === 'freehand';
-
-    if (type !== 'None') {
-      createHelpTooltip();
-      helpTooltipElement.classList.remove('hidden');
-      draw = new Draw({
-        source,
-        type,
-        freehand: freehands,
-        style: new Style({
-          fill: new Fill({
-            color: 'rgba(255, 255, 255, 0.4)'
-          }),
-          stroke: new Stroke({
-            color: 'rgba(0, 0, 0, 1)',
-            lineDash: [10, 10],
-            width: 4
-          }),
-          image: new CircleStyle({
-            radius: 7,
-            stroke: new Stroke({
-              color: 'rgba(0, 0, 0, 1)'
-            }),
-            fill: new Fill({
-              color: 'rgba(255, 255, 255, 0.7)'
-            })
-          })
-        })
-      });
-      map.addInteraction(draw);
-      snap = new Snap({ source });
-      map.addInteraction(snap);
-
-      createMeasureTooltip();
-
-      let listener;
-      let drawnFeatureId;
-      draw.on(
-        'drawstart',
-        (evt) => {
-          helpTooltipElement.classList.add('hidden');
-          measureTooltipElement.classList.remove('hidden');
-          drawnFeatureId = uniqid.process();
-          // set sketch
-          sketch = evt.feature;
-          console.log(sketch);
-          sketch.setId(drawnFeatureId);
-          sketch.values_.id = drawnFeatureId;
-
-          let tooltipCoord = evt.coordinate;
-
-          listener = sketch.getGeometry().on('change', (evt) => {
-            const geom = evt.target;
-            let output;
-            if (geom instanceof Polygon) {
-              output = formatArea(geom);
-              tooltipCoord = geom.getInteriorPoint().getCoordinates();
-              sketch.values_.measureMent = output;
-              sketch.values_.tooltipCoord = tooltipCoord;
-            } else if (geom instanceof LineString) {
-              output = formatLength(geom);
-              tooltipCoord = geom.getLastCoordinate();
-              sketch.values_.measureMent = output;
-              sketch.values_.tooltipCoord = tooltipCoord;
-            }
-            measureTooltipElement.innerHTML = output;
-            measureTooltip.setPosition(tooltipCoord);
-          });
-        },
-        this
-      );
-
-      draw.on(
-        'drawend',
-        () => {
-          measureTooltipElement.className = 'tooltip tooltip-static';
-          measureTooltip.setOffset([10, 900]);
-          measureTooltip.id = drawnFeatureId;
-          measureTooltip.values_.id = drawnFeatureId;
-          // unset sketch
-          sketch = null;
-          // unset tooltip so that a new one can be created
-          measureTooltipElement = null;
-          createMeasureTooltip();
-          unByKey(listener);
-        },
-        this
-      );
-    }
-  };
-  // Handles the change in draw type i.e. polygon, line, or none
-  typeSelect.onchange = () => {
-    map.removeInteraction(draw);
-    map.removeInteraction(snap);
-    addDrawInteraction();
-  };
-
-  freeOrNah.onchange = () => {
-    map.removeInteraction(draw);
-    map.removeInteraction(snap);
-    addDrawInteraction();
-  };
-
-  addDrawInteraction();
+  // ============================
+  // ====Adds drawing to map=====
+  // ============================
+  
+  // const addDrawInteraction = () => {
+  //   const type = typeSelect.value;
+  //   // console.log(type);
+  //   const freehands = freeOrNah.value === 'freehand';
+  //
+  //   if (type !== 'None') {
+  //     createHelpTooltip();
+  //     helpTooltipElement.classList.remove('hidden');
+  //     draw = new Draw({
+  //       source,
+  //       type,
+  //       freehand: freehands,
+  //       style: new Style({
+  //         fill: new Fill({
+  //           color: 'rgba(255, 255, 255, 0.4)'
+  //         }),
+  //         stroke: new Stroke({
+  //           color: 'rgba(0, 0, 0, 1)',
+  //           lineDash: [10, 10],
+  //           width: 4
+  //         }),
+  //         image: new CircleStyle({
+  //           radius: 7,
+  //           stroke: new Stroke({
+  //             color: 'rgba(0, 0, 0, 1)'
+  //           }),
+  //           fill: new Fill({
+  //             color: 'rgba(255, 255, 255, 0.7)'
+  //           })
+  //         })
+  //       })
+  //     });
+  //     map.addInteraction(draw);
+  //     snap = new Snap({ source });
+  //     map.addInteraction(snap);
+  //
+  //     createMeasureTooltip();
+  //
+  //     let listener;
+  //     let drawnFeatureId;
+  //     draw.on(
+  //       'drawstart',
+  //       (evt) => {
+  //         helpTooltipElement.classList.add('hidden');
+  //         measureTooltipElement.classList.remove('hidden');
+  //         drawnFeatureId = uniqid.process();
+  //         // set sketch
+  //         sketch = evt.feature;
+  //         console.log(sketch);
+  //         sketch.setId(drawnFeatureId);
+  //         sketch.values_.id = drawnFeatureId;
+  //
+  //         let tooltipCoord = evt.coordinate;
+  //
+  //         listener = sketch.getGeometry().on('change', (evt) => {
+  //           const geom = evt.target;
+  //           let output;
+  //           if (geom instanceof Polygon) {
+  //             output = formatArea(geom);
+  //             tooltipCoord = geom.getInteriorPoint().getCoordinates();
+  //             sketch.values_.measureMent = output;
+  //             sketch.values_.tooltipCoord = tooltipCoord;
+  //           } else if (geom instanceof LineString) {
+  //             output = formatLength(geom);
+  //             tooltipCoord = geom.getLastCoordinate();
+  //             sketch.values_.measureMent = output;
+  //             sketch.values_.tooltipCoord = tooltipCoord;
+  //           }
+  //           measureTooltipElement.innerHTML = output;
+  //           measureTooltip.setPosition(tooltipCoord);
+  //         });
+  //       },
+  //       this
+  //     );
+  //
+  //     draw.on(
+  //       'drawend',
+  //       () => {
+  //         measureTooltipElement.className = 'tooltip tooltip-static';
+  //         measureTooltip.setOffset([10, 900]);
+  //         measureTooltip.id = drawnFeatureId;
+  //         measureTooltip.values_.id = drawnFeatureId;
+  //         // unset sketch
+  //         sketch = null;
+  //         // unset tooltip so that a new one can be created
+  //         measureTooltipElement = null;
+  //         createMeasureTooltip();
+  //         unByKey(listener);
+  //       },
+  //       this
+  //     );
+  //   }
+  // };
+  // // Handles the change in draw type i.e. polygon, line, or none
+  // typeSelect.onchange = () => {
+  //   map.removeInteraction(draw);
+  //   map.removeInteraction(snap);
+  //   addDrawInteraction();
+  // };
+  //
+  // freeOrNah.onchange = () => {
+  //   map.removeInteraction(draw);
+  //   map.removeInteraction(snap);
+  //   addDrawInteraction();
+  // };
+  //
+  // addDrawInteraction();
 
   /**
    * Handle pointer move.

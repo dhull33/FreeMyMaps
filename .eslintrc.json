@@ -8,7 +8,7 @@
   "rules": {
     "prettier/prettier": ["error"],
     "no-console": "off",
-    "camelcase": "off",
+    "camelcase": "warn",
     "arrow-body-style": ["error", "always"],
     "func-style": ["error", "expression", { "allowArrowFunctions": true }],
     "block-scoped-var": "error",

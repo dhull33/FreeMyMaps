@@ -56968,56 +56968,6 @@ const setFillColor = exports.setFillColor = (map, fillColor) => {
 
 /***/ }),
 
-/***/ "./public/javascripts/maps/mapModules/getSourceFeatures.js":
-/*!*****************************************************************!*\
-  !*** ./public/javascripts/maps/mapModules/getSourceFeatures.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getFeaturesFromBackEnd = undefined;
-
-var _axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-
-var _axios2 = _interopRequireDefault(_axios);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/* eslint-disable consistent-return,import/prefer-default-export */
-const getFeaturesFromBackEnd = exports.getFeaturesFromBackEnd = async () => {
-  const path = window.location.pathname;
-  const splitProp = path.split('/'); // console.log(splitProp);
-
-  if (splitProp[1] === 'hunt-clubs') {
-    const clubId = splitProp[2];
-    const mapId = splitProp[3];
-
-    try {
-      const response = await _axios2.default.get(`/hunt-clubs/${clubId}/render/${mapId}`);
-      return response.data.huntclub;
-    } catch (error) {
-      console.log(error);
-    }
-  } else {
-    const propertyName = splitProp[2];
-
-    try {
-      const response = await _axios2.default.get(`/properties/render/${propertyName}`);
-      return response.data.properties;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-};
-
-/***/ }),
-
 /***/ "./public/javascripts/maps/mapModules/map.js":
 /*!***************************************************!*\
   !*** ./public/javascripts/maps/mapModules/map.js ***!
@@ -57053,7 +57003,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // Creating the map object
 const defaultMap = exports.defaultMap = (layers, coords) => {
-  const transCoords = (0, _proj.transform)([-98.569336, 39.774769], 'EPSG:4326', 'EPSG:3857');
+  const transCoords = (0, _proj.transform)([-98.569336, 39.774769], "EPSG:4326", "EPSG:3857");
   let zoomed;
 
   if (coords[0] === transCoords[0] && coords[1] === transCoords[1]) {
@@ -57063,7 +57013,7 @@ const defaultMap = exports.defaultMap = (layers, coords) => {
   }
 
   const map = new _Map2.default({
-    target: 'map-container',
+    target: "map",
     layers,
     view: new _View2.default({
       center: coords,
@@ -57079,9 +57029,9 @@ const defaultMap = exports.defaultMap = (layers, coords) => {
 
 const saveMap = exports.saveMap = async (center, jsonFeatures) => {
   const path = window.location.pathname;
-  const splitProp = path.split('/'); // console.log(path);
+  const splitProp = path.split("/"); // console.log(path);
 
-  if (splitProp[1] === 'hunt-clubs') {
+  if (splitProp[1] === "hunt-clubs") {
     const clubId = splitProp[2];
     const mapId = splitProp[3];
 
@@ -57480,8 +57430,6 @@ var _markers = __webpack_require__(/*! ./mapModules/markers */ "./public/javascr
 
 var _popUp = __webpack_require__(/*! ./mapModules/popUp */ "./public/javascripts/maps/mapModules/popUp.js");
 
-var _getSourceFeatures = __webpack_require__(/*! ./mapModules/getSourceFeatures */ "./public/javascripts/maps/mapModules/getSourceFeatures.js");
-
 var _editFeatures = __webpack_require__(/*! ./mapModules/editFeatures */ "./public/javascripts/maps/mapModules/editFeatures.js");
 
 var _editFeatures2 = _interopRequireDefault(_editFeatures);
@@ -57490,32 +57438,29 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /* eslint-disable prefer-destructuring,no-shadow,no-plusplus,no-undef,no-underscore-dangle,prettier/prettier */
 // eslint-disable-next-line import/named
-const appId = 'Uy491QNzSMXrTJfNf2oO';
-const appCode = 'nHG049FB0BTjn3mwOo3gAA'; // eslint-disable-next-line consistent-return
+// import { getFeaturesFromBackEnd } from './mapModules/getSourceFeatures';
+const appId = '5uYRdU92ZZBGTmh7cSJA';
+const appCode = 'W_mc_u3M-N76CJEDLk7FKA'; // eslint-disable-next-line consistent-return
 
 $(document).ready(async () => {
-  const theProperty = await (0, _getSourceFeatures.getFeaturesFromBackEnd)(); // console.log('==========THEPROPERTY==========')
+  // const theProperty = await getFeaturesFromBackEnd();
+  // console.log('==========THEPROPERTY==========')
   // console.log(theProperty);
-
   let features;
-  let mapCenterString;
-
-  if (theProperty.map_features !== null && theProperty.map_features !== '') {
-    features = theProperty.map_features;
-    mapCenterString = theProperty.map_center;
-  }
-
-  let coords;
-
-  if (mapCenterString === '' || mapCenterString === null || mapCenterString === undefined) {
-    coords = (0, _proj.transform)([-98.569336, 39.774769], 'EPSG:4326', 'EPSG:3857');
-  } else {
-    const splitCenter = mapCenterString.split(/[^-.0123456789]/);
-    const longitude = parseFloat(splitCenter[1]);
-    const latitude = parseFloat(splitCenter[2]);
-    coords = [longitude, latitude];
-  } // Creating HERE Layers
-
+  let mapCenterString; // if (theProperty.map_features !== null && theProperty.map_features !== '') {
+  //   features = theProperty.map_features;
+  //   mapCenterString = theProperty.map_center;
+  // }
+  // let coords;
+  // if (mapCenterString === '' || mapCenterString === null || mapCenterString === undefined) {
+  //   coords = Transform([-98.569336, 39.774769], 'EPSG:4326', 'EPSG:3857');
+  // } else {
+  //   const splitCenter = mapCenterString.split(/[^-.0123456789]/);
+  //   const longitude = parseFloat(splitCenter[1]);
+  //   const latitude = parseFloat(splitCenter[2]);
+  //   coords = [longitude, latitude];
+  // }
+  // Creating HERE Layers
 
   const hereLayers = [{
     base: 'aerial',
@@ -57533,7 +57478,8 @@ $(document).ready(async () => {
     scheme: 'topo.day'
   }, {
     scheme: 'topo.image'
-  }]; // initialize map, layers, and source
+  }];
+  const coords = (0, _proj.transform)([-98.569336, 39.774769], 'EPSG:4326', 'EPSG:3857'); // initialize map, layers, and source
 
   const layers = (0, _createLayers2.default)(hereLayers);
   const map = (0, _map.defaultMap)(layers, coords); // Remove double click zoom interaction
@@ -57672,10 +57618,10 @@ $(document).ready(async () => {
   let fillColor;
   (0, _getColor.setFillColor)(map, fillColor); // Adding controls to the map
   // Selects which layer to display
+  // map.addControl(selectMap);
+  // map.addControl(drawType);
+  // map.addControl(whatKindOfHand);
 
-  map.addControl(_controls.selectMap);
-  map.addControl(_controls.drawType);
-  map.addControl(_controls.whatKindOfHand);
   const markerTypes = ['feeder-marker', 'sighting-marker', 'game-camera-marker', 'food-plot-marker', 'campsite-marker', 'box-blind-marker', 'oak-fruit-marker', 'water-marker', 'minerals-marker', 'treestand-marker', 'ground-blind-marker', '4-wheeler-marker', 'scrape-marker', 'tree-rub-marker', 'custom-marker'];
   /* ======================================================
    * Creates marker based on marker clicked in marker-drawer
@@ -57861,149 +57807,157 @@ $(document).ready(async () => {
 
     return output;
   };
-  /**
+  /** ============================
    * Creates a new help tooltip
-   */
+   * =============================
+   * */
+  // const createHelpTooltip = () => {
+  //   if (helpTooltipElement) {
+  //     helpTooltipElement.parentNode.removeChild(helpTooltipElement);
+  //   }
+  //   helpTooltipElement = document.createElement('div');
+  //   helpTooltipElement.className = 'tooltip hidden';
+  //   helpTooltip = new Overlay({
+  //     element: helpTooltipElement,
+  //     offset: [15, 20],
+  //     positioning: 'center-left'
+  //   });
+  //   map.addOverlay(helpTooltip);
+  // };
 
-
-  const createHelpTooltip = () => {
-    if (helpTooltipElement) {
-      helpTooltipElement.parentNode.removeChild(helpTooltipElement);
-    }
-
-    helpTooltipElement = document.createElement('div');
-    helpTooltipElement.className = 'tooltip hidden';
-    helpTooltip = new _Overlay2.default({
-      element: helpTooltipElement,
-      offset: [15, 20],
-      positioning: 'center-left'
-    });
-    map.addOverlay(helpTooltip);
-  };
-  /**
+  /** ============================
    * Creates a new measure tooltip
-   */
+   * =============================
+   * */
+  // const createMeasureTooltip = () => {
+  //   if (measureTooltipElement) {
+  //     measureTooltipElement.parentNode.removeChild(measureTooltipElement);
+  //   }
+  //   measureTooltipElement = document.createElement('div');
+  //   measureTooltipElement.className = 'tooltip tooltip-measure';
+  //   measureTooltip = new Overlay({
+  //     element: measureTooltipElement,
+  //     offset: [10, 900],
+  //     positioning: 'bottom-center'
+  //   });
+  //   map.addOverlay(measureTooltip);
+  // };
+  // ============================
+  // ====Adds drawing to map=====
+  // ============================
+  // const addDrawInteraction = () => {
+  //   const type = typeSelect.value;
+  //   // console.log(type);
+  //   const freehands = freeOrNah.value === 'freehand';
+  //
+  //   if (type !== 'None') {
+  //     createHelpTooltip();
+  //     helpTooltipElement.classList.remove('hidden');
+  //     draw = new Draw({
+  //       source,
+  //       type,
+  //       freehand: freehands,
+  //       style: new Style({
+  //         fill: new Fill({
+  //           color: 'rgba(255, 255, 255, 0.4)'
+  //         }),
+  //         stroke: new Stroke({
+  //           color: 'rgba(0, 0, 0, 1)',
+  //           lineDash: [10, 10],
+  //           width: 4
+  //         }),
+  //         image: new CircleStyle({
+  //           radius: 7,
+  //           stroke: new Stroke({
+  //             color: 'rgba(0, 0, 0, 1)'
+  //           }),
+  //           fill: new Fill({
+  //             color: 'rgba(255, 255, 255, 0.7)'
+  //           })
+  //         })
+  //       })
+  //     });
+  //     map.addInteraction(draw);
+  //     snap = new Snap({ source });
+  //     map.addInteraction(snap);
+  //
+  //     createMeasureTooltip();
+  //
+  //     let listener;
+  //     let drawnFeatureId;
+  //     draw.on(
+  //       'drawstart',
+  //       (evt) => {
+  //         helpTooltipElement.classList.add('hidden');
+  //         measureTooltipElement.classList.remove('hidden');
+  //         drawnFeatureId = uniqid.process();
+  //         // set sketch
+  //         sketch = evt.feature;
+  //         console.log(sketch);
+  //         sketch.setId(drawnFeatureId);
+  //         sketch.values_.id = drawnFeatureId;
+  //
+  //         let tooltipCoord = evt.coordinate;
+  //
+  //         listener = sketch.getGeometry().on('change', (evt) => {
+  //           const geom = evt.target;
+  //           let output;
+  //           if (geom instanceof Polygon) {
+  //             output = formatArea(geom);
+  //             tooltipCoord = geom.getInteriorPoint().getCoordinates();
+  //             sketch.values_.measureMent = output;
+  //             sketch.values_.tooltipCoord = tooltipCoord;
+  //           } else if (geom instanceof LineString) {
+  //             output = formatLength(geom);
+  //             tooltipCoord = geom.getLastCoordinate();
+  //             sketch.values_.measureMent = output;
+  //             sketch.values_.tooltipCoord = tooltipCoord;
+  //           }
+  //           measureTooltipElement.innerHTML = output;
+  //           measureTooltip.setPosition(tooltipCoord);
+  //         });
+  //       },
+  //       this
+  //     );
+  //
+  //     draw.on(
+  //       'drawend',
+  //       () => {
+  //         measureTooltipElement.className = 'tooltip tooltip-static';
+  //         measureTooltip.setOffset([10, 900]);
+  //         measureTooltip.id = drawnFeatureId;
+  //         measureTooltip.values_.id = drawnFeatureId;
+  //         // unset sketch
+  //         sketch = null;
+  //         // unset tooltip so that a new one can be created
+  //         measureTooltipElement = null;
+  //         createMeasureTooltip();
+  //         unByKey(listener);
+  //       },
+  //       this
+  //     );
+  //   }
+  // };
+  // // Handles the change in draw type i.e. polygon, line, or none
+  // typeSelect.onchange = () => {
+  //   map.removeInteraction(draw);
+  //   map.removeInteraction(snap);
+  //   addDrawInteraction();
+  // };
+  //
+  // freeOrNah.onchange = () => {
+  //   map.removeInteraction(draw);
+  //   map.removeInteraction(snap);
+  //   addDrawInteraction();
+  // };
+  //
+  // addDrawInteraction();
 
-
-  const createMeasureTooltip = () => {
-    if (measureTooltipElement) {
-      measureTooltipElement.parentNode.removeChild(measureTooltipElement);
-    }
-
-    measureTooltipElement = document.createElement('div');
-    measureTooltipElement.className = 'tooltip tooltip-measure';
-    measureTooltip = new _Overlay2.default({
-      element: measureTooltipElement,
-      offset: [10, 900],
-      positioning: 'bottom-center'
-    });
-    map.addOverlay(measureTooltip);
-  }; // Adds drawing to map
-
-
-  const addDrawInteraction = () => {
-    const type = typeSelect.value; // console.log(type);
-
-    const freehands = freeOrNah.value === 'freehand';
-
-    if (type !== 'None') {
-      createHelpTooltip();
-      helpTooltipElement.classList.remove('hidden');
-      draw = new _Draw2.default({
-        source,
-        type,
-        freehand: freehands,
-        style: new _style.Style({
-          fill: new _style.Fill({
-            color: 'rgba(255, 255, 255, 0.4)'
-          }),
-          stroke: new _style.Stroke({
-            color: 'rgba(0, 0, 0, 1)',
-            lineDash: [10, 10],
-            width: 4
-          }),
-          image: new _Circle2.default({
-            radius: 7,
-            stroke: new _style.Stroke({
-              color: 'rgba(0, 0, 0, 1)'
-            }),
-            fill: new _style.Fill({
-              color: 'rgba(255, 255, 255, 0.7)'
-            })
-          })
-        })
-      });
-      map.addInteraction(draw);
-      snap = new _Snap2.default({
-        source
-      });
-      map.addInteraction(snap);
-      createMeasureTooltip();
-      let listener;
-      let drawnFeatureId;
-      draw.on('drawstart', evt => {
-        helpTooltipElement.classList.add('hidden');
-        measureTooltipElement.classList.remove('hidden');
-        drawnFeatureId = _uniqid2.default.process(); // set sketch
-
-        sketch = evt.feature;
-        console.log(sketch);
-        sketch.setId(drawnFeatureId);
-        sketch.values_.id = drawnFeatureId;
-        let tooltipCoord = evt.coordinate;
-        listener = sketch.getGeometry().on('change', evt => {
-          const geom = evt.target;
-          let output;
-
-          if (geom instanceof _geom.Polygon) {
-            output = formatArea(geom);
-            tooltipCoord = geom.getInteriorPoint().getCoordinates();
-            sketch.values_.measureMent = output;
-            sketch.values_.tooltipCoord = tooltipCoord;
-          } else if (geom instanceof _geom.LineString) {
-            output = formatLength(geom);
-            tooltipCoord = geom.getLastCoordinate();
-            sketch.values_.measureMent = output;
-            sketch.values_.tooltipCoord = tooltipCoord;
-          }
-
-          measureTooltipElement.innerHTML = output;
-          measureTooltip.setPosition(tooltipCoord);
-        });
-      }, undefined);
-      draw.on('drawend', () => {
-        measureTooltipElement.className = 'tooltip tooltip-static';
-        measureTooltip.setOffset([10, 900]);
-        measureTooltip.id = drawnFeatureId;
-        measureTooltip.values_.id = drawnFeatureId; // unset sketch
-
-        sketch = null; // unset tooltip so that a new one can be created
-
-        measureTooltipElement = null;
-        createMeasureTooltip();
-        (0, _Observable.unByKey)(listener);
-      }, undefined);
-    }
-  }; // Handles the change in draw type i.e. polygon, line, or none
-
-
-  typeSelect.onchange = () => {
-    map.removeInteraction(draw);
-    map.removeInteraction(snap);
-    addDrawInteraction();
-  };
-
-  freeOrNah.onchange = () => {
-    map.removeInteraction(draw);
-    map.removeInteraction(snap);
-    addDrawInteraction();
-  };
-
-  addDrawInteraction();
   /**
    * Handle pointer move.
    * @param {module:ol/MapBrowserEvent~MapBrowserEvent} evt The event.
    */
+
 
   const pointerMoveHandler = evt => {
     if (evt.dragging) {
