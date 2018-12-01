@@ -57003,7 +57003,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // Creating the map object
 const defaultMap = exports.defaultMap = (layers, coords) => {
-  const transCoords = (0, _proj.transform)([-98.569336, 39.774769], "EPSG:4326", "EPSG:3857");
+  const transCoords = (0, _proj.transform)([-98.569336, 39.774769], 'EPSG:4326', 'EPSG:3857');
   let zoomed;
 
   if (coords[0] === transCoords[0] && coords[1] === transCoords[1]) {
@@ -57013,7 +57013,7 @@ const defaultMap = exports.defaultMap = (layers, coords) => {
   }
 
   const map = new _Map2.default({
-    target: "map",
+    target: 'map',
     layers,
     view: new _View2.default({
       center: coords,
@@ -57029,9 +57029,9 @@ const defaultMap = exports.defaultMap = (layers, coords) => {
 
 const saveMap = exports.saveMap = async (center, jsonFeatures) => {
   const path = window.location.pathname;
-  const splitProp = path.split("/"); // console.log(path);
+  const splitProp = path.split('/'); // console.log(path);
 
-  if (splitProp[1] === "hunt-clubs") {
+  if (splitProp[1] === 'hunt-clubs') {
     const clubId = splitProp[2];
     const mapId = splitProp[3];
 
@@ -57618,8 +57618,8 @@ $(document).ready(async () => {
   let fillColor;
   (0, _getColor.setFillColor)(map, fillColor); // Adding controls to the map
   // Selects which layer to display
-  // map.addControl(selectMap);
-  // map.addControl(drawType);
+
+  map.addControl(_controls.selectMap); // map.addControl(drawType);
   // map.addControl(whatKindOfHand);
 
   const markerTypes = ['feeder-marker', 'sighting-marker', 'game-camera-marker', 'food-plot-marker', 'campsite-marker', 'box-blind-marker', 'oak-fruit-marker', 'water-marker', 'minerals-marker', 'treestand-marker', 'ground-blind-marker', '4-wheeler-marker', 'scrape-marker', 'tree-rub-marker', 'custom-marker'];
@@ -57755,58 +57755,54 @@ $(document).ready(async () => {
   ===============================================
   */
   // Tooltips and Draw element
+  // let sketch;
+  // let helpTooltipElement = document.getElementById('help-tool-tip');
+  // let helpTooltip;
+  // let measureTooltipElement = document.getElementById('measure-tool-tip');
+  // let measureTooltip;
+  //
+  // // Adds Ability to Draw on Map in Free hand mode based on the selected type
+  // let draw;
+  // let snap;
+  // const typeSelect = document.getElementById('type');
+  // const freeOrNah = document.getElementById('free-or-nah');
 
-  let sketch;
-  let helpTooltipElement = document.getElementById('help-tool-tip');
-  let helpTooltip;
-  let measureTooltipElement = document.getElementById('measure-tool-tip');
-  let measureTooltip; // Adds Ability to Draw on Map in Free hand mode based on the selected type
-
-  let draw;
-  let snap;
-  const typeSelect = document.getElementById('type');
-  const freeOrNah = document.getElementById('free-or-nah');
   /**
    * Format length output.
    * @param {module:ol/geom/LineString~LineString} line The line.
    * @return {string} The formatted length.
    */
+  // const formatLength = (line) => {
+  //   const length = getLength(line);
+  //   let output;
+  //   if (length > 804.672) {
+  //     output = `${Math.round((length / 1609.344) * 100) / 100} mi`;
+  //   } else {
+  //     output = `${Math.round(length * 3.281)} ft`;
+  //   }
+  //   // console.log(output);
+  //   return output;
+  // };
 
-  const formatLength = line => {
-    const length = (0, _sphere.getLength)(line);
-    let output;
-
-    if (length > 804.672) {
-      output = `${Math.round(length / 1609.344 * 100) / 100} mi`;
-    } else {
-      output = `${Math.round(length * 3.281)} ft`;
-    } // console.log(output);
-
-
-    return output;
-  };
   /**
    * Format area output.
    * @param {module:ol/geom/Polygon~Polygon} polygon The polygon.
    * @return {string} Formatted area.
    */
+  // const formatArea = (polygon) => {
+  //   const area = getArea(polygon);
+  //   let output;
+  //   if (area > 10000) {
+  //     const kmSquared = Math.round((area / 1000000) * 100) / 100;
+  //     output = `${Math.round(kmSquared * 247.105)} acres`;
+  //   } else {
+  //     const mSquared = Math.round(area * 100) / 100;
+  //     output = `${Math.round(mSquared / 4046.856)} acres`;
+  //   }
+  //   // console.log(output);
+  //   return output;
+  // };
 
-
-  const formatArea = polygon => {
-    const area = (0, _sphere.getArea)(polygon);
-    let output;
-
-    if (area > 10000) {
-      const kmSquared = Math.round(area / 1000000 * 100) / 100;
-      output = `${Math.round(kmSquared * 247.105)} acres`;
-    } else {
-      const mSquared = Math.round(area * 100) / 100;
-      output = `${Math.round(mSquared / 4046.856)} acres`;
-    } // console.log(output);
-
-
-    return output;
-  };
   /** ============================
    * Creates a new help tooltip
    * =============================
@@ -57953,44 +57949,41 @@ $(document).ready(async () => {
   //
   // addDrawInteraction();
 
-  /**
-   * Handle pointer move.
+  /** =================================================================
+   * Adds Tool Tips for Draw Feature.
    * @param {module:ol/MapBrowserEvent~MapBrowserEvent} evt The event.
-   */
+   * ==================================================================
+   * */
+  // const pointerMoveHandler = (evt) => {
+  //   if (evt.dragging) {
+  //     return;
+  //   }
+  //   if (typeSelect.value !== 'None') {
+  //     /** @type {string} */
+  //     let helpMsg = 'Click to start drawing';
+  //     if (sketch) {
+  //       const geom = sketch.getGeometry();
+  //       if (geom instanceof Polygon) {
+  //         helpMsg = 'Click to continue drawing the polygon';
+  //       } else if (geom instanceof LineString) {
+  //         helpMsg = 'Click to continue drawing the line';
+  //       }
+  //     }
+  //     helpTooltipElement.innerHTML = helpMsg;
+  //     helpTooltipElement.classList.remove('hidden');
+  //     helpTooltip.setPosition(evt.coordinate);
+  //   } else {
+  //     helpTooltipElement.classList.add('hidden');
+  //   }
+  // };
+  //
+  // map.on('pointermove', pointerMoveHandler);
+  //
+  // map.getViewport().addEventListener('mouseout', () => {
+  //   helpTooltipElement.classList.add('hidden');
+  //   helpTooltipElement.innerHTML = '';
+  // });
 
-
-  const pointerMoveHandler = evt => {
-    if (evt.dragging) {
-      return;
-    }
-
-    if (typeSelect.value !== 'None') {
-      /** @type {string} */
-      let helpMsg = 'Click to start drawing';
-
-      if (sketch) {
-        const geom = sketch.getGeometry();
-
-        if (geom instanceof _geom.Polygon) {
-          helpMsg = 'Click to continue drawing the polygon';
-        } else if (geom instanceof _geom.LineString) {
-          helpMsg = 'Click to continue drawing the line';
-        }
-      }
-
-      helpTooltipElement.innerHTML = helpMsg;
-      helpTooltipElement.classList.remove('hidden');
-      helpTooltip.setPosition(evt.coordinate);
-    } else {
-      helpTooltipElement.classList.add('hidden');
-    }
-  };
-
-  map.on('pointermove', pointerMoveHandler);
-  map.getViewport().addEventListener('mouseout', () => {
-    helpTooltipElement.classList.add('hidden');
-    helpTooltipElement.innerHTML = '';
-  });
   const mousePositionControl = new _MousePosition2.default({
     coordinateFormat: (0, _coordinate.createStringXY)(4),
     projection: 'EPSG:4326',
@@ -58002,48 +57995,47 @@ $(document).ready(async () => {
   Clears all features from map
   =============================
    */
+  // $('#clear').click(() => {
+  //   const overLaysCollection = map.getOverlays();
+  //   overLaysCollection.clear();
+  //   source.clear();
+  // });
 
-  $('#clear').click(() => {
-    const overLaysCollection = map.getOverlays();
-    overLaysCollection.clear();
-    source.clear();
-  });
   /*
   ==========================================
   Saves the map when a new feature is added
   =========================================
   */
+  // source.on('addfeature', () => {
+  //   const center = map.getView().getCenter();
+  //   const features = source.getFeatures();
+  //   const jsonFeatures = format.writeFeatures(features);
+  //   return saveMap(center, jsonFeatures);
+  // });
 
-  source.on('addfeature', () => {
-    const center = map.getView().getCenter();
-    const features = source.getFeatures();
-    const jsonFeatures = format.writeFeatures(features);
-    return (0, _map.saveMap)(center, jsonFeatures);
-  });
   /*
    ==========================================
    Saves the map when a new feature is changed
    =========================================
    */
+  // source.on('changefeature', () => {
+  //   const center = map.getView().getCenter();
+  //   const features = source.getFeatures();
+  //   const jsonFeatures = format.writeFeatures(features);
+  //   return saveMap(center, jsonFeatures);
+  // });
 
-  source.on('changefeature', () => {
-    const center = map.getView().getCenter();
-    const features = source.getFeatures();
-    const jsonFeatures = format.writeFeatures(features);
-    return (0, _map.saveMap)(center, jsonFeatures);
-  });
   /*
    ============================================
    Saves the map when 'save' button is clicked
    ============================================
    */
-
-  $('#save').click(() => {
-    const center = map.getView().getCenter();
-    const features = source.getFeatures();
-    const jsonFeatures = format.writeFeatures(features);
-    return (0, _map.saveMap)(center, jsonFeatures);
-  });
+  // $('#save').click(() => {
+  //   const center = map.getView().getCenter();
+  //   const features = source.getFeatures();
+  //   const jsonFeatures = format.writeFeatures(features);
+  //   return saveMap(center, jsonFeatures);
+  // });
 });
 
 /***/ }),
