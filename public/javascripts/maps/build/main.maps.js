@@ -57463,6 +57463,30 @@ $(document).ready(async () => {
   // Creating HERE Layers
 
   const hereLayers = [{
+    base: 'base',
+    type: 'maptile',
+    scheme: 'normal.day',
+    app_id: appId,
+    app_code: appCode
+  }, {
+    base: 'base',
+    type: 'maptile',
+    scheme: 'normal.day.transit',
+    app_id: appId,
+    app_code: appCode
+  }, {
+    base: 'base',
+    type: 'maptile',
+    scheme: 'pedestrian.day',
+    app_id: appId,
+    app_code: appCode
+  }, {
+    base: 'aerial',
+    type: 'maptile',
+    scheme: 'terrain.day',
+    app_id: appId,
+    app_code: appCode
+  }, {
     base: 'aerial',
     type: 'maptile',
     scheme: 'satellite.day',

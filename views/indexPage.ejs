@@ -27,14 +27,14 @@
               <a class="nav-item nav-link active" href="#">About <span class="sr-only">(current)</span></a>
               <a class="nav-item nav-link" href="#">FAQ</a>
               <a class="nav-item nav-link" href="#">Login</a>
-              <a class="nav-item nav-link disabled" href="#">Sign Up</a>
+              <a class="nav-item nav-link" href="#">Sign Up</a>
             </div>
           </div>
         </nav>
       </div>
     </div>
 
-    <!-- Side navigation -->
+     <!--Side navigation -->
     <div class="sidenav">
       <a href="#">About</a>
       <a href="#">Services</a>
@@ -42,7 +42,10 @@
       <a href="#">Contact</a>
 
       <!--Changes Type of Map-->
+      <label for="layer-select">Map Type</label>
       <select id="layer-select">
+        <option value="topo.image" selected>Topographical w/ Satellite</option>
+        <option value="topo.day">Topographical</option>
         <option value="normal.day" selected>Normal Day</option>
         <option value="normal.day.transit">Normal Day Transit</option>
         <option value="pedestrian.day">Pedestrian Day</option>

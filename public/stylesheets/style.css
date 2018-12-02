@@ -5,19 +5,19 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-/*a {*/
-  /*color: #00B7FF;*/
-/*}*/
+
+html, body, .map {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* The NavBar at the Top*/
 .mainNav {
   position: relative;
   z-index: 2;
-
 }
-/*#map-nav {*/
-  /*height: 100vw;*/
-  /*padding-right: 0;*/
-  /*background-color: #ffad32;*/
-/*}*/
 
 /* The sidebar menu */
 .sidenav {
@@ -45,6 +45,12 @@ body {
   display: block;
 }
 
+select {
+  display: block;
+  position: fixed;
+  z-index: 2;
+}
+
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
   color: #f1f1f1;
@@ -52,12 +58,18 @@ body {
 
 /* Style page content */
 .main {
-  margin-left: 160px; /* Same as the width of the sidebar */
-  padding: 0px 10px;
+  margin-left: 200px; /* Same as the width of the sidebar */
+  padding: 0px 0px;
+  height: 90vh;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+/* Changes mouse control from black to white */
+.ol-mouse-position {
+  color: #f1f1f1;
 }
