@@ -57646,7 +57646,7 @@ $(document).ready(async () => {
   map.addControl(_controls.selectMap); // map.addControl(drawType);
   // map.addControl(whatKindOfHand);
 
-  const markerTypes = ['feeder-marker', 'sighting-marker', 'game-camera-marker', 'food-plot-marker', 'campsite-marker', 'box-blind-marker', 'oak-fruit-marker', 'water-marker', 'minerals-marker', 'treestand-marker', 'ground-blind-marker', '4-wheeler-marker', 'scrape-marker', 'tree-rub-marker', 'custom-marker'];
+  const markerTypes = ['custom-marker'];
   /* ======================================================
    * Creates marker based on marker clicked in marker-drawer
    * and waits for user to click a location in the map before
@@ -57719,11 +57719,11 @@ $(document).ready(async () => {
   const geocoder = new _olGeocoder2.default('nominatim', {
     provider: 'osm',
     lang: 'en',
-    targetType: 'text-input',
-    placeholder: 'Search for location',
+    targetType: 'glass-button',
+    placeholder: 'Search for ...',
     limit: 8,
     autoComplete: true,
-    keepOpen: false
+    keepOpen: true
   });
   map.addControl(geocoder);
   geocoder.on('addresschosen', evt => {

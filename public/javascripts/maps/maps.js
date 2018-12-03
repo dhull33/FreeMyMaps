@@ -105,7 +105,7 @@ $(document).ready(async () => {
       scheme: 'topo.image'
     }
   ];
-  
+
   const coords = Transform([-98.569336, 39.774769], 'EPSG:4326', 'EPSG:3857');
   // initialize map, layers, and source
   const layers = createLayers(hereLayers);
@@ -263,23 +263,7 @@ $(document).ready(async () => {
   // map.addControl(drawType);
   // map.addControl(whatKindOfHand);
 
-  const markerTypes = [
-    'feeder-marker',
-    'sighting-marker',
-    'game-camera-marker',
-    'food-plot-marker',
-    'campsite-marker',
-    'box-blind-marker',
-    'oak-fruit-marker',
-    'water-marker',
-    'minerals-marker',
-    'treestand-marker',
-    'ground-blind-marker',
-    '4-wheeler-marker',
-    'scrape-marker',
-    'tree-rub-marker',
-    'custom-marker'
-  ];
+  const markerTypes = ['custom-marker'];
 
   /* ======================================================
    * Creates marker based on marker clicked in marker-drawer
@@ -352,14 +336,14 @@ $(document).ready(async () => {
   const geocoder = new Geocoder('nominatim', {
     provider: 'osm',
     lang: 'en',
-    targetType: 'text-input',
-    placeholder: 'Search for location',
+    targetType: 'glass-button',
+    placeholder: 'Search for ...',
     limit: 8,
     autoComplete: true,
-    keepOpen: false
+    keepOpen: true
   });
   map.addControl(geocoder);
-
+  
   geocoder.on('addresschosen', (evt) => {
     // Popup showing position the user clicked
     const popup = PoPUp('popup', 'geocoderPop');
@@ -437,7 +421,7 @@ $(document).ready(async () => {
    * @param {module:ol/geom/LineString~LineString} line The line.
    * @return {string} The formatted length.
    */
-  
+
   // const formatLength = (line) => {
   //   const length = getLength(line);
   //   let output;
@@ -468,7 +452,7 @@ $(document).ready(async () => {
   //   // console.log(output);
   //   return output;
   // };
-  
+
   /** ============================
    * Creates a new help tooltip
    * =============================
@@ -486,12 +470,12 @@ $(document).ready(async () => {
   //   });
   //   map.addOverlay(helpTooltip);
   // };
-  
+
   /** ============================
    * Creates a new measure tooltip
    * =============================
    * */
-  
+
   // const createMeasureTooltip = () => {
   //   if (measureTooltipElement) {
   //     measureTooltipElement.parentNode.removeChild(measureTooltipElement);
@@ -509,7 +493,7 @@ $(document).ready(async () => {
   // ============================
   // ====Adds drawing to map=====
   // ============================
-  
+
   // const addDrawInteraction = () => {
   //   const type = typeSelect.value;
   //   // console.log(type);

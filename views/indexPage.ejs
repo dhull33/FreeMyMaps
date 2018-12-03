@@ -8,6 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!--Style Sheets-->
+    <link rel='stylesheet' href='/stylesheets/ol.css' />
+    <!--Style Sheet for OL-Geocoder-->
+    <link href="https://cdn.jsdelivr.net/npm/ol-geocoder@latest/dist/ol-geocoder.min.css" rel="stylesheet">
+    <!-- ol-popup -->
+    <link rel='stylesheet' href='/stylesheets/ol-popup.css' />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel='stylesheet' href='/stylesheets/style.css' />
@@ -24,7 +29,7 @@
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-item nav-link active" href="#">About <span class="sr-only">(current)</span></a>
+              <a class="nav-item nav-link" href="#">About <span class="sr-only">(current)</span></a>
               <a class="nav-item nav-link" href="#">FAQ</a>
               <a class="nav-item nav-link" href="#">Login</a>
               <a class="nav-item nav-link" href="#">Sign Up</a>
@@ -40,6 +45,16 @@
       <a href="#">Services</a>
       <a href="#">Clients</a>
       <a href="#">Contact</a>
+    </div>
+
+    <!-- Page content -->
+    <div class="main">
+      <div id="map" class="map"></div>
+      <div id="map-marker-popup"></div>
+      <div id="help-tool-tip"></div>
+      <div id="measure-tool-tip" ></div>
+      <div id="mouse-position"></div>
+      <div id="popup"></div>
 
       <!--Changes Type of Map-->
       <label for="layer-select">Map Type</label>
@@ -53,16 +68,7 @@
         <option value="satellite.day">Satellite Day</option>
         <option value="hybrid.day">Hybrid Day</option>
       </select>
-    </div>
 
-    <!-- Page content -->
-    <div class="main">
-      <div id="map" class="map"></div>
-      <div id="map-marker-popup"></div>
-      <div id="help-tool-tip"></div>
-      <div id="measure-tool-tip" ></div>
-      <div id="mouse-position"></div>
-      <div id="popup"></div>
     </div>
 
     <script type="module" src="/javascripts/maps/build/main.maps.js"></script>
