@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "author": "David Hull",
   "description": "A mapping application built with OpenLayers 5, Express, Node.js, and PostgreSQL.",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/dhull33/FreeMyMaps"
