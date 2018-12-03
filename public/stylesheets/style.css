@@ -11,6 +11,7 @@ html, body, .map {
   padding: 0;
   width: 100%;
   height: 100%;
+  background-color: #303130;
 }
 
 /* The NavBar at the Top*/
@@ -58,7 +59,7 @@ select {
 
 /* Style page content */
 .main {
-  margin-left: 200px; /* Same as the width of the sidebar */
+  /*margin-left: 200px; !* Same as the width of the sidebar *!*/
   padding: 0px 0px;
   height: 90vh;
 }
@@ -72,4 +73,6 @@ select {
 /* Changes mouse control from black to white */
 .ol-mouse-position {
   color: #f1f1f1;
+  background-color: #111111;
+  opacity: 0.6;
 }

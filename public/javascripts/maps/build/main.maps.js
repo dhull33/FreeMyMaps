@@ -57745,7 +57745,7 @@ $(document).ready(async () => {
     userLocation.setId('userLocation');
     const locationStyle = new _style.Style({
       image: new _style.Icon({
-        src: '/images/icons/pin_drop_48px.png'
+        src: '/images/icons/person_pin_circle_48px.png'
       })
     });
     userLocation.setStyle(locationStyle);
