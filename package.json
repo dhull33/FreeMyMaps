@@ -108,7 +108,7 @@
     "webpack-dev-middleware": "^3.3.0"
   },
   "engines": {
-    "node": "10.2.x"
+    "node": "11.x.x"
   },
   "husky": {
     "hooks": {
