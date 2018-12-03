@@ -56991,6 +56991,8 @@ var _View = __webpack_require__(/*! ol/View */ "./node_modules/ol/View.js");
 
 var _View2 = _interopRequireDefault(_View);
 
+var _interaction = __webpack_require__(/*! ol/interaction */ "./node_modules/ol/interaction.js");
+
 var _util = __webpack_require__(/*! ol/control/util */ "./node_modules/ol/control/util.js");
 
 var _proj = __webpack_require__(/*! ol/proj */ "./node_modules/ol/proj.js");
@@ -57013,6 +57015,9 @@ const defaultMap = exports.defaultMap = (layers, coords) => {
   }
 
   const map = new _Map2.default({
+    interactions: (0, _interaction.defaults)({
+      onFocusOnly: true
+    }),
     target: 'map',
     layers,
     view: new _View2.default({

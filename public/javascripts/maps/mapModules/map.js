@@ -1,6 +1,7 @@
 // Creating the map object
 import Map from 'ol/Map';
 import View from 'ol/View';
+import { defaults as defaultInteractions } from 'ol/interaction';
 import { defaults as defaultControls } from 'ol/control/util';
 import { transform as Transform } from 'ol/proj';
 import axios from 'axios';
@@ -14,6 +15,9 @@ export const defaultMap = (layers, coords) => {
     zoomed = 10;
   }
   const map = new Map({
+    interactions: defaultInteractions({
+      onFocusOnly: true
+    }),
     target: 'map',
     layers,
     view: new View({

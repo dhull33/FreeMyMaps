@@ -3,7 +3,7 @@ const app = express();
 
 /* GET home page. */
 app.get('/', function(req, res, next) {
-  return res.render('indexPage', { title: 'Express' });
+  return res.render('indexPage', { title: 'FreeMyMaps' });
 });
 
 module.exports = app;

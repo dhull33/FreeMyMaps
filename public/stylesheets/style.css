@@ -76,3 +76,10 @@ select {
   background-color: #111111;
   opacity: 0.6;
 }
+
+.copyright {
+  display: flex;
+  justify-content: end;
+  color: white;
+
+}
