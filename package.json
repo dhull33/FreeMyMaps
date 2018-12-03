@@ -9,7 +9,7 @@
   },
   "scripts": {
     "clean": "rimraf ./public/javascripts/maps/build",
-    "start": "node app.js",
+    "start": "pm2-runtime start ecosystem.config.js --env production",
     "start:dev": "run-s clean build open:src:dev",
     "open:src:dev": "nodemon app.js",
     "prettier-watch": "onchange '**/*.js' -- prettier --write {{changed}}",
