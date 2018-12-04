@@ -18,10 +18,10 @@ https://freemymaps.com
 
     ![](./public/images/topo-screen-shot.png)
 
-    P.S. check out this fantastic example that helped me quite a bit: [https://openlayers.org/en/latest/examples/here-maps.html](https://openlayers.org/en/latest/examples/here-maps.html)
+    P.S. check out this fantastic example that helped me quite a bit: https://openlayers.org/en/latest/examples/here-maps.html
 
 2. OSM Geocoder
-    - Uses Open Street Map Data and [*ol-geocoder](*[https://github.com/jonataswalker/ol-geocoder](https://github.com/jonataswalker/ol-geocoder))
+    - Uses Open Street Map Data and [ol-geocoder](https://github.com/jonataswalker/ol-geocoder)
 3. Geolocation
     - It's surprisingly easy to get someone's location. The following code is all that is needed (public/javascripts/maps/maps.js line 360):
       ```javascript
@@ -30,14 +30,14 @@ https://freemymaps.com
         });
       ```
       
-    - Here's a link from [Mozilla]([https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)) that goes into more detail
+    - Here's a link from [Mozilla](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) that goes into more detail
 
 ## Features Soon to Be Added
 
 1. Drawing
     - Freehand
     - Not freehand
-    - Lines and Polygons ([in case you forgot what a polygon is]([https://en.wikipedia.org/wiki/Polygon](https://en.wikipedia.org/wiki/Polygon)))
+    - Lines and Polygons ([in case you forgot what a polygon is](https://en.wikipedia.org/wiki/Polygon))
 2. Distance and Area estimation
     - Distance Units:
         - centimeters, meters, kilometers, inches, feet, miles
@@ -67,4 +67,4 @@ https://freemymaps.com
 
 ## Bugs
 
-If you have encountered a bug or would like to request a feature, please use the [GitHub issue tracker]([https://github.com/dhull33/FreeMyMaps/issues](https://github.com/dhull33/FreeMyMaps/issues)).
+If you have encountered a bug or would like to request a feature, please use the [GitHub issue tracker](https://github.com/dhull33/FreeMyMaps/issues).
