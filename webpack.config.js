@@ -1,5 +1,4 @@
 const path = require('path');
-// const CopyPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
@@ -9,8 +8,6 @@ module.exports = {
     path: path.resolve(__dirname, 'public/javascripts/maps/build/'),
     filename: '[name].map.js'
   },
-  
-  // Enable sourcemaps for debugging webpack's output.
   devtool: 'source-map',
   plugins: [new Dotenv()],
   module: {
