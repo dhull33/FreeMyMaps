@@ -1,5 +1,5 @@
 /* eslint-disable global-require,prettier/prettier */
-// configures sqreen
+// configures sqreen in production mode
 if (process.env.NODE_ENV === 'production') {
   require('sqreen');
 }
@@ -17,40 +17,12 @@ Raven.context(() => {
   const logger = require('morgan');
   const bodyParser = require('body-parser');
   const enforce = require('express-sslify');
-  const session = require('express-session');
-  const pgStore = require('connect-pg-simple');
   const passport = require('passport');
   const flash = require('connect-flash');
   const compression = require('compression');
   
   const app = express();
   app.use(compression());
-  
-  // db connection string
-  const connection = {
-    host: process.env.DB_HOST,
-    port: 5432,
-    database: process.env.DB_NAME,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    ssl: true,
-    poolSize: 12,
-    poolIdleTimeout: 2000
-  };
-  
-  // Session store
-  app.use(
-    session({
-      secret: process.env.SECRET_KEY,
-      resave: false,
-      saveUninitialized: false,
-      store: new (pgStore(session))({
-        conObject: connection,
-        pruneSessionInterval: 1800
-      }),
-      cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }
-    })
-  );
   
   // The raven request handler must be the first middleware on the app
   app.use(Raven.requestHandler());
@@ -73,9 +45,7 @@ Raven.context(() => {
   ======================================
    */
   const indexRouter = require('./routes/index');
-  const mapsRouter = require('./routes/maps/mapRoute.js');
   
-  app.use('/', mapsRouter);
   app.use('/', indexRouter);
   
   // view engine setup
