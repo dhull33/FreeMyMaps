@@ -38,7 +38,7 @@ Raven.context(() => {
     poolIdleTimeout: 2000
   };
   
-  // PG session store
+  // Session store
   app.use(
     session({
       secret: process.env.SECRET_KEY,
@@ -59,25 +59,23 @@ Raven.context(() => {
   app.use(express.urlencoded({ extended: true }));
   app.use(cookieParser());
   app.use(express.static(path.join(__dirname, 'public')));
-  // app.use(bodyParser.text({limit: 1024102420, extended: true}));
   app.use(bodyParser.json({ limit: '100mb' }));
   app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
   app.use(flash());
   app.use(passport.initialize());
   app.use(passport.session());
-  // app.use(require('webpack-dev-middleware')(compiler, {
-  //   publicPath: config.output.publicPath
-  // }))
   
-  // // Enforces HTTPS
+  // Enforces HTTPS
   app.use(enforce.HTTPS({ trustProtoHeader: true }));
   
-  // ===================ROUTES=============
+  /* ===================================
+  ===================ROUTES=============
+  ======================================
+   */
   const indexRouter = require('./routes/index');
   const mapsRouter = require('./routes/maps/mapRoute.js');
   
   app.use('/', mapsRouter);
-  
   app.use('/', indexRouter);
   
   // view engine setup
@@ -87,16 +85,18 @@ Raven.context(() => {
   //= =====================================
   //= ===========ERROR HANDLERS============
   //= =====================================
+  
   // The Raven error handler must be before any other error middleware
   app.use(Raven.errorHandler());
-  // //Uncaught exception handler...
+  
+  // Uncaught exception handler...
   process.on('uncaughtException', (err) => {
     console.log(err);
     console.log(`Caught exception in 'node forever': ${err}`);
   });
   
   const server = app.listen(process.env.PORT, () => {
-    console.log(`🚀  Server listening on port ${process.env.PORT}`);
+    console.log(`Server listening on port ${process.env.PORT} 🚀`);
   });
   
   module.exports = app;

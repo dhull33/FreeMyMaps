@@ -24,7 +24,7 @@ https://freemymaps.com
 2. OSM Geocoder
     - Uses Open Street Map Data and [ol-geocoder](https://github.com/jonataswalker/ol-geocoder)
 3. Geolocation
-    - It's surprisingly easy to get someone's location. The following code is all that is needed (public/javascripts/maps/maps.js line 360):
+    - It's surprisingly easy to get someone's location. The following code is all that is needed (public/javascripts/maps/map.js line 360):
       ```javascript
         navigator.geolocation.getCurrentPosition((yourPosition) => {
         // yourPosition is an object from your brower's Geolocation API

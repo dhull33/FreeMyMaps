@@ -4,10 +4,10 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'development',
-  entry: [path.resolve(__dirname, 'public/javascripts/maps/maps.js')],
+  entry: [path.resolve(__dirname, 'public/javascripts/maps/map.js')],
   output: {
     path: path.resolve(__dirname, 'public/javascripts/maps/build/'),
-    filename: '[name].maps.js'
+    filename: '[name].map.js'
   },
   
   // Enable sourcemaps for debugging webpack's output.

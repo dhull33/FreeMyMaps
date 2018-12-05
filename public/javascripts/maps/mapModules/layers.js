@@ -15,15 +15,13 @@ const createURL = function createUrl(tpl, layerDesc) {
     .replace('{app_code}', layerDesc.app_code);
 };
 
-export default (hereLayers) => {
-  const layers = [];
+export default (myLayers) => {
+  const yourLayers = [];
   let i;
   let ii;
-
-  // eslint-disable-next-line no-plusplus
-  for (i = 0, ii = hereLayers.length - 2; i < ii; ++i) {
-    const layerDesc = hereLayers[i];
-    layers.push(
+  for (i = 0, ii = myLayers.length - 2; i < ii; i += 1) {
+    const layerDesc = myLayers[i];
+    yourLayers.push(
       new TileLayer({
         visible: false,
         preload: Infinity,
@@ -36,8 +34,8 @@ export default (hereLayers) => {
       })
     );
   }
-  // This is the topographical layer from UGS
-  layers.push(
+  // Topographical maps from UGS
+  yourLayers.push(
     new TileLayer({
       visible: false,
       preload: Infinity,
@@ -50,8 +48,7 @@ export default (hereLayers) => {
       })
     })
   );
-
-  layers.push(
+  yourLayers.push(
     new TileLayer({
       visible: false,
       preload: Infinity,
@@ -65,5 +62,5 @@ export default (hereLayers) => {
     })
   );
 
-  return layers;
+  return yourLayers;
 };
