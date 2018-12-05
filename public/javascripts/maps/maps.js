@@ -356,7 +356,7 @@ $(document).ready(async () => {
   // ================================
   // ===========GEOLOCATION==========
   // ================================
-
+  
   navigator.geolocation.getCurrentPosition((pos) => {
     const coords = fromLonLat([pos.coords.longitude, pos.coords.latitude]);
     const userLocation = new Feature({
