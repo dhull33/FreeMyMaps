@@ -12,20 +12,20 @@ Raven.config(process.env.SENTRY_DSN).install();
 Raven.context(() => {
   // const createError = require('http-errors');
   const express = require('express');
+  const enforce = require('express-sslify');
+  const passport = require('passport');
+  const flash = require('connect-flash');
   const path = require('path');
   const cookieParser = require('cookie-parser');
   const logger = require('morgan');
   const bodyParser = require('body-parser');
-  const enforce = require('express-sslify');
-  const passport = require('passport');
-  const flash = require('connect-flash');
   const compression = require('compression');
   
   const app = express();
-  app.use(compression());
   
   // The raven request handler must be the first middleware on the app
   app.use(Raven.requestHandler());
+  app.use(compression());
   app.use(logger('dev'));
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
@@ -52,10 +52,6 @@ Raven.context(() => {
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'ejs');
   
-  //= =====================================
-  //= ===========ERROR HANDLERS============
-  //= =====================================
-  
   // The Raven error handler must be before any other error middleware
   app.use(Raven.errorHandler());
   
@@ -65,7 +61,7 @@ Raven.context(() => {
     console.log(`Caught exception in 'node forever': ${err}`);
   });
   
-  const server = app.listen(process.env.PORT, () => {
+  app.listen(process.env.PORT, () => {
     console.log(`Server listening on port ${process.env.PORT} 🚀`);
   });
   
