@@ -121,10 +121,7 @@ $(document).ready( () => {
   const onChange = () => {
     const scheme = select.value;
     for (let i = 0, ii = layers.length; i < ii; ++i) {
-      layers[i].setVisible(theseAwesomeLayers[i].scheme == scheme);
-      if (theseAwesomeLayers[i].scheme == scheme) {
-        console.log(layers[i].values_.source.urls[0]);
-      }
+      layers[i].setVisible(theseAwesomeLayers[i].scheme === scheme);
     }
   };
   
