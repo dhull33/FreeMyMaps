@@ -18,8 +18,8 @@ import View from 'ol/View';
 import makeTheseLayers from './mapModules/layers';
 import { selectYourMap } from './mapModules/controls';
 
-const appId = '5uYRdU92ZZBGTmh7cSJA';
-const appCode = 'W_mc_u3M-N76CJEDLk7FKA';
+const appId = process.env.HERE_APP_ID;
+const appCode = process.env.HERE_APP_CODE;
 
 // eslint-disable-next-line consistent-return
 $(document).ready( () => {
@@ -120,19 +120,24 @@ $(document).ready( () => {
   const select = document.getElementById('layer-select');
   const onChange = () => {
     const scheme = select.value;
-    for (let i = 0, ii = layers.length; i < ii; i += 1) {
-      layers[i].setVisible(theseAwesomeLayers[i].scheme === scheme);
+    for (let i = 0, ii = layers.length; i < ii; ++i) {
+      layers[i].setVisible(theseAwesomeLayers[i].scheme == scheme);
+      if (theseAwesomeLayers[i].scheme == scheme) {
+        console.log(layers[i].values_.source.urls[0]);
+      }
     }
   };
+  
+  select.addEventListener('change', onChange);
 
   onChange();
 
-  $('#layer-select').on('change', () => {
-    const scheme = select.value;
-    for (let i = 0, ii = layers.length; i < ii; i += 1) {
-      layers[i].setVisible(theseAwesomeLayers[i].scheme === scheme);
-    }
-  });
+  // $('#layer-select').on('change', () => {
+  //   const scheme = select.value;
+  //   for (let i = 0, ii = layers.length; i < ii; i += 1) {
+  //     layers[i].setVisible(theseAwesomeLayers[i].scheme === scheme);
+  //   }
+  // });
 
   /*
    * ==============================

@@ -52651,8 +52651,8 @@ var _controls = __webpack_require__(/*! ./mapModules/controls */ "./public/javas
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /* eslint-disable prefer-destructuring,no-shadow,no-plusplus,no-undef,no-underscore-dangle,prettier/prettier */
-const appId = '5uYRdU92ZZBGTmh7cSJA';
-const appCode = 'W_mc_u3M-N76CJEDLk7FKA'; // eslint-disable-next-line consistent-return
+const appId = "BLd5jWBS0s57akvRPg97";
+const appCode = "hdgWeUmZ_Tqb2a2ymt3YbA"; // eslint-disable-next-line consistent-return
 
 $(document).ready(() => {
   //  Layers for maps
@@ -52740,19 +52740,23 @@ $(document).ready(() => {
   const onChange = () => {
     const scheme = select.value;
 
-    for (let i = 0, ii = layers.length; i < ii; i += 1) {
-      layers[i].setVisible(theseAwesomeLayers[i].scheme === scheme);
+    for (let i = 0, ii = layers.length; i < ii; ++i) {
+      layers[i].setVisible(theseAwesomeLayers[i].scheme == scheme);
+
+      if (theseAwesomeLayers[i].scheme == scheme) {
+        console.log(layers[i].values_.source.urls[0]);
+      }
     }
   };
 
-  onChange();
-  $('#layer-select').on('change', () => {
-    const scheme = select.value;
+  select.addEventListener('change', onChange);
+  onChange(); // $('#layer-select').on('change', () => {
+  //   const scheme = select.value;
+  //   for (let i = 0, ii = layers.length; i < ii; i += 1) {
+  //     layers[i].setVisible(theseAwesomeLayers[i].scheme === scheme);
+  //   }
+  // });
 
-    for (let i = 0, ii = layers.length; i < ii; i += 1) {
-      layers[i].setVisible(theseAwesomeLayers[i].scheme === scheme);
-    }
-  });
   /*
    * ==============================
    * ======GEOCODER================
@@ -52900,6 +52904,8 @@ exports.default = myLayers => {
       attributions: `Map Tiles &copy; ${new Date().getFullYear()} ` + `<a href="https://viewer.nationalmap.gov/launch">The National Map</a>`
     })
   }));
+  console.log('=========THESE ARE MY LAYERS=========');
+  console.log(yourLayers);
   return yourLayers;
 };
 
