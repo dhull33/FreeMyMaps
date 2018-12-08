@@ -42,12 +42,6 @@ html, body, .map {
   display: block;
 }
 
-/*select {*/
-  /*display: block;*/
-  /*position: fixed;*/
-  /*z-index: 2;*/
-/*}*/
-
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
   color: #f1f1f1;
@@ -72,11 +66,3 @@ html, body, .map {
   background-color: #111111;
   opacity: 0.6;
 }
-
-.copyright {
-  display: flex;
-  justify-content: end;
-  color: white;
-
-}
-
