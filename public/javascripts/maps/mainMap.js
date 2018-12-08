@@ -8,7 +8,6 @@ import { Icon, Stroke, Style } from 'ol/style';
 import Geocoder from 'ol-geocoder';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
-import { GPX, GeoJSON, IGC, KML, TopoJSON } from 'ol/format';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import DragAndDrop from 'ol/interaction/DragAndDrop';
@@ -173,18 +172,18 @@ $(document).ready( () => {
   Drag and drop GeoJson data to display over map
  =====================================================================
  */
-  map.addInteraction(
-    new DragAndDrop({
-      source,
-      formatConstructors: [
-        GPX,
-        GeoJSON,
-        IGC,
-        KML,
-        TopoJSON
-      ]
-    })
-  );
+  // map.addInteraction(
+  //   new DragAndDrop({
+  //     source,
+  //     formatConstructors: [
+  //       GPX,
+  //       GeoJSON,
+  //       IGC,
+  //       KML,
+  //       TopoJSON
+  //     ]
+  //   })
+  // );
   
   /*
    ===================================================================
@@ -207,11 +206,14 @@ $(document).ready( () => {
    */
   const selectDrawType = document.getElementById('draw-type');
   let draw = createDraw(source,  selectDrawType);
+  // map.addInteraction(draw);
 
   selectDrawType.addEventListener('change', () => {
     map.removeInteraction(draw);
-    draw = createDraw(source,  selectDrawType);
-    return map.addInteraction(draw)
+    if (selectDrawType.value !== 'None') {
+      draw = createDraw(source,  selectDrawType);
+      map.addInteraction(draw)
+    }
   });
 
   map.addControl(selectYourDrawType);
