@@ -33,10 +33,6 @@ html, body, .map {
   padding-top: 50px;
 }
 
-.goRight {
-  display: flex;
-  justify-content: right;
-}
 /* The navigation menu links */
 .sidenav a {
   padding: 6px 8px 6px 16px;
@@ -46,11 +42,11 @@ html, body, .map {
   display: block;
 }
 
-select {
-  display: block;
-  position: fixed;
-  z-index: 2;
-}
+/*select {*/
+  /*display: block;*/
+  /*position: fixed;*/
+  /*z-index: 2;*/
+/*}*/
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
@@ -83,3 +79,4 @@ select {
   color: white;
 
 }
+

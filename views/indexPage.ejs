@@ -56,35 +56,39 @@
       <div id="mouse-position"></div>
       <div id="popup"></div>
 
-      <!--Changes Type of Map-->
-      <div id="select-map" style="float: left;">
-        <label for="layer-select">Map Type</label>
-        <select id="layer-select">
-          <option value="normal.day" selected>Normal Day</option>
-          <option value="normal.day.transit">Normal Day Transit</option>
-          <option value="pedestrian.day">Pedestrian Day</option>
-          <option value="hybrid.day">Hybrid Day</option>
-          <option value="terrain.day">Terrain Day</option>
-          <option value="satellite.day">Satellite Day</option>
-          <option value="topo.image">Topographical w/ Satellite</option>
-          <option value="topo.day">Topographical</option>
-        </select>
+      <!--Selectors for Map Features -->
+      <div class="d-flex flex-row">
+        <!--Changes Type of Map-->
+        <div id="select-map" class="d-inline-flex p-2">
+          <label for="layer-select" style="color: white;">Map Type</label>
+          <select id="layer-select">
+            <option value="normal.day" selected>Normal Day</option>
+            <option value="normal.day.transit">Normal Day Transit</option>
+            <option value="pedestrian.day">Pedestrian Day</option>
+            <option value="hybrid.day">Hybrid Day</option>
+            <option value="terrain.day">Terrain Day</option>
+            <option value="satellite.day">Satellite Day</option>
+            <option value="topo.image">Topographical w/ Satellite</option>
+            <option value="topo.day">Topographical</option>
+          </select>
+        </div>
+
+        <!-- Changes Drawing Type -->
+        <div id="draw-geometry" class="d-inline-flex p-2">
+          <label for="draw-type" style="color: white;">Draw</label>
+          <select id="draw-type">
+            <option value="LineString">LineString</option>
+            <option value="Polygon">Polygon</option>
+            <option value="Circle">Circle</option>
+            <option value="None" selected>None</option>
+          </select>
+        </div>
+
+        <div class="ml-auto p-2">
+          <p style="color: white;">© FreeMyMaps 2018</p>
+        </div>
       </div>
 
-      <div id="draw-geometry" style="float: right;">
-        <label for="draw-type">Draw</label>
-        <select id="draw-type">
-          <option value="LineString">LineString</option>
-          <option value="Polygon">Polygon</option>
-          <option value="Circle">Circle</option>
-          <option value="None" selected>None</option>
-        </select>
-      </div>
-
-    </div>
-
-    <div class="d-flex justify-content-end">
-        <p style="color: white;">© FreeMyMaps 2018. All Rights Reserved.</p>
     </div>
 
     <script type="module" src="/javascripts/maps/build/main.map.js"></script>
