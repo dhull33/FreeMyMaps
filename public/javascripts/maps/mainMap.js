@@ -2,14 +2,13 @@
 import 'ol/ol.css';
 import { defaults as defaultControls } from 'ol/control/util';
 import { defaults as defaultInteractions } from 'ol/interaction';
-import Draw from 'ol/interaction/Draw';
 import Map from 'ol/Map';
 import { fromLonLat, transform as Transform } from 'ol/proj';
 import { Icon, Stroke, Style } from 'ol/style';
 import Geocoder from 'ol-geocoder';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
-import GeoJSON from 'ol/format/GeoJSON';
+import { GPX, GeoJSON, IGC, KML, TopoJSON } from 'ol/format';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import DragAndDrop from 'ol/interaction/DragAndDrop';
@@ -177,7 +176,13 @@ $(document).ready( () => {
   map.addInteraction(
     new DragAndDrop({
       source,
-      formatConstructors: [GeoJSON]
+      formatConstructors: [
+        GPX,
+        GeoJSON,
+        IGC,
+        KML,
+        TopoJSON
+      ]
     })
   );
   
@@ -197,6 +202,7 @@ $(document).ready( () => {
   /*
    ===================================================================
    Drawing
+   ./mapModules/draw.js
    =====================================================================
    */
   const selectDrawType = document.getElementById('draw-type');

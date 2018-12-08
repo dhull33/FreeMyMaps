@@ -32,38 +32,39 @@ https://freemymaps.com
       ```
       
     - Here's a link from [Mozilla](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) that goes into more detail
+    
+ 4. Drawing
+      - Freehand
+      - Not freehand
+      - Lines and Polygons ([in case you forgot what a polygon is](https://en.wikipedia.org/wiki/Polygon))
 
 ## Features Soon to Be Added
 
-1. Drawing
-    - Freehand
-    - Not freehand
-    - Lines and Polygons ([in case you forgot what a polygon is](https://en.wikipedia.org/wiki/Polygon))
-2. Distance and Area estimation
+1. Distance and Area estimation
     - Distance Units:
         - centimeters, meters, kilometers, inches, feet, miles
     - Area Units
         - centimeters^2, meters^2, kilometers^2, inches^2, feet^2, miles^2, acres
-3. Editing
+2. Editing
     - Erase anything that has been added to the map
     - Change line and fill colors
     - Drag anything added to the map by you
     - Modify lines and polygons
         - I like to think of this as 'stretching' or 'compressing' the feature
         - If you have a distance or area estimation attached to the modified line/polygon, that will also change
-4. Drag and Drop GeoJSON data
+3. Drag and Drop GPX, GeoJSON, IGC, KML, or TopoJSON data
     - Will be displayed over the current map
-5. Download and Saving
+4. Download and Saving
     - As a png image
     - or in GeoJSON format
     - Automatic saving to your account
-6. Accounts
+5. Accounts
     - You will be able to create a free account
         - Email
         - Facebook
         - Google
     - Create and save as many maps as your heart desires!
-7. Docs and FAQ
+6. Docs and FAQ
     - Will detail the current features and how to use all of them
 
 ## Bugs
