@@ -52580,10 +52580,10 @@ module.exports = function (css) {
 
 /***/ }),
 
-/***/ "./public/javascripts/maps/map.js":
-/*!****************************************!*\
-  !*** ./public/javascripts/maps/map.js ***!
-  \****************************************/
+/***/ "./public/javascripts/maps/mainMap.js":
+/*!********************************************!*\
+  !*** ./public/javascripts/maps/mainMap.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -52595,6 +52595,10 @@ __webpack_require__(/*! ol/ol.css */ "./node_modules/ol/ol.css");
 var _util = __webpack_require__(/*! ol/control/util */ "./node_modules/ol/control/util.js");
 
 var _interaction = __webpack_require__(/*! ol/interaction */ "./node_modules/ol/interaction.js");
+
+var _Draw = __webpack_require__(/*! ol/interaction/Draw */ "./node_modules/ol/interaction/Draw.js");
+
+var _Draw2 = _interopRequireDefault(_Draw);
 
 var _Map = __webpack_require__(/*! ol/Map */ "./node_modules/ol/Map.js");
 
@@ -52716,7 +52720,9 @@ $(document).ready(() => {
     })
   }); // Create source and layer for user location and drawings
 
-  const source = new _Vector4.default();
+  const source = new _Vector4.default({
+    wrapX: false
+  });
   const layer = new _Vector2.default({
     source,
     style: new _style.Style({
@@ -52746,13 +52752,7 @@ $(document).ready(() => {
   };
 
   select.addEventListener('change', onChange);
-  onChange(); // $('#layer-select').on('change', () => {
-  //   const scheme = select.value;
-  //   for (let i = 0, ii = layers.length; i < ii; i += 1) {
-  //     layers[i].setVisible(theseAwesomeLayers[i].scheme === scheme);
-  //   }
-  // });
-
+  onChange();
   /*
    * ==============================
    * ======GEOCODER================
@@ -52798,12 +52798,45 @@ $(document).ready(() => {
     source,
     formatConstructors: [_GeoJSON2.default]
   }));
+  /*
+   ===================================================================
+   Displays Mouse Point Coordinates
+   =====================================================================
+   */
+
   const mousePositionControl = new _MousePosition2.default({
     coordinateFormat: (0, _coordinate.createStringXY)(4),
     projection: 'EPSG:4326',
     undefinedHTML: ''
   });
   map.addControl(mousePositionControl);
+  /*
+   ===================================================================
+   Drawing
+   =====================================================================
+   */
+
+  const selectDrawType = document.getElementById('draw-type');
+  let draw;
+
+  const addDrawInteraction = () => {
+    const drawValue = selectDrawType.value;
+
+    if (drawValue !== 'None') {
+      draw = new _Draw2.default({
+        source,
+        type: drawValue
+      });
+      map.addInteraction(draw);
+    }
+  };
+
+  selectDrawType.addEventListener('change', () => {
+    map.removeInteraction(draw);
+    return addDrawInteraction();
+  });
+  addDrawInteraction();
+  map.addControl(_controls.selectYourDrawType);
 });
 
 /***/ }),
@@ -52827,11 +52860,11 @@ var _control = __webpack_require__(/*! ol/control */ "./node_modules/ol/control.
 
 const selectYourMap = exports.selectYourMap = new _control.Control({
   element: document.getElementById('layer-select'),
-  target: document.getElementById('select-target')
+  target: document.getElementById('select-map')
 });
 const selectYourDrawType = exports.selectYourDrawType = new _control.Control({
-  element: document.getElementById('type'),
-  target: document.getElementById('draw-type')
+  element: document.getElementById('draw-type'),
+  target: document.getElementById('draw-geometry')
 });
 
 /***/ }),
@@ -52900,21 +52933,19 @@ exports.default = myLayers => {
       attributions: `Map Tiles &copy; ${new Date().getFullYear()} ` + `<a href="https://viewer.nationalmap.gov/launch">The National Map</a>`
     })
   }));
-  console.log('=========THESE ARE MY LAYERS=========');
-  console.log(yourLayers);
   return yourLayers;
 };
 
 /***/ }),
 
 /***/ 0:
-/*!**********************************************!*\
-  !*** multi ./public/javascripts/maps/map.js ***!
-  \**********************************************/
+/*!**************************************************!*\
+  !*** multi ./public/javascripts/maps/mainMap.js ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/davidhull/FreeMyMaps/public/javascripts/maps/map.js */"./public/javascripts/maps/map.js");
+module.exports = __webpack_require__(/*! /Users/davidhull/FreeMyMaps/public/javascripts/maps/mainMap.js */"./public/javascripts/maps/mainMap.js");
 
 
 /***/ })

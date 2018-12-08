@@ -2,6 +2,7 @@
 import 'ol/ol.css';
 import { defaults as defaultControls } from 'ol/control/util';
 import { defaults as defaultInteractions } from 'ol/interaction';
+import Draw from 'ol/interaction/Draw';
 import Map from 'ol/Map';
 import { fromLonLat, transform as Transform } from 'ol/proj';
 import { Icon, Stroke, Style } from 'ol/style';
@@ -16,7 +17,7 @@ import MousePosition from 'ol/control/MousePosition';
 import { createStringXY } from 'ol/coordinate';
 import View from 'ol/View';
 import makeTheseLayers from './mapModules/layers';
-import { selectYourMap } from './mapModules/controls';
+import { selectYourMap, selectYourDrawType } from './mapModules/controls';
 
 const appId = process.env.HERE_APP_ID;
 const appCode = process.env.HERE_APP_CODE;
@@ -97,7 +98,7 @@ $(document).ready( () => {
   });
   
   // Create source and layer for user location and drawings
-  const source = new VectorSource();
+  const source = new VectorSource({wrapX: false});
   const layer = new VectorLayer({
     source,
     style: new Style({
@@ -128,13 +129,6 @@ $(document).ready( () => {
   select.addEventListener('change', onChange);
 
   onChange();
-
-  // $('#layer-select').on('change', () => {
-  //   const scheme = select.value;
-  //   for (let i = 0, ii = layers.length; i < ii; i += 1) {
-  //     layers[i].setVisible(theseAwesomeLayers[i].scheme === scheme);
-  //   }
-  // });
 
   /*
    * ==============================
@@ -186,7 +180,11 @@ $(document).ready( () => {
     })
   );
   
-
+  /*
+   ===================================================================
+   Displays Mouse Point Coordinates
+   =====================================================================
+   */
   const mousePositionControl = new MousePosition({
     coordinateFormat: createStringXY(4),
     projection: 'EPSG:4326',
@@ -194,4 +192,31 @@ $(document).ready( () => {
   });
   map.addControl(mousePositionControl);
   
+
+  /*
+   ===================================================================
+   Drawing
+   =====================================================================
+   */
+  const selectDrawType = document.getElementById('draw-type');
+  let draw;
+  const addDrawInteraction = () => {
+    const drawValue = selectDrawType.value;
+    if (drawValue !== 'None') {
+      draw = new Draw({
+        source,
+        type: drawValue
+      });
+      map.addInteraction(draw);
+    }
+  }
+
+  selectDrawType.addEventListener('change', () => {
+    map.removeInteraction(draw);
+    return addDrawInteraction();
+  });
+  addDrawInteraction();
+
+  map.addControl(selectYourDrawType);
+
 });

@@ -57,25 +57,29 @@
       <div id="popup"></div>
 
       <!--Changes Type of Map-->
-      <label for="layer-select">Map Type</label>
-      <select id="layer-select">
-        <option value="normal.day" selected>Normal Day</option>
-        <option value="normal.day.transit">Normal Day Transit</option>
-        <option value="pedestrian.day">Pedestrian Day</option>
-        <option value="hybrid.day">Hybrid Day</option>
-        <option value="terrain.day">Terrain Day</option>
-        <option value="satellite.day">Satellite Day</option>
-        <option value="topo.image">Topographical w/ Satellite</option>
-        <option value="topo.day">Topographical</option>
-      </select>
+      <div id="select-map" style="float: left;">
+        <label for="layer-select">Map Type</label>
+        <select id="layer-select">
+          <option value="normal.day" selected>Normal Day</option>
+          <option value="normal.day.transit">Normal Day Transit</option>
+          <option value="pedestrian.day">Pedestrian Day</option>
+          <option value="hybrid.day">Hybrid Day</option>
+          <option value="terrain.day">Terrain Day</option>
+          <option value="satellite.day">Satellite Day</option>
+          <option value="topo.image">Topographical w/ Satellite</option>
+          <option value="topo.day">Topographical</option>
+        </select>
+      </div>
 
-      <label for="type">Draw</label>
-      <select id="type">
-        <option value="LineString">LineString</option>
-        <option value="Polygon">Polygon</option>
-        <option value="Circle">Circle</option>
-        <option value="None">None</option>
-      </select>
+      <div id="draw-geometry" style="float: right;">
+        <label for="draw-type">Draw</label>
+        <select id="draw-type">
+          <option value="LineString">LineString</option>
+          <option value="Polygon">Polygon</option>
+          <option value="Circle">Circle</option>
+          <option value="None" selected>None</option>
+        </select>
+      </div>
 
     </div>
 

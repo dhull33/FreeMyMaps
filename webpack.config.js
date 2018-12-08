@@ -3,7 +3,7 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'development',
-  entry: [path.resolve(__dirname, 'public/javascripts/maps/map.js')],
+  entry: [path.resolve(__dirname, 'public/javascripts/maps/mainMap.js')],
   output: {
     path: path.resolve(__dirname, 'public/javascripts/maps/build/'),
     filename: '[name].map.js'

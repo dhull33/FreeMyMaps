@@ -61,8 +61,6 @@ export default (myLayers) => {
       })
     })
   );
-  console.log('=========THESE ARE MY LAYERS=========');
-  console.log(yourLayers);
 
   return yourLayers;
 };
