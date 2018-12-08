@@ -52652,6 +52652,8 @@ var _layers2 = _interopRequireDefault(_layers);
 
 var _controls = __webpack_require__(/*! ./mapModules/controls */ "./public/javascripts/maps/mapModules/controls.js");
 
+var _draw = __webpack_require__(/*! ./mapModules/draw */ "./public/javascripts/maps/mapModules/draw.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /* eslint-disable prefer-destructuring,no-shadow,no-plusplus,no-undef,no-underscore-dangle,prettier/prettier */
@@ -52817,23 +52819,11 @@ $(document).ready(() => {
    */
 
   const selectDrawType = document.getElementById('draw-type');
-  let draw;
-
-  const addDrawInteraction = () => {
-    const drawValue = selectDrawType.value;
-
-    if (drawValue !== 'None') {
-      draw = new _Draw2.default({
-        source,
-        type: drawValue
-      });
-      map.addInteraction(draw);
-    }
-  };
-
+  let draw = (0, _draw.createDraw)(source, selectDrawType);
   selectDrawType.addEventListener('change', () => {
     map.removeInteraction(draw);
-    return addDrawInteraction();
+    draw = (0, _draw.createDraw)(source, selectDrawType);
+    return map.addInteraction(draw);
   });
   addDrawInteraction();
   map.addControl(_controls.selectYourDrawType);
@@ -52866,6 +52856,59 @@ const selectYourDrawType = exports.selectYourDrawType = new _control.Control({
   element: document.getElementById('draw-type'),
   target: document.getElementById('draw-geometry')
 });
+
+/***/ }),
+
+/***/ "./public/javascripts/maps/mapModules/draw.js":
+/*!****************************************************!*\
+  !*** ./public/javascripts/maps/mapModules/draw.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createDraw = undefined;
+
+var _Draw = __webpack_require__(/*! ol/interaction/Draw */ "./node_modules/ol/interaction/Draw.js");
+
+var _Draw2 = _interopRequireDefault(_Draw);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const createDraw = exports.createDraw = (source, selectDrawType) => {
+  let draw;
+  const drawValue = selectDrawType.value;
+
+  if (drawValue === 'FreeLine') {
+    draw = new _Draw2.default({
+      source,
+      type: 'LineString',
+      freehand: true
+    });
+  }
+
+  if (drawValue === 'FreePoly') {
+    draw = new _Draw2.default({
+      source,
+      type: 'Polygon',
+      freehand: true
+    });
+  }
+
+  if (drawValue === 'LineString' || drawValue === 'Circle' || drawValue === 'Polygon') {
+    draw = new _Draw2.default({
+      source,
+      type: drawValue
+    });
+  }
+
+  return draw;
+};
 
 /***/ }),
 

@@ -18,6 +18,7 @@ import { createStringXY } from 'ol/coordinate';
 import View from 'ol/View';
 import makeTheseLayers from './mapModules/layers';
 import { selectYourMap, selectYourDrawType } from './mapModules/controls';
+import { createDraw } from './mapModules/draw';
 
 const appId = process.env.HERE_APP_ID;
 const appCode = process.env.HERE_APP_CODE;
@@ -199,23 +200,13 @@ $(document).ready( () => {
    =====================================================================
    */
   const selectDrawType = document.getElementById('draw-type');
-  let draw;
-  const addDrawInteraction = () => {
-    const drawValue = selectDrawType.value;
-    if (drawValue !== 'None') {
-      draw = new Draw({
-        source,
-        type: drawValue
-      });
-      map.addInteraction(draw);
-    }
-  }
+  let draw = createDraw(source,  selectDrawType);
 
   selectDrawType.addEventListener('change', () => {
     map.removeInteraction(draw);
-    return addDrawInteraction();
+    draw = createDraw(source,  selectDrawType);
+    return map.addInteraction(draw)
   });
-  addDrawInteraction();
 
   map.addControl(selectYourDrawType);
 
