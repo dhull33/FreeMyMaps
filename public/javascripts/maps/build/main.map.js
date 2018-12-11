@@ -51260,7 +51260,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const appId = "BLd5jWBS0s57akvRPg97";
 const appCode = "hdgWeUmZ_Tqb2a2ymt3YbA"; // eslint-disable-next-line consistent-return
 
-$(document).ready(() => {
+$(document).ready(async () => {
   //  Layers for maps
   const theseAwesomeLayers = [{
     base: 'base',
@@ -51322,9 +51322,7 @@ $(document).ready(() => {
     })
   }); // Create source and layer for user location and drawings
 
-  const source = new _Vector4.default({
-    wrapX: false
-  });
+  const source = new _Vector4.default();
   const layer = new _Vector2.default({
     source,
     style: new _style.Style({
@@ -51428,16 +51426,15 @@ $(document).ready(() => {
    */
 
   const selectDrawType = document.getElementById('draw-type');
-  let draw = (0, _draw.createDraw)(source, selectDrawType); // map.addInteraction(draw);
+  let draw = (0, _draw.createDraw)(source, selectDrawType);
 
-  selectDrawType.addEventListener('change', () => {
+  selectDrawType.onchange = () => {
     map.removeInteraction(draw);
+    draw = (0, _draw.createDraw)(source, selectDrawType);
+    (0, _draw.addDrawInteraction)(draw, map, selectDrawType.value);
+  };
 
-    if (selectDrawType.value !== 'None') {
-      draw = (0, _draw.createDraw)(source, selectDrawType);
-      map.addInteraction(draw);
-    }
-  });
+  (0, _draw.addDrawInteraction)(draw, map, selectDrawType.value);
   map.addControl(_controls.selectYourDrawType);
 });
 
@@ -51484,7 +51481,7 @@ const selectYourDrawType = exports.selectYourDrawType = new _control.Control({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.createDraw = undefined;
+exports.addDrawInteraction = exports.createDraw = undefined;
 
 var _Draw = __webpack_require__(/*! ol/interaction/Draw */ "./node_modules/ol/interaction/Draw.js");
 
@@ -51520,6 +51517,12 @@ const createDraw = exports.createDraw = (source, selectDrawType) => {
   }
 
   return drawing;
+};
+
+const addDrawInteraction = exports.addDrawInteraction = (draw, map, type) => {
+  if (type !== 'None') {
+    return map.addInteraction(draw);
+  }
 };
 
 /***/ }),

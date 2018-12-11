@@ -16,13 +16,13 @@ import { createStringXY } from 'ol/coordinate';
 import View from 'ol/View';
 import makeTheseLayers from './mapModules/layers';
 import { selectYourMap, selectYourDrawType } from './mapModules/controls';
-import { createDraw } from './mapModules/draw';
+import { createDraw, addDrawInteraction } from './mapModules/draw';
 
 const appId = process.env.HERE_APP_ID;
 const appCode = process.env.HERE_APP_CODE;
 
 // eslint-disable-next-line consistent-return
-$(document).ready( () => {
+$(document).ready( async () => {
 
   //  Layers for maps
   const theseAwesomeLayers = [
@@ -97,7 +97,7 @@ $(document).ready( () => {
   });
   
   // Create source and layer for user location and drawings
-  const source = new VectorSource({wrapX: false});
+  const source = new VectorSource();
   const layer = new VectorLayer({
     source,
     style: new Style({
@@ -206,15 +206,14 @@ $(document).ready( () => {
    */
   const selectDrawType = document.getElementById('draw-type');
   let draw = createDraw(source,  selectDrawType);
-  // map.addInteraction(draw);
 
-  selectDrawType.addEventListener('change', () => {
+  selectDrawType.onchange = () => {
     map.removeInteraction(draw);
-    if (selectDrawType.value !== 'None') {
-      draw = createDraw(source,  selectDrawType);
-      map.addInteraction(draw)
-    }
-  });
+    draw = createDraw(source,  selectDrawType);
+    addDrawInteraction(draw,  map, selectDrawType.value)
+  };
+
+  addDrawInteraction(draw,  map, selectDrawType.value)
 
   map.addControl(selectYourDrawType);
 

@@ -25,3 +25,9 @@ export const createDraw = (source, selectDrawType) => {
   }
   return drawing;
 };
+
+export const addDrawInteraction = (draw, map, type) => {
+  if (type !== 'None') {
+    return map.addInteraction(draw);
+  }
+};

@@ -66,3 +66,11 @@ html, body, .map {
   background-color: #111111;
   opacity: 0.6;
 }
+
+.float-left {
+  float: left
+}
+
+.float-right {
+  float: right
+}
