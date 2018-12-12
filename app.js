@@ -1,11 +1,13 @@
 /* eslint-disable global-require,prettier/prettier */
 // configures sqreen in production mode
+require('dotenv').config();
+
 if (process.env.NODE_ENV === 'production') {
   require('sqreen');
 }
 // Must configure Raven before doing anything else with it
 const Raven = require('raven');
-require('dotenv').config();
+// require('dotenv').config();
 
 Raven.config(process.env.SENTRY_DSN).install();
 
@@ -23,9 +25,9 @@ Raven.context(() => {
   const bodyParser = require('body-parser');
   const compression = require('compression');
   const { connection } = require('./data/dataBase');
-  
+
   const app = express();
-  
+
   // The raven request handler must be the first middleware on the app
   app.use(Raven.requestHandler());
   app.use(compression());
@@ -39,7 +41,7 @@ Raven.context(() => {
   app.use(flash());
   app.use(passport.initialize());
   app.use(passport.session());
-  
+
   // Session store used for authentication
   app.use(
     session({
@@ -55,31 +57,31 @@ Raven.context(() => {
   );
   // Enforces HTTPS
   app.use(enforce.HTTPS({ trustProtoHeader: true }));
-  
+
   /* ===================================
   ===================ROUTES=============
   ======================================
    */
   const indexRouter = require('./routes/index');
-  
+
   app.use('/', indexRouter);
-  
+
   // Sets view engine to ejs
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'ejs');
-  
+
   // The Raven error handler must be before any other error middleware
   app.use(Raven.errorHandler());
-  
+
   // Uncaught exception handler...
   process.on('uncaughtException', (err) => {
     console.log(err);
     console.log(`Caught exception: ${err}`);
   });
-  
+
   app.listen(process.env.PORT, () => {
     console.log(`Server listening on port ${process.env.PORT} 🚀`);
   });
-  
+
   module.exports = app;
 });
