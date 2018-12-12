@@ -22,8 +22,7 @@ const appId = process.env.HERE_APP_ID;
 const appCode = process.env.HERE_APP_CODE;
 
 // eslint-disable-next-line consistent-return
-$(document).ready( async () => {
-
+$(document).ready(async () => {
   //  Layers for maps
   const theseAwesomeLayers = [
     {
@@ -79,7 +78,7 @@ $(document).ready( async () => {
   const coords = Transform([-98.569336, 39.774769], 'EPSG:4326', 'EPSG:3857');
   // initialize map, layers, and source
   const layers = makeTheseLayers(theseAwesomeLayers);
-  
+
   const map = new Map({
     interactions: defaultInteractions({
       onFocusOnly: true
@@ -95,7 +94,7 @@ $(document).ready( async () => {
       attribution: true
     })
   });
-  
+
   // Create source and layer for user location and drawings
   const source = new VectorSource();
   const layer = new VectorLayer({
@@ -108,7 +107,7 @@ $(document).ready( async () => {
     })
   });
   map.addLayer(layer);
-  
+
   // Enables the user to select which map to display on screen
   map.addControl(selectYourMap);
 
@@ -124,7 +123,7 @@ $(document).ready( async () => {
       layers[i].setVisible(theseAwesomeLayers[i].scheme === scheme);
     }
   };
-  
+
   select.addEventListener('change', onChange);
 
   onChange();
@@ -144,15 +143,15 @@ $(document).ready( async () => {
     keepOpen: true
   });
   map.addControl(mapGeocoder);
-  
+
   mapGeocoder.on('addresschosen', (evt) => {
-    console.log(evt)
+    console.log(evt);
   });
 
   // ================================
   // ===========GEOLOCATION==========
   // ================================
-  
+
   navigator.geolocation.getCurrentPosition((position) => {
     const coordinates = fromLonLat([position.coords.longitude, position.coords.latitude]);
     const theirLocation = new Feature({
@@ -184,7 +183,7 @@ $(document).ready( async () => {
   //     ]
   //   })
   // );
-  
+
   /*
    ===================================================================
    Displays Mouse Point Coordinates
@@ -196,7 +195,6 @@ $(document).ready( async () => {
     undefinedHTML: ''
   });
   map.addControl(mousePositionControl);
-  
 
   /*
    ===================================================================
@@ -205,16 +203,15 @@ $(document).ready( async () => {
    =====================================================================
    */
   const selectDrawType = document.getElementById('draw-type');
-  let draw = createDraw(source,  selectDrawType);
+  let draw = createDraw(source, selectDrawType);
 
   selectDrawType.onchange = () => {
     map.removeInteraction(draw);
-    draw = createDraw(source,  selectDrawType);
-    addDrawInteraction(draw,  map, selectDrawType.value)
+    draw = createDraw(source, selectDrawType);
+    addDrawInteraction(draw, map, selectDrawType.value);
   };
 
-  addDrawInteraction(draw,  map, selectDrawType.value)
+  addDrawInteraction(draw, map, selectDrawType.value);
 
   map.addControl(selectYourDrawType);
-
 });
