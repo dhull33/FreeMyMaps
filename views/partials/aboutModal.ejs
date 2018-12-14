@@ -1,0 +1,132 @@
+<!-- About Modal -->
+<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="AboutModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content bg-dark">
+      <div class="modal-header">
+        <h3 class="modal-title" id="aboutModalTitle" style="color:white;">About</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="color:white;">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="color:white;">
+        <div class="container-fluid">
+          <div class="row">
+            <div id="contentarea"><div class="cell markdown-cell">
+              <p>FreeMyMaps is a completely free and opensource mapping application that you can use or modify for your own app! What could be better than that? I'll let you decide!</p>
+              <p><a href="https://freemymaps.com">https://freemymaps.com</a></p>
+              <h4>Current Features</h4>
+              <ol>
+                <li>
+                  <p>8 different map types</p>
+                  <ul>
+                    <li>Topographical with Satellite (detailed view US only)</li>
+                    <li>Topographical with contour lines (detailed view US only)</li>
+                    <li>Normal Day</li>
+                    <li>Normal Day Transit</li>
+                    <li>Pedestrian Day</li>
+                    <li>Terrain Day</li>
+                    <li>Satellite Day</li>
+                    <li>Hybrid Day</li>
+                  </ul>
+                  <p><img src="./public/images/topo-screen-shot.png" alt=""></p>
+                  <p>P.S. check out this fantastic example that helped me quite a bit: <a href="https://openlayers.org/en/latest/examples/here-maps.html">https://openlayers.org/en/latest/examples/here-maps.html</a></p>
+                </li>
+                <li>
+                  <p>OSM Geocoder</p>
+                  <ul>
+                    <li>Uses Open Street Map Data and <a href="https://github.com/jonataswalker/ol-geocoder">ol-geocoder</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <p>Geolocation</p>
+                  <ul>
+                    <li>
+                      <p>It's surprisingly easy to get someone's location. The following code is all that is needed (public/javascripts/maps/mainMap.js line 360):</p>
+                      <pre><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  <span class="ace_identifier">navigator</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">geolocation</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">getCurrentPosition</span><span class="ace_paren ace_lparen">((</span><span class="ace_identifier">yourPosition</span><span class="ace_paren ace_rparen">)</span> <span class="ace_keyword ace_operator">=&gt;</span> <span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  <span class="ace_comment">// yourPosition is an object from your brower's Geolocation API</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  <span class="ace_paren ace_rparen">})</span><span class="ace_punctuation ace_operator">;</span>
+</div></div></div></pre>
+                    </li>
+                    <li>
+                      <p>Here's a link from <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API">Mozilla</a> that goes into more detail</p>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <p>Drawing</p>
+                  <ul>
+                    <li>Freehand</li>
+                    <li>Not freehand</li>
+                    <li>Lines and Polygons (<a href="https://en.wikipedia.org/wiki/Polygon">in case you forgot what a polygon is</a>)</li>
+                  </ul>
+                </li>
+              </ol>
+              <h4>Features Soon to Be Added</h4>
+              <ol>
+                <li>Distance and Area estimation
+                  <ul>
+                    <li>Distance Units:
+                      <ul>
+                        <li>centimeters, meters, kilometers, inches, feet, miles</li>
+                      </ul>
+                    </li>
+                    <li>Area Units
+                      <ul>
+                        <li>centimeters^2, meters^2, kilometers^2, inches^2, feet^2, miles^2, acres</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>Editing
+                  <ul>
+                    <li>Erase anything that has been added to the map</li>
+                    <li>Change line and fill colors</li>
+                    <li>Drag anything added to the map by you</li>
+                    <li>Modify lines and polygons
+                      <ul>
+                        <li>I like to think of this as 'stretching' or 'compressing' the feature</li>
+                        <li>If you have a distance or area estimation attached to the modified line/polygon, that will also change</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>Drag and Drop GPX, GeoJSON, IGC, KML, or TopoJSON data
+                  <ul>
+                    <li>Will be displayed over the current map</li>
+                  </ul>
+                </li>
+                <li>Download and Saving
+                  <ul>
+                    <li>As a png image</li>
+                    <li>or in GeoJSON format</li>
+                    <li>Automatic saving to your account</li>
+                  </ul>
+                </li>
+                <li>Accounts
+                  <ul>
+                    <li>You will be able to create a free account
+                      <ul>
+                        <li>Email</li>
+                        <li>Facebook</li>
+                        <li>Google</li>
+                      </ul>
+                    </li>
+                    <li>Create and save as many maps as your heart desires!</li>
+                  </ul>
+                </li>
+                <li>Docs and FAQ
+                  <ul>
+                    <li>Will detail the current features and how to use all of them</li>
+                  </ul>
+                </li>
+              </ol>
+              <h4>Bugs</h4>
+              <p>If you have encountered a bug or would like to request a feature, please use the <a href="https://github.com/dhull33/FreeMyMaps/issues">GitHub issue tracker</a>.</p>
+            </div></div>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
