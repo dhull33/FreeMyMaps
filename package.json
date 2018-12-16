@@ -17,7 +17,6 @@
     "build": "webpack --config webpack.config.js"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0",
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.5.3",
@@ -31,7 +30,7 @@
     "cookie-parser": "~1.4.3",
     "dark-sky-api": "^0.6.32",
     "dateformat": "^3.0.3",
-    "debug": "^3.2.6",
+    "debug": "^4.1.0",
     "dotenv": "^6.2.0",
     "dotenv-webpack": "^1.5.7",
     "ejs": "^2.6.1",
@@ -45,7 +44,7 @@
     "html-webpack-plugin": "^3.2.0",
     "http-errors": "^1.7.1",
     "json-loader": "^0.5.7",
-    "moment": "^2.22.2",
+    "moment": "^2.23.0",
     "morgan": "~1.9.0",
     "multer": "^1.4.1",
     "multer-storage-cloudinary": "^2.2.1",
@@ -61,7 +60,7 @@
     "passport-local": "^1.0.0",
     "pg-monitor": "^1.1.0",
     "pg-native": "^3.0.0",
-    "pg-promise": "^8.5.3",
+    "pg-promise": "^8.5.4",
     "pm2": "^3.2.3",
     "proj4": "^2.5.0",
     "randomstring": "^1.1.5",
@@ -75,15 +74,16 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
-    "@babel/core": "^7.2.0",
-    "@babel/node": "^7.2.0",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/register": "^7.0.0",
     "ajv": "^6.6.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-airbnb": "^2.6.0",
+    "babel-preset-airbnb": "^3.2.0",
     "chai": "^4.2.0",
     "chalk": "^2.4.1",
     "copy-webpack-plugin": "^4.6.0",
@@ -96,10 +96,10 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^2.7.0",
     "eslint-plugin-react": "^7.11.1",
-    "husky": "^1.1.4",
+    "husky": "^1.2.1",
     "lint-staged": "^7.2.2",
     "mocha": "^5.2.0",
-    "nodemon": "^1.18.8",
+    "nodemon": "^1.18.9",
     "onchange": "^4.1.0",
     "prettier": "^1.15.3",
     "style-loader": "^0.23.1",
@@ -125,12 +125,13 @@
   "babel": {
     "presets": [
       [
-        "env",
+        "airbnb",
         {
           "targets": {
             "node": "current"
           }
-        }
+        },
+        "@babel/preset-env"
       ]
     ],
     "plugins": [
