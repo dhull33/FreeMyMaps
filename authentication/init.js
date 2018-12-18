@@ -1,7 +1,7 @@
 const passport = require('passport');
 const db = require('../data/dataBase');
 
-module.exportsArgument = () => {
+module.exports = () => {
   passport.serializeUser((user, done) => {
     return done(null, user);
   });
