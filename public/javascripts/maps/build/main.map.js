@@ -51192,71 +51192,50 @@ module.exports = function (css) {
 /*!********************************************!*\
   !*** ./public/javascripts/maps/mainMap.js ***!
   \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-__webpack_require__(/*! ol/ol.css */ "./node_modules/ol/ol.css");
-
-var _util = __webpack_require__(/*! ol/control/util */ "./node_modules/ol/control/util.js");
-
-var _interaction = __webpack_require__(/*! ol/interaction */ "./node_modules/ol/interaction.js");
-
-var _Map = __webpack_require__(/*! ol/Map */ "./node_modules/ol/Map.js");
-
-var _Map2 = _interopRequireDefault(_Map);
-
-var _proj = __webpack_require__(/*! ol/proj */ "./node_modules/ol/proj.js");
-
-var _style = __webpack_require__(/*! ol/style */ "./node_modules/ol/style.js");
-
-var _olGeocoder = __webpack_require__(/*! ol-geocoder */ "./node_modules/ol-geocoder/dist/ol-geocoder.js");
-
-var _olGeocoder2 = _interopRequireDefault(_olGeocoder);
-
-var _Feature = __webpack_require__(/*! ol/Feature */ "./node_modules/ol/Feature.js");
-
-var _Feature2 = _interopRequireDefault(_Feature);
-
-var _Point = __webpack_require__(/*! ol/geom/Point */ "./node_modules/ol/geom/Point.js");
-
-var _Point2 = _interopRequireDefault(_Point);
-
-var _Vector = __webpack_require__(/*! ol/layer/Vector */ "./node_modules/ol/layer/Vector.js");
-
-var _Vector2 = _interopRequireDefault(_Vector);
-
-var _Vector3 = __webpack_require__(/*! ol/source/Vector */ "./node_modules/ol/source/Vector.js");
-
-var _Vector4 = _interopRequireDefault(_Vector3);
-
-var _DragAndDrop = __webpack_require__(/*! ol/interaction/DragAndDrop */ "./node_modules/ol/interaction/DragAndDrop.js");
-
-var _DragAndDrop2 = _interopRequireDefault(_DragAndDrop);
-
-var _MousePosition = __webpack_require__(/*! ol/control/MousePosition */ "./node_modules/ol/control/MousePosition.js");
-
-var _MousePosition2 = _interopRequireDefault(_MousePosition);
-
-var _coordinate = __webpack_require__(/*! ol/coordinate */ "./node_modules/ol/coordinate.js");
-
-var _View = __webpack_require__(/*! ol/View */ "./node_modules/ol/View.js");
-
-var _View2 = _interopRequireDefault(_View);
-
-var _layers = __webpack_require__(/*! ./mapModules/layers */ "./public/javascripts/maps/mapModules/layers.js");
-
-var _layers2 = _interopRequireDefault(_layers);
-
-var _controls = __webpack_require__(/*! ./mapModules/controls */ "./public/javascripts/maps/mapModules/controls.js");
-
-var _draw = __webpack_require__(/*! ./mapModules/draw */ "./public/javascripts/maps/mapModules/draw.js");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var ol_ol_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ol/ol.css */ "./node_modules/ol/ol.css");
+/* harmony import */ var ol_ol_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(ol_ol_css__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var ol_control_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ol/control/util */ "./node_modules/ol/control/util.js");
+/* harmony import */ var ol_interaction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ol/interaction */ "./node_modules/ol/interaction.js");
+/* harmony import */ var ol_Map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ol/Map */ "./node_modules/ol/Map.js");
+/* harmony import */ var ol_proj__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ol/proj */ "./node_modules/ol/proj.js");
+/* harmony import */ var ol_style__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ol/style */ "./node_modules/ol/style.js");
+/* harmony import */ var ol_geocoder__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ol-geocoder */ "./node_modules/ol-geocoder/dist/ol-geocoder.js");
+/* harmony import */ var ol_geocoder__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(ol_geocoder__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var ol_Feature__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ol/Feature */ "./node_modules/ol/Feature.js");
+/* harmony import */ var ol_geom_Point__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ol/geom/Point */ "./node_modules/ol/geom/Point.js");
+/* harmony import */ var ol_layer_Vector__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ol/layer/Vector */ "./node_modules/ol/layer/Vector.js");
+/* harmony import */ var ol_source_Vector__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ol/source/Vector */ "./node_modules/ol/source/Vector.js");
+/* harmony import */ var ol_interaction_DragAndDrop__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ol/interaction/DragAndDrop */ "./node_modules/ol/interaction/DragAndDrop.js");
+/* harmony import */ var ol_control_MousePosition__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ol/control/MousePosition */ "./node_modules/ol/control/MousePosition.js");
+/* harmony import */ var ol_coordinate__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ol/coordinate */ "./node_modules/ol/coordinate.js");
+/* harmony import */ var ol_View__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ol/View */ "./node_modules/ol/View.js");
+/* harmony import */ var _mapModules_layers__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./mapModules/layers */ "./public/javascripts/maps/mapModules/layers.js");
+/* harmony import */ var _mapModules_controls__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./mapModules/controls */ "./public/javascripts/maps/mapModules/controls.js");
+/* harmony import */ var _mapModules_draw__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./mapModules/draw */ "./public/javascripts/maps/mapModules/draw.js");
 /* eslint-disable prefer-destructuring,no-shadow,no-plusplus,no-undef,no-underscore-dangle,prettier/prettier */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const appId = "BLd5jWBS0s57akvRPg97";
 const appCode = "hdgWeUmZ_Tqb2a2ymt3YbA"; // eslint-disable-next-line consistent-return
 
@@ -51303,30 +51282,30 @@ $(document).ready(async () => {
   }, {
     scheme: 'topo.image'
   }];
-  const coords = (0, _proj.transform)([-98.569336, 39.774769], 'EPSG:4326', 'EPSG:3857'); // initialize map, layers, and source
+  const coords = Object(ol_proj__WEBPACK_IMPORTED_MODULE_4__["transform"])([-98.569336, 39.774769], 'EPSG:4326', 'EPSG:3857'); // initialize map, layers, and source
 
-  const layers = (0, _layers2.default)(theseAwesomeLayers);
-  const map = new _Map2.default({
-    interactions: (0, _interaction.defaults)({
+  const layers = Object(_mapModules_layers__WEBPACK_IMPORTED_MODULE_15__["default"])(theseAwesomeLayers);
+  const map = new ol_Map__WEBPACK_IMPORTED_MODULE_3__["default"]({
+    interactions: Object(ol_interaction__WEBPACK_IMPORTED_MODULE_2__["defaults"])({
       onFocusOnly: true
     }),
     target: 'map',
     layers,
-    view: new _View2.default({
+    view: new ol_View__WEBPACK_IMPORTED_MODULE_14__["default"]({
       center: coords,
       zoom: 5
     }),
-    controls: (0, _util.defaults)({
+    controls: Object(ol_control_util__WEBPACK_IMPORTED_MODULE_1__["defaults"])({
       zoom: true,
       attribution: true
     })
   }); // Create source and layer for user location and drawings
 
-  const source = new _Vector4.default();
-  const layer = new _Vector2.default({
+  const source = new ol_source_Vector__WEBPACK_IMPORTED_MODULE_10__["default"]();
+  const layer = new ol_layer_Vector__WEBPACK_IMPORTED_MODULE_9__["default"]({
     source,
-    style: new _style.Style({
-      stroke: new _style.Stroke({
+    style: new ol_style__WEBPACK_IMPORTED_MODULE_5__["Style"]({
+      stroke: new ol_style__WEBPACK_IMPORTED_MODULE_5__["Stroke"]({
         color: 'black',
         width: 2
       })
@@ -51334,7 +51313,7 @@ $(document).ready(async () => {
   });
   map.addLayer(layer); // Enables the user to select which map to display on screen
 
-  map.addControl(_controls.selectYourMap);
+  map.addControl(_mapModules_controls__WEBPACK_IMPORTED_MODULE_16__["selectYourMap"]);
   /*
   ============================
   CHANGES THE SELECTED LAYER
@@ -51359,7 +51338,7 @@ $(document).ready(async () => {
    * ==============================
    */
 
-  const mapGeocoder = new _olGeocoder2.default('nominatim', {
+  const mapGeocoder = new ol_geocoder__WEBPACK_IMPORTED_MODULE_6___default.a('nominatim', {
     provider: 'osm',
     lang: 'en',
     targetType: 'glass-button',
@@ -51376,12 +51355,12 @@ $(document).ready(async () => {
   // ================================
 
   navigator.geolocation.getCurrentPosition(position => {
-    const coordinates = (0, _proj.fromLonLat)([position.coords.longitude, position.coords.latitude]);
-    const theirLocation = new _Feature2.default({
-      geometry: new _Point2.default(coordinates)
+    const coordinates = Object(ol_proj__WEBPACK_IMPORTED_MODULE_4__["fromLonLat"])([position.coords.longitude, position.coords.latitude]);
+    const theirLocation = new ol_Feature__WEBPACK_IMPORTED_MODULE_7__["default"]({
+      geometry: new ol_geom_Point__WEBPACK_IMPORTED_MODULE_8__["default"](coordinates)
     });
-    const locationStyling = new _style.Style({
-      image: new _style.Icon({
+    const locationStyling = new ol_style__WEBPACK_IMPORTED_MODULE_5__["Style"]({
+      image: new ol_style__WEBPACK_IMPORTED_MODULE_5__["Icon"]({
         src: '/images/icons/person_pin_circle_48px.png'
       })
     });
@@ -51412,8 +51391,8 @@ $(document).ready(async () => {
    =====================================================================
    */
 
-  const mousePositionControl = new _MousePosition2.default({
-    coordinateFormat: (0, _coordinate.createStringXY)(4),
+  const mousePositionControl = new ol_control_MousePosition__WEBPACK_IMPORTED_MODULE_12__["default"]({
+    coordinateFormat: Object(ol_coordinate__WEBPACK_IMPORTED_MODULE_13__["createStringXY"])(4),
     projection: 'EPSG:4326',
     undefinedHTML: ''
   });
@@ -51426,16 +51405,16 @@ $(document).ready(async () => {
    */
 
   const selectDrawType = document.getElementById('draw-type');
-  let draw = (0, _draw.createDraw)(source, selectDrawType);
+  let draw = Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_17__["createDraw"])(source, selectDrawType);
 
   selectDrawType.onchange = () => {
     map.removeInteraction(draw);
-    draw = (0, _draw.createDraw)(source, selectDrawType);
-    (0, _draw.addDrawInteraction)(draw, map, selectDrawType.value);
+    draw = Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_17__["createDraw"])(source, selectDrawType);
+    Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_17__["addDrawInteraction"])(draw, map, selectDrawType.value);
   };
 
-  (0, _draw.addDrawInteraction)(draw, map, selectDrawType.value);
-  map.addControl(_controls.selectYourDrawType);
+  Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_17__["addDrawInteraction"])(draw, map, selectDrawType.value);
+  map.addControl(_mapModules_controls__WEBPACK_IMPORTED_MODULE_16__["selectYourDrawType"]);
 });
 
 /***/ }),
@@ -51444,24 +51423,20 @@ $(document).ready(async () => {
 /*!********************************************************!*\
   !*** ./public/javascripts/maps/mapModules/controls.js ***!
   \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: selectYourMap, selectYourDrawType */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectYourMap", function() { return selectYourMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectYourDrawType", function() { return selectYourDrawType; });
+/* harmony import */ var ol_control__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ol/control */ "./node_modules/ol/control.js");
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.selectYourDrawType = exports.selectYourMap = undefined;
-
-var _control = __webpack_require__(/*! ol/control */ "./node_modules/ol/control.js");
-
-const selectYourMap = exports.selectYourMap = new _control.Control({
+const selectYourMap = new ol_control__WEBPACK_IMPORTED_MODULE_0__["Control"]({
   element: document.getElementById('layer-select'),
   target: document.getElementById('select-map')
 });
-const selectYourDrawType = exports.selectYourDrawType = new _control.Control({
+const selectYourDrawType = new ol_control__WEBPACK_IMPORTED_MODULE_0__["Control"]({
   element: document.getElementById('draw-type'),
   target: document.getElementById('draw-geometry')
 });
@@ -51472,29 +51447,21 @@ const selectYourDrawType = exports.selectYourDrawType = new _control.Control({
 /*!****************************************************!*\
   !*** ./public/javascripts/maps/mapModules/draw.js ***!
   \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: createDraw, addDrawInteraction */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createDraw", function() { return createDraw; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addDrawInteraction", function() { return addDrawInteraction; });
+/* harmony import */ var ol_interaction_Draw__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ol/interaction/Draw */ "./node_modules/ol/interaction/Draw.js");
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.addDrawInteraction = exports.createDraw = undefined;
-
-var _Draw = __webpack_require__(/*! ol/interaction/Draw */ "./node_modules/ol/interaction/Draw.js");
-
-var _Draw2 = _interopRequireDefault(_Draw);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const createDraw = exports.createDraw = (source, selectDrawType) => {
+const createDraw = (source, selectDrawType) => {
   let drawing;
   const drawValue = selectDrawType.value;
 
   if (drawValue === 'FreeLine') {
-    drawing = new _Draw2.default({
+    drawing = new ol_interaction_Draw__WEBPACK_IMPORTED_MODULE_0__["default"]({
       source,
       type: 'LineString',
       freehand: true
@@ -51502,7 +51469,7 @@ const createDraw = exports.createDraw = (source, selectDrawType) => {
   }
 
   if (drawValue === 'FreePoly') {
-    drawing = new _Draw2.default({
+    drawing = new ol_interaction_Draw__WEBPACK_IMPORTED_MODULE_0__["default"]({
       source,
       type: 'Polygon',
       freehand: true
@@ -51510,7 +51477,7 @@ const createDraw = exports.createDraw = (source, selectDrawType) => {
   }
 
   if (drawValue === 'LineString' || drawValue === 'Circle' || drawValue === 'Polygon') {
-    drawing = new _Draw2.default({
+    drawing = new ol_interaction_Draw__WEBPACK_IMPORTED_MODULE_0__["default"]({
       source,
       type: drawValue
     });
@@ -51518,8 +51485,7 @@ const createDraw = exports.createDraw = (source, selectDrawType) => {
 
   return drawing;
 };
-
-const addDrawInteraction = exports.addDrawInteraction = (draw, map, type) => {
+const addDrawInteraction = (draw, map, type) => {
   if (type !== 'None') {
     return map.addInteraction(draw);
   }
@@ -51531,25 +51497,14 @@ const addDrawInteraction = exports.addDrawInteraction = (draw, map, type) => {
 /*!******************************************************!*\
   !*** ./public/javascripts/maps/mapModules/layers.js ***!
   \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var ol_layer_Tile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ol/layer/Tile */ "./node_modules/ol/layer/Tile.js");
+/* harmony import */ var ol_source_XYZ__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ol/source/XYZ */ "./node_modules/ol/source/XYZ.js");
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _Tile = __webpack_require__(/*! ol/layer/Tile */ "./node_modules/ol/layer/Tile.js");
-
-var _Tile2 = _interopRequireDefault(_Tile);
-
-var _XYZ = __webpack_require__(/*! ol/source/XYZ */ "./node_modules/ol/source/XYZ.js");
-
-var _XYZ2 = _interopRequireDefault(_XYZ);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const urlTpl = 'https://{1-4}.{base}.maps.cit.api.here.com' + '/{type}/2.1/maptile/newest/{scheme}/{z}/{x}/{y}/256/png' + '?app_id={app_id}&app_code={app_code}';
 
@@ -51557,42 +51512,42 @@ const createURL = function createUrl(tpl, layerDesc) {
   return tpl.replace('{base}', layerDesc.base).replace('{type}', layerDesc.type).replace('{scheme}', layerDesc.scheme).replace('{app_id}', layerDesc.app_id).replace('{app_code}', layerDesc.app_code);
 };
 
-exports.default = myLayers => {
+/* harmony default export */ __webpack_exports__["default"] = (myLayers => {
   const yourLayers = [];
   let i;
   let ii;
 
   for (i = 0, ii = myLayers.length - 2; i < ii; i += 1) {
     const layerDesc = myLayers[i];
-    yourLayers.push(new _Tile2.default({
+    yourLayers.push(new ol_layer_Tile__WEBPACK_IMPORTED_MODULE_0__["default"]({
       visible: false,
       preload: Infinity,
-      source: new _XYZ2.default({
+      source: new ol_source_XYZ__WEBPACK_IMPORTED_MODULE_1__["default"]({
         url: createURL(urlTpl, layerDesc),
-        attributions: `Map Tiles &copy; ${new Date().getFullYear()} ` + `<a href="http://developer.here.com">HERE</a>`
+        attributions: "Map Tiles &copy; ".concat(new Date().getFullYear(), " ") + "<a href=\"http://developer.here.com\">HERE</a>"
       })
     }));
   } // Topographical maps from UGS
 
 
-  yourLayers.push(new _Tile2.default({
+  yourLayers.push(new ol_layer_Tile__WEBPACK_IMPORTED_MODULE_0__["default"]({
     visible: false,
     preload: Infinity,
-    source: new _XYZ2.default({
+    source: new ol_source_XYZ__WEBPACK_IMPORTED_MODULE_1__["default"]({
       url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}',
-      attributions: `Map Tiles &copy; ${new Date().getFullYear()} ` + `<a href="https://viewer.nationalmap.gov/launch">The National Map</a>`
+      attributions: "Map Tiles &copy; ".concat(new Date().getFullYear(), " ") + "<a href=\"https://viewer.nationalmap.gov/launch\">The National Map</a>"
     })
   }));
-  yourLayers.push(new _Tile2.default({
+  yourLayers.push(new ol_layer_Tile__WEBPACK_IMPORTED_MODULE_0__["default"]({
     visible: false,
     preload: Infinity,
-    source: new _XYZ2.default({
+    source: new ol_source_XYZ__WEBPACK_IMPORTED_MODULE_1__["default"]({
       url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryTopo/MapServer/tile/{z}/{y}/{x}',
-      attributions: `Map Tiles &copy; ${new Date().getFullYear()} ` + `<a href="https://viewer.nationalmap.gov/launch">The National Map</a>`
+      attributions: "Map Tiles &copy; ".concat(new Date().getFullYear(), " ") + "<a href=\"https://viewer.nationalmap.gov/launch\">The National Map</a>"
     })
   }));
   return yourLayers;
-};
+});
 
 /***/ }),
 
