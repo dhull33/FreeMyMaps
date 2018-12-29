@@ -18,12 +18,12 @@ passport.use(
       .then((user) => {
         if (!user) {
           return done(null, false, {
-            message: 'Incorrect username and password'
+            message: 'Incorrect username and password combination.'
           });
         }
         if (!bcrypt.compareSync(password, user.password)) {
           return done(null, false, {
-            message: 'Incorrect username and password'
+            message: 'Incorrect username and password combination.'
           });
         }
         return done(null, user);
