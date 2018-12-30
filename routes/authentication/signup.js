@@ -16,7 +16,6 @@ app.post('/auth/signup/free', (req, res, next) => {
       })(req, res, next);
     })
     .catch((error) => {
-      console.log(error);
       next(error);
     });
 });

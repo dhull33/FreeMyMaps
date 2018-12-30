@@ -4,7 +4,10 @@ const bcrypt = require('bcryptjs');
 const { db } = require('../data/dataBase');
 const init = require('./init');
 
-const options = {};
+const options = {
+  usernameField: 'email',
+  passwordField: 'password'
+};
 // Serialize and Deserialize Users with init()
 init();
 
@@ -14,7 +17,7 @@ init();
 passport.use(
   'local',
   new LocalStrategy(options, (username, password, done) => {
-    db.any('SELECT * FROM user WHERE username=$1', [username])
+    db.any('SELECT * FROM "user" WHERE username=$1', [username])
       .then((user) => {
         if (!user[0]) {
           return done(null, false, {

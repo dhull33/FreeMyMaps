@@ -12,7 +12,7 @@ const createNewUser = (req, res) => {
   const hashPassword = bcrypt.hashSync(password, salt);
   return db
     .any(
-      'INSERT INTO user (user_id, password, username, date_created) VALUES($1, $2, $3, $4) RETURNING *',
+      'INSERT INTO "user" (user_id, password, username, date_created) VALUES ($1, $2, $3, $4) RETURNING *',
       [userId, hashPassword, username, dateCreated]
     )
     .catch((error) => {
@@ -24,7 +24,7 @@ const createNewUser = (req, res) => {
 // checks to see if user exists. Returns a boolean
 const doesUserExist = (username) => {
   return db
-    .one('SELECT exists(SELECT username FROM user WHERE username = $1)', [username])
+    .one('SELECT exists(SELECT username FROM "user" WHERE username = $1)', [username])
     .then((result) => {
       return result.exists;
     })
