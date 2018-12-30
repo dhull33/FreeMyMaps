@@ -1,7 +1,7 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
-const db = require('../data/dataBase');
+const { db } = require('../data/dataBase');
 const init = require('./init');
 
 const options = {};
@@ -14,19 +14,19 @@ init();
 passport.use(
   'local',
   new LocalStrategy(options, (username, password, done) => {
-    db.oneOrNone('SELECT * FROM users WHERE LOWER(username)=$1', [username.toLowerCase().trim()])
+    db.any('SELECT * FROM user WHERE username=$1', [username])
       .then((user) => {
-        if (!user) {
+        if (!user[0]) {
           return done(null, false, {
             message: 'Incorrect username and password combination.'
           });
         }
-        if (!bcrypt.compareSync(password, user.password)) {
+        if (!bcrypt.compareSync(password, user[0].password)) {
           return done(null, false, {
             message: 'Incorrect username and password combination.'
           });
         }
-        return done(null, user);
+        return done(null, user[0]);
       })
       .catch((err) => {
         console.log(err);

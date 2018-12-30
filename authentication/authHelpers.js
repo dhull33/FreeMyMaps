@@ -1,20 +1,20 @@
 const bcrypt = require('bcryptjs');
 const uniqid = require('uniqid');
 const moment = require('moment');
-const db = require('../data/dataBase');
+const { db } = require('../data/dataBase');
 
 // Function that creates a new user on sign-up
 const createNewUser = (req, res) => {
   const { username, password, confirmPassword } = req.body;
   const dateCreated = moment().format();
   const userId = uniqid();
+  const salt = bcrypt.genSaltSync();
+  const hashPassword = bcrypt.hashSync(password, salt);
   return db
-    .none('INSERT INTO user (user_id, username, password, date_created) VALUES ($1, $2, $3, $4)', [
-      userId,
-      username,
-      password,
-      dateCreated
-    ])
+    .any(
+      'INSERT INTO user (user_id, password, username, date_created) VALUES($1, $2, $3, $4) RETURNING *',
+      [userId, hashPassword, username, dateCreated]
+    )
     .catch((error) => {
       console.log(error);
       return error;

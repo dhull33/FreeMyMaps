@@ -5,4 +5,3 @@ const sendNewUserBack = () => {
     console.log(event);
   });
 };
-sendNewUserBack();
