@@ -9,6 +9,7 @@ app.post(
   '/auth/login',
   passport.authenticate('local', {
     failureRedirect: '/',
+    successRedirect: '/home',
     failureFlash: true
   }),
   (req, res, next) => {}

@@ -10,7 +10,7 @@ app.post('/auth/signup/free', (req, res, next) => {
     .then((result) => {
       console.log(result);
       passport.authenticate('local', {
-        successRedirect: '/user/account',
+        successRedirect: '/home',
         failureFlash: true
       })(req, res, next);
     })

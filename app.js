@@ -64,9 +64,11 @@ Raven.context(() => {
    */
   const indexRouter = require('./routes/index');
   const signUpRouter = require('./routes/authentication/signup');
+  const loginRouter = require('./routes/authentication/login');
 
   app.use('/', indexRouter);
   app.use('/', signUpRouter);
+  app.use('/', loginRouter);
 
   // Sets view engine to ejs
   app.set('views', path.join(__dirname, 'views'));
@@ -77,7 +79,6 @@ Raven.context(() => {
 
   // Uncaught exception handler...
   process.on('uncaughtException', (err) => {
-    console.log(err);
     console.log(`Caught exception: ${err}`);
   });
 
