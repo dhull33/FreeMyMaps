@@ -5,13 +5,12 @@ const authHelpers = require('../../authentication/authHelpers');
 const app = express();
 
 app.post('/auth/signup/free', (req, res, next) => {
-  console.log(req.body);
   authHelpers
     .createNewUser(req, res)
     .then((result) => {
       console.log(result);
       passport.authenticate('local', {
-        successRedirect: '/',
+        successRedirect: '/user/account',
         failureFlash: true
       })(req, res, next);
     })

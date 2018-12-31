@@ -1,0 +1,39 @@
+<!-- Modal for SignUp -->
+<div class="modal fade" id="loginInModal" tabindex="-1" role="dialog" aria-labelledby="LogInModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content bg-dark">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="loginTitle">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="color:white;">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <form id="loginForm" action="/auth/login" method="POST">
+              <div class="form-group">
+                <label class="text-white" for="username">Username</label>
+                <input id="username" type="text" class="form-control" aria-describedby="usernameHelp" placeholder="Enter username" name="username">
+              </div>
+              <div class="form-group">
+                <label class="text-white" for="InputPassword">Enter Password</label>
+                <input id="InputPassword" class="form-control" type="password" placeholder="Password" name="password">
+                <br>
+                <span>
+                  <% if (message) { %>
+                    <p style="color:red;"><%= message %></p>
+                  <% } %>
+                </span>
+              </div>
+              <div class="form-group">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button id="loginBtn" type="submit" class="btn btn-primary">Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,7 +7,7 @@ module.exports = () => {
   });
 
   passport.deserializeUser((user, done) => {
-    db.one('SELECT * FROM user WHERE user_id=$1', [user.user_id])
+    db.one('SELECT * FROM "user" WHERE user_id=$1', [user.user_id])
       .then((myUser) => {
         return done(null, myUser);
       })

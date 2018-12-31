@@ -4,10 +4,7 @@ const bcrypt = require('bcryptjs');
 const { db } = require('../data/dataBase');
 const init = require('./init');
 
-const options = {
-  usernameField: 'email',
-  passwordField: 'password'
-};
+const options = {};
 // Serialize and Deserialize Users with init()
 init();
 
