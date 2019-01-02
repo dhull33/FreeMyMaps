@@ -65,10 +65,12 @@ Raven.context(() => {
   const indexRouter = require('./routes/index');
   const signUpRouter = require('./routes/authentication/signup');
   const loginRouter = require('./routes/authentication/login');
+  const homeRouter = require('./routes/home');
 
   app.use('/', indexRouter);
   app.use('/', signUpRouter);
   app.use('/', loginRouter);
+  app.use('/', homeRouter);
 
   // Sets view engine to ejs
   app.set('views', path.join(__dirname, 'views'));

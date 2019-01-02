@@ -92,5 +92,11 @@
 
     <script type="text/javascript" src="/javascripts/auth/signUp.js"></script>
 
+    <% if (message) { %>
+      <script>
+        $('#login').click();
+      </script>
+    <% } %>
+
   </body>
 </html>

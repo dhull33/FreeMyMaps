@@ -11,6 +11,7 @@ app.post(
     failureRedirect: '/',
     successRedirect: '/home',
     failureFlash: true
-  }),
-  (req, res, next) => {}
+  })
 );
+
+module.exports = app;
