@@ -39,9 +39,14 @@ https://freemymaps.com
    - Here's a link from [Mozilla](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) that goes into more detail
 
 4. Drawing
+
    - Freehand
    - Not freehand
    - Lines and Polygons ([in case you forgot what a polygon is](https://en.wikipedia.org/wiki/Polygon))
+
+5. Accounts
+
+- Can create an account with a unique username
 
 ## Features Soon to Be Added
 
@@ -64,8 +69,7 @@ https://freemymaps.com
    - or in GeoJSON format
    - Automatic saving to your account
 5. Accounts
-   - You will be able to create a free account
-     - Email
+   - You will be able to create a free account with:
      - Facebook
      - Google
    - Create and save as many maps as your heart desires!
