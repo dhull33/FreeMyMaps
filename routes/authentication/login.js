@@ -10,9 +10,7 @@ app.post(
     failureRedirect: '/',
     failureFlash: true
   }),
-  (req, res, next) => {
-    console.log('LOGGING IN');
-    console.log(req.user);
+  (req, res) => {
     return res.redirect('/home');
   }
 );
