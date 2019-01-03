@@ -15,6 +15,11 @@ const createNewUser = (req, res) => {
       'INSERT INTO "user" (user_id, password, username, date_created) VALUES ($1, $2, $3, $4) RETURNING *',
       [userId, hashPassword, username, dateCreated]
     )
+    .then((newUser) => {
+      console.log('====CREATING NEW USER====');
+      console.log(newUser);
+      return newUser[0];
+    })
     .catch((error) => {
       console.log(error);
       return error;

@@ -1,5 +1,5 @@
 const passport = require('passport');
-const db = require('../data/dataBase');
+const { db } = require('../data/dataBase');
 
 module.exports = () => {
   passport.serializeUser((user, done) => {
@@ -7,11 +7,12 @@ module.exports = () => {
   });
 
   passport.deserializeUser((user, done) => {
-    db.one('SELECT * FROM "user" WHERE user_id=$1', [user.user_id])
+    db.any('SELECT * FROM "user" WHERE username=$1', [user.username])
       .then((myUser) => {
-        return done(null, myUser);
+        return done(null, myUser[0]);
       })
       .catch((error) => {
+        console.log('===========THERE WAS AN ERROR WITH DESERIALIZE USER=============');
         return done(error, null);
       });
   });

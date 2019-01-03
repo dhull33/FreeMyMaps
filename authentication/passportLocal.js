@@ -16,6 +16,7 @@ passport.use(
   new LocalStrategy(options, (username, password, done) => {
     db.any('SELECT * FROM "user" WHERE username=$1', [username])
       .then((user) => {
+        // console.log(user);
         if (!user[0]) {
           return done(null, false, {
             message: 'Incorrect username and password combination.'

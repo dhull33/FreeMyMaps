@@ -39,15 +39,12 @@ Raven.context(() => {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(flash());
-  app.use(passport.initialize());
-  app.use(passport.session());
-
   // Session store used for authentication
   app.use(
     session({
       secret: process.env.SECRET_KEY,
       resave: false,
-      saveUninitialized: false,
+      saveUninitialized: true,
       store: new (pgSession(session))({
         conObject: connection,
         pruneSessionInterval: 3600
@@ -55,6 +52,8 @@ Raven.context(() => {
       cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }
     })
   );
+  app.use(passport.initialize());
+  app.use(passport.session());
   // Enforces HTTPS
   app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
@@ -66,11 +65,13 @@ Raven.context(() => {
   const signUpRouter = require('./routes/authentication/signup');
   const loginRouter = require('./routes/authentication/login');
   const homeRouter = require('./routes/home');
+  const logoutRouter = require('./routes/authentication/logout');
 
   app.use('/', indexRouter);
   app.use('/', signUpRouter);
   app.use('/', loginRouter);
   app.use('/', homeRouter);
+  app.use('/', logoutRouter);
 
   // Sets view engine to ejs
   app.set('views', path.join(__dirname, 'views'));

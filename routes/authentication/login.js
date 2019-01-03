@@ -1,6 +1,5 @@
 const express = require('express');
 const passport = require('../../authentication/passportLocal');
-const authHelpers = require('../../authentication/authHelpers');
 
 const app = express();
 
@@ -9,9 +8,13 @@ app.post(
   '/auth/login',
   passport.authenticate('local', {
     failureRedirect: '/',
-    successRedirect: '/home',
     failureFlash: true
-  })
+  }),
+  (req, res, next) => {
+    console.log('LOGGING IN');
+    console.log(req.user);
+    return res.redirect('/home');
+  }
 );
 
 module.exports = app;

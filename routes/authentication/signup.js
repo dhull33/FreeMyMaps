@@ -5,7 +5,7 @@ const authHelpers = require('../../authentication/authHelpers');
 const app = express();
 
 app.post('/auth/signup/free', (req, res, next) => {
-  authHelpers
+  return authHelpers
     .createNewUser(req, res)
     .then((result) => {
       console.log(result);
