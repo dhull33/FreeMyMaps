@@ -12,7 +12,6 @@ module.exports = () => {
         return done(null, myUser[0]);
       })
       .catch((error) => {
-        console.log('===========THERE WAS AN ERROR WITH DESERIALIZE USER=============');
         return done(error, null);
       });
   });

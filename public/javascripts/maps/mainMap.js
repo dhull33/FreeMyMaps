@@ -10,7 +10,8 @@ import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
-import DragAndDrop from 'ol/interaction/DragAndDrop';
+// TODO: Add drag and drop feature
+// import DragAndDrop from 'ol/interaction/DragAndDrop';
 import MousePosition from 'ol/control/MousePosition';
 import { createStringXY } from 'ol/coordinate';
 import View from 'ol/View';
