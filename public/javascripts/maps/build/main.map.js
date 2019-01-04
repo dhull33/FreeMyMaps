@@ -51210,13 +51210,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ol_geom_Point__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ol/geom/Point */ "./node_modules/ol/geom/Point.js");
 /* harmony import */ var ol_layer_Vector__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ol/layer/Vector */ "./node_modules/ol/layer/Vector.js");
 /* harmony import */ var ol_source_Vector__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ol/source/Vector */ "./node_modules/ol/source/Vector.js");
-/* harmony import */ var ol_interaction_DragAndDrop__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ol/interaction/DragAndDrop */ "./node_modules/ol/interaction/DragAndDrop.js");
-/* harmony import */ var ol_control_MousePosition__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ol/control/MousePosition */ "./node_modules/ol/control/MousePosition.js");
-/* harmony import */ var ol_coordinate__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ol/coordinate */ "./node_modules/ol/coordinate.js");
-/* harmony import */ var ol_View__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ol/View */ "./node_modules/ol/View.js");
-/* harmony import */ var _mapModules_layers__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./mapModules/layers */ "./public/javascripts/maps/mapModules/layers.js");
-/* harmony import */ var _mapModules_controls__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./mapModules/controls */ "./public/javascripts/maps/mapModules/controls.js");
-/* harmony import */ var _mapModules_draw__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./mapModules/draw */ "./public/javascripts/maps/mapModules/draw.js");
+/* harmony import */ var ol_control_MousePosition__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ol/control/MousePosition */ "./node_modules/ol/control/MousePosition.js");
+/* harmony import */ var ol_coordinate__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ol/coordinate */ "./node_modules/ol/coordinate.js");
+/* harmony import */ var ol_View__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ol/View */ "./node_modules/ol/View.js");
+/* harmony import */ var _mapModules_layers__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./mapModules/layers */ "./public/javascripts/maps/mapModules/layers.js");
+/* harmony import */ var _mapModules_controls__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./mapModules/controls */ "./public/javascripts/maps/mapModules/controls.js");
+/* harmony import */ var _mapModules_draw__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./mapModules/draw */ "./public/javascripts/maps/mapModules/draw.js");
 /* eslint-disable prefer-destructuring,no-shadow,no-plusplus,no-undef,no-underscore-dangle,prettier/prettier */
 
 
@@ -51228,7 +51227,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
+ // TODO: Add drag and drop feature
+// import DragAndDrop from 'ol/interaction/DragAndDrop';
 
 
 
@@ -51284,14 +51284,14 @@ $(document).ready(async () => {
   }];
   const coords = Object(ol_proj__WEBPACK_IMPORTED_MODULE_4__["transform"])([-98.569336, 39.774769], 'EPSG:4326', 'EPSG:3857'); // initialize map, layers, and source
 
-  const layers = Object(_mapModules_layers__WEBPACK_IMPORTED_MODULE_15__["default"])(theseAwesomeLayers);
+  const layers = Object(_mapModules_layers__WEBPACK_IMPORTED_MODULE_14__["default"])(theseAwesomeLayers);
   const map = new ol_Map__WEBPACK_IMPORTED_MODULE_3__["default"]({
     interactions: Object(ol_interaction__WEBPACK_IMPORTED_MODULE_2__["defaults"])({
       onFocusOnly: true
     }),
     target: 'map',
     layers,
-    view: new ol_View__WEBPACK_IMPORTED_MODULE_14__["default"]({
+    view: new ol_View__WEBPACK_IMPORTED_MODULE_13__["default"]({
       center: coords,
       zoom: 5
     }),
@@ -51313,7 +51313,7 @@ $(document).ready(async () => {
   });
   map.addLayer(layer); // Enables the user to select which map to display on screen
 
-  map.addControl(_mapModules_controls__WEBPACK_IMPORTED_MODULE_16__["selectYourMap"]);
+  map.addControl(_mapModules_controls__WEBPACK_IMPORTED_MODULE_15__["selectYourMap"]);
   /*
   ============================
   CHANGES THE SELECTED LAYER
@@ -51391,8 +51391,8 @@ $(document).ready(async () => {
    =====================================================================
    */
 
-  const mousePositionControl = new ol_control_MousePosition__WEBPACK_IMPORTED_MODULE_12__["default"]({
-    coordinateFormat: Object(ol_coordinate__WEBPACK_IMPORTED_MODULE_13__["createStringXY"])(4),
+  const mousePositionControl = new ol_control_MousePosition__WEBPACK_IMPORTED_MODULE_11__["default"]({
+    coordinateFormat: Object(ol_coordinate__WEBPACK_IMPORTED_MODULE_12__["createStringXY"])(4),
     projection: 'EPSG:4326',
     undefinedHTML: ''
   });
@@ -51405,16 +51405,16 @@ $(document).ready(async () => {
    */
 
   const selectDrawType = document.getElementById('draw-type');
-  let draw = Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_17__["createDraw"])(source, selectDrawType);
+  let draw = Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_16__["createDraw"])(source, selectDrawType);
 
   selectDrawType.onchange = () => {
     map.removeInteraction(draw);
-    draw = Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_17__["createDraw"])(source, selectDrawType);
-    Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_17__["addDrawInteraction"])(draw, map, selectDrawType.value);
+    draw = Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_16__["createDraw"])(source, selectDrawType);
+    Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_16__["addDrawInteraction"])(draw, map, selectDrawType.value);
   };
 
-  Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_17__["addDrawInteraction"])(draw, map, selectDrawType.value);
-  map.addControl(_mapModules_controls__WEBPACK_IMPORTED_MODULE_16__["selectYourDrawType"]);
+  Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_16__["addDrawInteraction"])(draw, map, selectDrawType.value);
+  map.addControl(_mapModules_controls__WEBPACK_IMPORTED_MODULE_15__["selectYourDrawType"]);
 });
 
 /***/ }),
