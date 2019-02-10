@@ -2,11 +2,12 @@ body {
   height: 100%;
   width: 100%;
   padding: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
-
-html, body, .map {
+html,
+body,
+.map {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -14,6 +15,12 @@ html, body, .map {
   background-color: #303130;
 }
 
+#map {
+  width: 80vw;
+  display: inline-block;
+  float: right;
+  height: 88vh;
+}
 /* The NavBar at the Top*/
 .mainNav {
   position: relative;
@@ -22,13 +29,13 @@ html, body, .map {
 
 /* The sidebar menu */
 .sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 200px; /* Set the width of the sidebar */
+  height: 92vh; /* Full-height: remove this if you want "auto" height */
+  width: 20vw; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: #111; /* Black */
+  background-color: #333333;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 50px;
 }
@@ -51,13 +58,17 @@ html, body, .map {
 .main {
   /*margin-left: 200px; !* Same as the width of the sidebar *!*/
   padding: 0px 0px;
-  height: 90vh;
+  height: 70vh;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 
 /* Changes mouse control from black to white */
@@ -68,21 +79,41 @@ html, body, .map {
 }
 
 .float-left {
-  float: left
+  float: left;
 }
 
 .float-right {
-  float: right
+  float: right;
 }
 /* For About Modal */
-#contentarea{
-   font-size:15px;margin:16px 0
- }
-.cell{
-  outline:0;
-  min-height:20px;
-  margin:5px 0;
-  padding:5px 0;
+#contentarea {
+  font-size: 15px;
+  margin: 16px 0;
 }
-.markdown-cell {font-size: 15px;}
+.cell {
+  outline: 0;
+  min-height: 20px;
+  margin: 5px 0;
+  padding: 5px 0;
+}
+.markdown-cell {
+  font-size: 15px;
+}
 /* ======================= */
+
+#layer-select {
+  width: 13vw;
+}
+#draw-type {
+  width: 13vw;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #333333;
+  text-align: center;
+}

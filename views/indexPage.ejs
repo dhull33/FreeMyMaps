@@ -9,7 +9,7 @@
     <!--NavBar-->
     <div class="row mainNav">
       <div class="col-12">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark">
           <a class="navbar-brand" href="#">FreeMyMaps</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -48,10 +48,10 @@
       <div id="popup"></div>
 
       <!--Selectors for Map Features -->
-      <div class="">
+      <div class="sidenav">
         <!--Changes Type of Map-->
-        <div id="select-map" class="float-left">
-          <label for="layer-select" style="color: white;">Map Type</label>
+        <div id="select-map">
+          <label for="layer-select" style="color: white;">Map</label>
           <select id="layer-select">
             <option value="normal.day" selected>Normal Day</option>
             <option value="normal.day.transit">Normal Day Transit</option>
@@ -76,13 +76,10 @@
             <option value="None" selected>None</option>
           </select>
         </div>
-
-        <div class="float-right">
-          <p style="color: white;">Copyright © FreeMyMaps 2018</p>
-        </div>
       </div>
-
     </div>
+
+    <% include partials/footer.ejs %>
 
     <script type="module" src="/javascripts/maps/build/main.map.js"></script>
 
