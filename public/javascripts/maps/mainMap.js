@@ -11,7 +11,8 @@ import Point from 'ol/geom/Point';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 // TODO: Add drag and drop feature
-// import DragAndDrop from 'ol/interaction/DragAndDrop';
+import DragAndDrop from 'ol/interaction/DragAndDrop';
+import { GPX, GeoJSON, IGC, KML, TopoJSON } from 'ol/format';
 import MousePosition from 'ol/control/MousePosition';
 import { createStringXY } from 'ol/coordinate';
 import View from 'ol/View';
