@@ -9,3 +9,10 @@ export const selectYourDrawType = new Control({
   element: document.getElementById('draw-type'),
   target: document.getElementById('draw-geometry')
 });
+
+export const addNewControl = (elementID, targetID) => {
+  return new Control({
+    element: document.getElementById(elementID),
+    target: document.getElementById(targetID)
+  });
+};

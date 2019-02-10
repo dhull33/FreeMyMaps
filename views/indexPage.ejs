@@ -48,39 +48,37 @@
       <div id="popup"></div>
 
       <!--Selectors for Map Features -->
-      <div class="sidenav">
-        <!--Changes Type of Map-->
-        <div id="select-map">
-          <label for="layer-select" style="color: white;">Map</label>
-          <select id="layer-select">
-            <option value="normal.day" selected>Normal Day</option>
-            <option value="normal.day.transit">Normal Day Transit</option>
-            <option value="pedestrian.day">Pedestrian Day</option>
-            <option value="hybrid.day">Hybrid Day</option>
-            <option value="terrain.day">Terrain Day</option>
-            <option value="satellite.day">Satellite Day</option>
-            <option value="topo.image">Topographical w/ Satellite</option>
-            <option value="topo.day">Topographical</option>
-          </select>
-        </div>
+      <!--Changes Type of Map-->
+      <div id="select-map" class="float-left">
+        <label for="layer-select" style="color: white;">Map</label>
+        <select id="layer-select">
+          <option value="normal.day" selected>Normal Day</option>
+          <option value="normal.day.transit">Normal Day Transit</option>
+          <option value="pedestrian.day">Pedestrian Day</option>
+          <option value="hybrid.day">Hybrid Day</option>
+          <option value="terrain.day">Terrain Day</option>
+          <option value="satellite.day">Satellite Day</option>
+          <option value="topo.image">Topographical w/ Satellite</option>
+          <option value="topo.day">Topographical</option>
+        </select>
+      </div>
 
-        <!-- Changes Drawing Type -->
-        <div id="draw-geometry" class="">
-          <label for="draw-type" style="color: white;">Draw</label>
-          <select id="draw-type">
-            <option value="Circle">Circle</option>
-            <option value="LineString">LineString</option>
-            <option value="Polygon">Polygon</option>
-            <option value="FreeLine">Freehand</option>
-            <option value="FreePoly">Freehand Polygon</option>
-            <option value="None" selected>None</option>
-          </select>
-        </div>
+      <!-- Changes Drawing Type -->
+      <div id="draw-geometry" class="">
+        <label for="draw-type" style="color: white;">Draw</label>
+        <select id="draw-type">
+          <option value="Circle">Circle</option>
+          <option value="LineString">LineString</option>
+          <option value="Polygon">Polygon</option>
+          <option value="FreeLine">Freehand</option>
+          <option value="FreePoly">Freehand Polygon</option>
+          <option value="None" selected>None</option>
+        </select>
       </div>
     </div>
 
-    <% include partials/footer.ejs %>
 
+    <% include partials/footer.ejs %>
     <script type="module" src="/javascripts/maps/build/main.map.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

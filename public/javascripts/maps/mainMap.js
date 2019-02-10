@@ -18,6 +18,7 @@ import View from 'ol/View';
 import makeTheseLayers from './mapModules/layers';
 import { selectYourMap, selectYourDrawType } from './mapModules/controls';
 import { createDraw, addDrawInteraction } from './mapModules/draw';
+import { Pops } from './mapModules/popUps';
 
 const appId = process.env.HERE_APP_ID;
 const appCode = process.env.HERE_APP_CODE;
@@ -146,7 +147,14 @@ $(document).ready(async () => {
   map.addControl(mapGeocoder);
 
   mapGeocoder.on('addresschosen', (evt) => {
-    console.log(evt);
+    const coord = evt.coordinate;
+    const address = evt.address;
+    // PopUp from ol-popup
+    const geoPop = Pops('map-marker-popup', 'geoPop');
+    map.addOverlay(geoPop);
+    window.setTimeout(() => {
+      geoPop.show(coord, address.formatted);
+    }, 300);
   });
 
   // ================================
@@ -172,18 +180,12 @@ $(document).ready(async () => {
   Drag and drop GeoJson data to display over map
  =====================================================================
  */
-  // map.addInteraction(
-  //   new DragAndDrop({
-  //     source,
-  //     formatConstructors: [
-  //       GPX,
-  //       GeoJSON,
-  //       IGC,
-  //       KML,
-  //       TopoJSON
-  //     ]
-  //   })
-  // );
+  map.addInteraction(
+    new DragAndDrop({
+      source,
+      formatConstructors: [GPX, GeoJSON, IGC, KML, TopoJSON]
+    })
+  );
 
   /*
    ===================================================================

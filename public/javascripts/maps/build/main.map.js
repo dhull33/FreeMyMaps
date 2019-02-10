@@ -210,6 +210,242 @@ function toComment(sourceMap) {
 
 /***/ }),
 
+/***/ "./node_modules/ol-popup/dist/ol-popup.js":
+/*!************************************************!*\
+  !*** ./node_modules/ol-popup/dist/ol-popup.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function (global, factory) {
+	 true ? module.exports = factory(__webpack_require__(/*! ol/Overlay */ "./node_modules/ol/Overlay.js")) :
+	undefined;
+}(this, (function (Overlay) { 'use strict';
+
+Overlay = 'default' in Overlay ? Overlay['default'] : Overlay;
+
+var classCallCheck = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
+var createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+
+
+
+
+
+
+
+
+
+var inherits = function (subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+};
+
+
+
+
+
+
+
+
+
+
+
+var possibleConstructorReturn = function (self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return call && (typeof call === "object" || typeof call === "function") ? call : self;
+};
+
+/**
+* OpenLayers Popup Overlay.
+* See [the examples](./examples) for usage. Styling can be done via CSS.
+* @constructor
+* @extends {ol.Overlay}
+* @param {olx.OverlayOptions} opt_options options as defined by ol.Overlay. Defaults to
+* `{autoPan: true, autoPanAnimation: {duration: 250}}`
+*/
+
+var Popup = function (_Overlay) {
+    inherits(Popup, _Overlay);
+
+    function Popup(opt_options) {
+        classCallCheck(this, Popup);
+
+
+        var options = opt_options || {};
+
+        if (options.autoPan === undefined) {
+            options.autoPan = true;
+        }
+
+        if (options.autoPanAnimation === undefined) {
+            options.autoPanAnimation = {
+                duration: 250
+            };
+        }
+
+        var element = document.createElement('div');
+
+        options.element = element;
+
+        var _this = possibleConstructorReturn(this, (Popup.__proto__ || Object.getPrototypeOf(Popup)).call(this, options));
+
+        _this.container = element;
+        _this.container.className = 'ol-popup';
+
+        _this.closer = document.createElement('a');
+        _this.closer.className = 'ol-popup-closer';
+        _this.closer.href = '#';
+        _this.container.appendChild(_this.closer);
+
+        var that = _this;
+        _this.closer.addEventListener('click', function (evt) {
+            that.container.style.display = 'none';
+            that.closer.blur();
+            evt.preventDefault();
+        }, false);
+
+        _this.content = document.createElement('div');
+        _this.content.className = 'ol-popup-content';
+        _this.container.appendChild(_this.content);
+
+        // Apply workaround to enable scrolling of content div on touch devices
+        Popup.enableTouchScroll_(_this.content);
+
+        return _this;
+    }
+
+    /**
+    * Show the popup.
+    * @param {ol.Coordinate} coord Where to anchor the popup.
+    * @param {String|HTMLElement} html String or element of HTML to display within the popup.
+    * @returns {Popup} The Popup instance
+    */
+
+
+    createClass(Popup, [{
+        key: 'show',
+        value: function show(coord, html) {
+            if (html instanceof HTMLElement) {
+                this.content.innerHTML = "";
+                this.content.appendChild(html);
+            } else {
+                this.content.innerHTML = html;
+            }
+            this.container.style.display = 'block';
+            this.content.scrollTop = 0;
+            this.setPosition(coord);
+            return this;
+        }
+
+        /**
+        * @private
+        * @desc Determine if the current browser supports touch events. Adapted from
+        * https://gist.github.com/chrismbarr/4107472
+        */
+
+    }, {
+        key: 'hide',
+
+
+        /**
+        * Hide the popup.
+        * @returns {Popup} The Popup instance
+        */
+        value: function hide() {
+            this.container.style.display = 'none';
+            return this;
+        }
+
+        /**
+        * Indicates if the popup is in open state
+        * @returns {Boolean} Whether the popup instance is open
+        */
+
+    }, {
+        key: 'isOpened',
+        value: function isOpened() {
+            return this.container.style.display == 'block';
+        }
+    }], [{
+        key: 'isTouchDevice_',
+        value: function isTouchDevice_() {
+            try {
+                document.createEvent("TouchEvent");
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        /**
+        * @private
+        * @desc Apply workaround to enable scrolling of overflowing content within an
+        * element. Adapted from https://gist.github.com/chrismbarr/4107472
+        */
+
+    }, {
+        key: 'enableTouchScroll_',
+        value: function enableTouchScroll_(elm) {
+            if (Popup.isTouchDevice_()) {
+                var scrollStartPos = 0;
+                elm.addEventListener("touchstart", function (event) {
+                    scrollStartPos = this.scrollTop + event.touches[0].pageY;
+                }, false);
+                elm.addEventListener("touchmove", function (event) {
+                    this.scrollTop = scrollStartPos - event.touches[0].pageY;
+                }, false);
+            }
+        }
+    }]);
+    return Popup;
+}(Overlay);
+
+if (window.ol && window.ol.Overlay) {
+    window.ol.Overlay.Popup = Popup;
+}
+
+return Popup;
+
+})));
+
+
+/***/ }),
+
 /***/ "./node_modules/ol/AssertionError.js":
 /*!*******************************************!*\
   !*** ./node_modules/ol/AssertionError.js ***!
@@ -51216,6 +51452,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mapModules_layers__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./mapModules/layers */ "./public/javascripts/maps/mapModules/layers.js");
 /* harmony import */ var _mapModules_controls__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./mapModules/controls */ "./public/javascripts/maps/mapModules/controls.js");
 /* harmony import */ var _mapModules_draw__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./mapModules/draw */ "./public/javascripts/maps/mapModules/draw.js");
+/* harmony import */ var _mapModules_popUps__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./mapModules/popUps */ "./public/javascripts/maps/mapModules/popUps.js");
 /* eslint-disable prefer-destructuring,no-shadow,no-plusplus,no-undef,no-underscore-dangle,prettier/prettier */
 
 
@@ -51229,6 +51466,7 @@ __webpack_require__.r(__webpack_exports__);
 
  // TODO: Add drag and drop feature
 // import DragAndDrop from 'ol/interaction/DragAndDrop';
+
 
 
 
@@ -51349,7 +51587,14 @@ $(document).ready(async () => {
   });
   map.addControl(mapGeocoder);
   mapGeocoder.on('addresschosen', evt => {
-    console.log(evt);
+    const coord = evt.coordinate;
+    const address = evt.address; // PopUp from ol-popup
+
+    const geoPop = Object(_mapModules_popUps__WEBPACK_IMPORTED_MODULE_17__["Pops"])('map-marker-popup', 'geoPop');
+    map.addOverlay(geoPop);
+    window.setTimeout(() => {
+      geoPop.show(coord, address.formatted);
+    }, 300);
   }); // ================================
   // ===========GEOLOCATION==========
   // ================================
@@ -51372,19 +51617,11 @@ $(document).ready(async () => {
   Drag and drop GeoJson data to display over map
   =====================================================================
   */
-  // map.addInteraction(
-  //   new DragAndDrop({
-  //     source,
-  //     formatConstructors: [
-  //       GPX,
-  //       GeoJSON,
-  //       IGC,
-  //       KML,
-  //       TopoJSON
-  //     ]
-  //   })
-  // );
 
+  map.addInteraction(new DragAndDrop({
+    source,
+    formatConstructors: [GPX, GeoJSON, IGC, KML, TopoJSON]
+  }));
   /*
    ===================================================================
    Displays Mouse Point Coordinates
@@ -51423,13 +51660,14 @@ $(document).ready(async () => {
 /*!********************************************************!*\
   !*** ./public/javascripts/maps/mapModules/controls.js ***!
   \********************************************************/
-/*! exports provided: selectYourMap, selectYourDrawType */
+/*! exports provided: selectYourMap, selectYourDrawType, addNewControl */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectYourMap", function() { return selectYourMap; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectYourDrawType", function() { return selectYourDrawType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addNewControl", function() { return addNewControl; });
 /* harmony import */ var ol_control__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ol/control */ "./node_modules/ol/control.js");
 
 const selectYourMap = new ol_control__WEBPACK_IMPORTED_MODULE_0__["Control"]({
@@ -51440,6 +51678,12 @@ const selectYourDrawType = new ol_control__WEBPACK_IMPORTED_MODULE_0__["Control"
   element: document.getElementById('draw-type'),
   target: document.getElementById('draw-geometry')
 });
+const addNewControl = (elementID, targetID) => {
+  return new ol_control__WEBPACK_IMPORTED_MODULE_0__["Control"]({
+    element: document.getElementById(elementID),
+    target: document.getElementById(targetID)
+  });
+};
 
 /***/ }),
 
@@ -51548,6 +51792,34 @@ const createURL = function createUrl(tpl, layerDesc) {
   }));
   return yourLayers;
 });
+
+/***/ }),
+
+/***/ "./public/javascripts/maps/mapModules/popUps.js":
+/*!******************************************************!*\
+  !*** ./public/javascripts/maps/mapModules/popUps.js ***!
+  \******************************************************/
+/*! exports provided: Pops */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Pops", function() { return Pops; });
+/* harmony import */ var ol_popup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ol-popup */ "./node_modules/ol-popup/dist/ol-popup.js");
+/* harmony import */ var ol_popup__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(ol_popup__WEBPACK_IMPORTED_MODULE_0__);
+/* eslint-disable no-underscore-dangle,no-param-reassign,no-undef */
+
+const Pops = (elementID, id) => {
+  return new ol_popup__WEBPACK_IMPORTED_MODULE_0___default.a({
+    id,
+    element: document.getElementById(elementID),
+    autoPan: true,
+    positioning: 'top-center',
+    className: 'popup reveal',
+    offset: [4, -20],
+    insertFirst: false
+  });
+};
 
 /***/ }),
 
