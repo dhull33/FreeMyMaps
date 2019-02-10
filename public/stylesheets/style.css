@@ -12,12 +12,12 @@ body,
   padding: 0;
   width: 100%;
   height: 100%;
-  background-color: #303130;
+  background-color: #333333;
 }
 
 #map {
   width: 100vw;
-  height: 85vh;
+  height: 80vh;
 }
 /* The NavBar at the Top*/
 .mainNav {
@@ -108,6 +108,7 @@ body,
 
 .footer {
   position: absolute;
+  height: 5vh;
   right: 0;
   bottom: 0;
   left: 0;
