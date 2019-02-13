@@ -69078,6 +69078,7 @@ $(document).ready(async () => {
   Drag and drop GeoJson data to display over map
   =====================================================================
   */
+  // TODO: display information on map
 
   map.addInteraction(new ol_interaction_DragAndDrop__WEBPACK_IMPORTED_MODULE_11__["default"]({
     source,

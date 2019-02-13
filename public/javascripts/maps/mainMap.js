@@ -181,6 +181,7 @@ $(document).ready(async () => {
   Drag and drop GeoJson data to display over map
  =====================================================================
  */
+  // TODO: display information on map
   map.addInteraction(
     new DragAndDrop({
       source,
