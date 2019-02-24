@@ -26,6 +26,8 @@ const appCode = process.env.HERE_APP_CODE;
 
 // eslint-disable-next-line consistent-return
 $(document).ready(async () => {
+  // TODO: Load 1st saved map for user here
+
   //  Layers for maps
   const theseAwesomeLayers = [
     {

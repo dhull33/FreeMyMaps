@@ -31,7 +31,8 @@ CREATE TABLE maps
 (
   map_id VARCHAR not null,
   user_id VARCHAR,
-  map_features VARCHAR
+  map_features VARCHAR,
+  map_center VARCHAR
 );
 
 create unique index maps_map_id_uindex
