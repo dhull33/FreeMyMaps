@@ -10,7 +10,7 @@ import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
-// TODO: Add drag and drop feature
+// TODO: Display drag and drop data on map
 import DragAndDrop from 'ol/interaction/DragAndDrop';
 import { GPX, GeoJSON, IGC, KML, TopoJSON } from 'ol/format';
 import MousePosition from 'ol/control/MousePosition';
@@ -113,14 +113,15 @@ $(document).ready(async () => {
   });
   map.addLayer(layer);
 
-  // Enables the user to select which map to display on screen
-  map.addControl(selectYourMap);
-
   /*
  ============================
  CHANGES THE SELECTED LAYER
  ===========================
  */
+
+  // Enables the user to select which map to display on screen
+  map.addControl(selectYourMap);
+
   const select = document.getElementById('layer-select');
   const onChange = () => {
     const scheme = select.value;

@@ -66164,7 +66164,7 @@ function getUid(obj) {
  * OpenLayers version.
  * @type {string}
  */
-var VERSION = '5.3.0';
+var VERSION = '5.3.1';
 
 //# sourceMappingURL=util.js.map
 
@@ -68924,7 +68924,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // TODO: Add drag and drop feature
+ // TODO: Display drag and drop data on map
 
 
 
@@ -68939,6 +68939,7 @@ const appId = "BLd5jWBS0s57akvRPg97";
 const appCode = "hdgWeUmZ_Tqb2a2ymt3YbA"; // eslint-disable-next-line consistent-return
 
 $(document).ready(async () => {
+  // TODO: Load 1st saved map for user here
   //  Layers for maps
   const theseAwesomeLayers = [{
     base: 'base',
@@ -69010,15 +69011,15 @@ $(document).ready(async () => {
       })
     })
   });
-  map.addLayer(layer); // Enables the user to select which map to display on screen
-
-  map.addControl(_mapModules_controls__WEBPACK_IMPORTED_MODULE_17__["selectYourMap"]);
+  map.addLayer(layer);
   /*
   ============================
   CHANGES THE SELECTED LAYER
   ===========================
   */
+  // Enables the user to select which map to display on screen
 
+  map.addControl(_mapModules_controls__WEBPACK_IMPORTED_MODULE_17__["selectYourMap"]);
   const select = document.getElementById('layer-select');
 
   const onChange = () => {
