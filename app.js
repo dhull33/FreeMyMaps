@@ -7,7 +7,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 // Must configure Raven before doing anything else with it
 const Raven = require('raven');
-// require('dotenv').config();
 
 Raven.config(process.env.SENTRY_DSN).install();
 
