@@ -2,6 +2,7 @@
 import 'ol/ol.css';
 import { defaults as defaultControls } from 'ol/control/util';
 import { defaults as defaultInteractions } from 'ol/interaction';
+import Snap from 'ol/interaction/Snap';
 import Map from 'ol/Map';
 import { fromLonLat, transform as Transform } from 'ol/proj';
 import { Icon, Stroke, Style } from 'ol/style';
@@ -222,4 +223,14 @@ $(document).ready(async () => {
   addDrawInteraction(draw, map, selectDrawType.value);
 
   map.addControl(selectYourDrawType);
+  /*
+   ===================================================================
+   Snap Interaction: needs to be added after the draw and modify interactions
+   in order for its map browser event handlers to be fired first
+   =====================================================================
+   */
+  const snap = new Snap({
+    source: layer.getSource()
+  });
+  map.addInteraction(snap);
 });
