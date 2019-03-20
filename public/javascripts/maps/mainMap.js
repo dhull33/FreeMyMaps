@@ -21,6 +21,7 @@ import makeTheseLayers from './mapModules/layers';
 import { selectYourMap, selectYourDrawType } from './mapModules/controls';
 import { createDraw, addDrawInteraction } from './mapModules/draw';
 import { Pops } from './mapModules/popUps';
+import { downloadPNG } from './mapModules/export';
 
 const appId = process.env.HERE_APP_ID;
 const appCode = process.env.HERE_APP_CODE;
@@ -134,6 +135,13 @@ $(document).ready(async () => {
   select.addEventListener('change', onChange);
 
   onChange();
+
+  /*
+   ===================================================================
+   Download as png
+   =====================================================================
+   */
+  // downloadPNG(map, 'export-png');
 
   /*
    * ==============================

@@ -68914,6 +68914,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mapModules_controls__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./mapModules/controls */ "./public/javascripts/maps/mapModules/controls.js");
 /* harmony import */ var _mapModules_draw__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./mapModules/draw */ "./public/javascripts/maps/mapModules/draw.js");
 /* harmony import */ var _mapModules_popUps__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./mapModules/popUps */ "./public/javascripts/maps/mapModules/popUps.js");
+/* harmony import */ var _mapModules_export__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./mapModules/export */ "./public/javascripts/maps/mapModules/export.js");
 /* eslint-disable prefer-destructuring,no-shadow,no-plusplus,no-undef,no-underscore-dangle,prettier/prettier */
 
 
@@ -68927,6 +68928,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // TODO: Display drag and drop data on map
+
 
 
 
@@ -69034,6 +69036,13 @@ $(document).ready(async () => {
 
   select.addEventListener('change', onChange);
   onChange();
+  /*
+   ===================================================================
+   Download as png
+   =====================================================================
+   */
+  // downloadPNG(map, 'export-png');
+
   /*
    * ==============================
    * ======GEOCODER================
@@ -69209,6 +69218,38 @@ const addDrawInteraction = (draw, map, type) => {
   if (type !== 'None') {
     return map.addInteraction(draw);
   }
+};
+
+/***/ }),
+
+/***/ "./public/javascripts/maps/mapModules/export.js":
+/*!******************************************************!*\
+  !*** ./public/javascripts/maps/mapModules/export.js ***!
+  \******************************************************/
+/*! exports provided: downloadPNG */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "downloadPNG", function() { return downloadPNG; });
+/*
+ ===================================================================
+ Export and Download as png
+ =====================================================================
+ */
+const downloadPNG = (map, downloadElementId) => {
+  const download = document.getElementById("".concat(downloadElementId));
+  return download.addEventListener('click', () => {
+    map.once('rendercomplete', event => {
+      console.log(event);
+      const canvas = event.context.canvas;
+      canvas.setAttribute('crossOrigin', 'Anonymous');
+      canvas.toBlob(blob => {
+        saveAs(blob, 'map.png');
+      });
+    });
+    map.renderSync();
+  });
 };
 
 /***/ }),

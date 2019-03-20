@@ -16,8 +16,6 @@ const createNewUser = (req, res) => {
       [userId, hashPassword, username, dateCreated]
     )
     .then((newUser) => {
-      console.log('====CREATING NEW USER====');
-      console.log(newUser);
       return newUser[0];
     })
     .catch((error) => {
