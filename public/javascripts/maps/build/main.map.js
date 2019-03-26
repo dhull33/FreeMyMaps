@@ -69308,8 +69308,10 @@ const downloadGEO = (source, downloadElementId) => {
   const download = document.getElementById("".concat(downloadElementId));
   source.on('change', () => {
     const features = source.getFeatures();
+    console.log(features);
     const json = format.writeFeatures(features);
-    download.href = "data:text/json;charset=utf-8 ".concat(json);
+    console.log(json);
+    download.href = "data:text/json;charset=utf-8, ".concat(json);
   });
 };
 
