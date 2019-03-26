@@ -1,7 +1,6 @@
 /* eslint-disable prefer-destructuring,no-shadow,no-plusplus,no-undef,no-underscore-dangle,prettier/prettier */
 import 'ol/ol.css';
 import { defaults as defaultControls } from 'ol/control/util';
-import { defaults as defaultInteractions } from 'ol/interaction';
 import Snap from 'ol/interaction/Snap';
 import Map from 'ol/Map';
 import { fromLonLat, transform as Transform } from 'ol/proj';
@@ -21,7 +20,7 @@ import makeTheseLayers from './mapModules/layers';
 import { selectYourMap, selectYourDrawType } from './mapModules/controls';
 import { createDraw, addDrawInteraction } from './mapModules/draw';
 import { Pops } from './mapModules/popUps';
-import downloadPNG from './mapModules/export';
+import { downloadPNG, downloadGEO } from './mapModules/export';
 
 const appId = process.env.HERE_APP_ID;
 const appCode = process.env.HERE_APP_CODE;
@@ -135,10 +134,11 @@ $(document).ready(async () => {
 
   /*
    ===================================================================
-   Download as png
+   Download as png & GeoJSON data
    =====================================================================
    */
   downloadPNG(map, 'export-png');
+  downloadGEO(source, 'download-geo');
 
   /*
    * ==============================

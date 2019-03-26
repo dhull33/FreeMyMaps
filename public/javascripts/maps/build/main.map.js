@@ -68942,29 +68942,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ol_ol_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ol/ol.css */ "./node_modules/ol/ol.css");
 /* harmony import */ var ol_ol_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(ol_ol_css__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var ol_control_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ol/control/util */ "./node_modules/ol/control/util.js");
-/* harmony import */ var ol_interaction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ol/interaction */ "./node_modules/ol/interaction.js");
-/* harmony import */ var ol_interaction_Snap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ol/interaction/Snap */ "./node_modules/ol/interaction/Snap.js");
-/* harmony import */ var ol_Map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ol/Map */ "./node_modules/ol/Map.js");
-/* harmony import */ var ol_proj__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ol/proj */ "./node_modules/ol/proj.js");
-/* harmony import */ var ol_style__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ol/style */ "./node_modules/ol/style.js");
-/* harmony import */ var ol_geocoder__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ol-geocoder */ "./node_modules/ol-geocoder/dist/ol-geocoder.js");
-/* harmony import */ var ol_geocoder__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(ol_geocoder__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var ol_Feature__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ol/Feature */ "./node_modules/ol/Feature.js");
-/* harmony import */ var ol_geom_Point__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ol/geom/Point */ "./node_modules/ol/geom/Point.js");
-/* harmony import */ var ol_layer_Vector__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ol/layer/Vector */ "./node_modules/ol/layer/Vector.js");
-/* harmony import */ var ol_source_Vector__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ol/source/Vector */ "./node_modules/ol/source/Vector.js");
-/* harmony import */ var ol_interaction_DragAndDrop__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ol/interaction/DragAndDrop */ "./node_modules/ol/interaction/DragAndDrop.js");
-/* harmony import */ var ol_format__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ol/format */ "./node_modules/ol/format.js");
-/* harmony import */ var ol_control_MousePosition__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ol/control/MousePosition */ "./node_modules/ol/control/MousePosition.js");
-/* harmony import */ var ol_coordinate__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ol/coordinate */ "./node_modules/ol/coordinate.js");
-/* harmony import */ var ol_View__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ol/View */ "./node_modules/ol/View.js");
-/* harmony import */ var _mapModules_layers__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./mapModules/layers */ "./public/javascripts/maps/mapModules/layers.js");
-/* harmony import */ var _mapModules_controls__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./mapModules/controls */ "./public/javascripts/maps/mapModules/controls.js");
-/* harmony import */ var _mapModules_draw__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./mapModules/draw */ "./public/javascripts/maps/mapModules/draw.js");
-/* harmony import */ var _mapModules_popUps__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./mapModules/popUps */ "./public/javascripts/maps/mapModules/popUps.js");
-/* harmony import */ var _mapModules_export__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./mapModules/export */ "./public/javascripts/maps/mapModules/export.js");
+/* harmony import */ var ol_interaction_Snap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ol/interaction/Snap */ "./node_modules/ol/interaction/Snap.js");
+/* harmony import */ var ol_Map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ol/Map */ "./node_modules/ol/Map.js");
+/* harmony import */ var ol_proj__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ol/proj */ "./node_modules/ol/proj.js");
+/* harmony import */ var ol_style__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ol/style */ "./node_modules/ol/style.js");
+/* harmony import */ var ol_geocoder__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ol-geocoder */ "./node_modules/ol-geocoder/dist/ol-geocoder.js");
+/* harmony import */ var ol_geocoder__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(ol_geocoder__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var ol_Feature__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ol/Feature */ "./node_modules/ol/Feature.js");
+/* harmony import */ var ol_geom_Point__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ol/geom/Point */ "./node_modules/ol/geom/Point.js");
+/* harmony import */ var ol_layer_Vector__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ol/layer/Vector */ "./node_modules/ol/layer/Vector.js");
+/* harmony import */ var ol_source_Vector__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ol/source/Vector */ "./node_modules/ol/source/Vector.js");
+/* harmony import */ var ol_interaction_DragAndDrop__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ol/interaction/DragAndDrop */ "./node_modules/ol/interaction/DragAndDrop.js");
+/* harmony import */ var ol_format__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ol/format */ "./node_modules/ol/format.js");
+/* harmony import */ var ol_control_MousePosition__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ol/control/MousePosition */ "./node_modules/ol/control/MousePosition.js");
+/* harmony import */ var ol_coordinate__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ol/coordinate */ "./node_modules/ol/coordinate.js");
+/* harmony import */ var ol_View__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ol/View */ "./node_modules/ol/View.js");
+/* harmony import */ var _mapModules_layers__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./mapModules/layers */ "./public/javascripts/maps/mapModules/layers.js");
+/* harmony import */ var _mapModules_controls__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./mapModules/controls */ "./public/javascripts/maps/mapModules/controls.js");
+/* harmony import */ var _mapModules_draw__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./mapModules/draw */ "./public/javascripts/maps/mapModules/draw.js");
+/* harmony import */ var _mapModules_popUps__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./mapModules/popUps */ "./public/javascripts/maps/mapModules/popUps.js");
+/* harmony import */ var _mapModules_export__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./mapModules/export */ "./public/javascripts/maps/mapModules/export.js");
 /* eslint-disable prefer-destructuring,no-shadow,no-plusplus,no-undef,no-underscore-dangle,prettier/prettier */
-
 
 
 
@@ -69034,13 +69032,13 @@ $(document).ready(async () => {
   }, {
     scheme: 'topo.image'
   }];
-  const coords = Object(ol_proj__WEBPACK_IMPORTED_MODULE_5__["transform"])([-98.569336, 39.774769], 'EPSG:4326', 'EPSG:3857'); // initialize map, layers, and source
+  const coords = Object(ol_proj__WEBPACK_IMPORTED_MODULE_4__["transform"])([-98.569336, 39.774769], 'EPSG:4326', 'EPSG:3857'); // initialize map, layers, and source
 
-  const layers = Object(_mapModules_layers__WEBPACK_IMPORTED_MODULE_17__["default"])(theseAwesomeLayers);
-  const map = new ol_Map__WEBPACK_IMPORTED_MODULE_4__["default"]({
+  const layers = Object(_mapModules_layers__WEBPACK_IMPORTED_MODULE_16__["default"])(theseAwesomeLayers);
+  const map = new ol_Map__WEBPACK_IMPORTED_MODULE_3__["default"]({
     target: 'map',
     layers,
-    view: new ol_View__WEBPACK_IMPORTED_MODULE_16__["default"]({
+    view: new ol_View__WEBPACK_IMPORTED_MODULE_15__["default"]({
       center: coords,
       zoom: 5
     }),
@@ -69050,11 +69048,11 @@ $(document).ready(async () => {
     })
   }); // Create source and layer for user location and drawings
 
-  const source = new ol_source_Vector__WEBPACK_IMPORTED_MODULE_11__["default"]();
-  const layer = new ol_layer_Vector__WEBPACK_IMPORTED_MODULE_10__["default"]({
+  const source = new ol_source_Vector__WEBPACK_IMPORTED_MODULE_10__["default"]();
+  const layer = new ol_layer_Vector__WEBPACK_IMPORTED_MODULE_9__["default"]({
     source,
-    style: new ol_style__WEBPACK_IMPORTED_MODULE_6__["Style"]({
-      stroke: new ol_style__WEBPACK_IMPORTED_MODULE_6__["Stroke"]({
+    style: new ol_style__WEBPACK_IMPORTED_MODULE_5__["Style"]({
+      stroke: new ol_style__WEBPACK_IMPORTED_MODULE_5__["Stroke"]({
         color: 'black',
         width: 2
       })
@@ -69068,7 +69066,7 @@ $(document).ready(async () => {
   */
   // Enables the user to select which map to display on screen
 
-  map.addControl(_mapModules_controls__WEBPACK_IMPORTED_MODULE_18__["selectYourMap"]);
+  map.addControl(_mapModules_controls__WEBPACK_IMPORTED_MODULE_17__["selectYourMap"]);
   const select = document.getElementById('layer-select');
 
   const onChange = () => {
@@ -69083,18 +69081,19 @@ $(document).ready(async () => {
   onChange();
   /*
    ===================================================================
-   Download as png
+   Download as png & GeoJSON data
    =====================================================================
    */
 
-  Object(_mapModules_export__WEBPACK_IMPORTED_MODULE_21__["default"])(map, 'export-png');
+  Object(_mapModules_export__WEBPACK_IMPORTED_MODULE_20__["downloadPNG"])(map, 'export-png');
+  Object(_mapModules_export__WEBPACK_IMPORTED_MODULE_20__["downloadGEO"])(source, 'download-geo');
   /*
    * ==============================
    * ======GEOCODER================
    * ==============================
    */
 
-  const mapGeocoder = new ol_geocoder__WEBPACK_IMPORTED_MODULE_7___default.a('nominatim', {
+  const mapGeocoder = new ol_geocoder__WEBPACK_IMPORTED_MODULE_6___default.a('nominatim', {
     provider: 'osm',
     lang: 'en',
     targetType: 'glass-button',
@@ -69108,7 +69107,7 @@ $(document).ready(async () => {
     const coord = evt.coordinate;
     const address = evt.address; // PopUp from ol-popup
 
-    const geoPop = Object(_mapModules_popUps__WEBPACK_IMPORTED_MODULE_20__["Pops"])('map-marker-popup', 'geoPop');
+    const geoPop = Object(_mapModules_popUps__WEBPACK_IMPORTED_MODULE_19__["Pops"])('map-marker-popup', 'geoPop');
     map.addOverlay(geoPop);
     window.setTimeout(() => {
       geoPop.show(coord, address.formatted);
@@ -69118,12 +69117,12 @@ $(document).ready(async () => {
   // ================================
 
   navigator.geolocation.getCurrentPosition(position => {
-    const coordinates = Object(ol_proj__WEBPACK_IMPORTED_MODULE_5__["fromLonLat"])([position.coords.longitude, position.coords.latitude]);
-    const theirLocation = new ol_Feature__WEBPACK_IMPORTED_MODULE_8__["default"]({
-      geometry: new ol_geom_Point__WEBPACK_IMPORTED_MODULE_9__["default"](coordinates)
+    const coordinates = Object(ol_proj__WEBPACK_IMPORTED_MODULE_4__["fromLonLat"])([position.coords.longitude, position.coords.latitude]);
+    const theirLocation = new ol_Feature__WEBPACK_IMPORTED_MODULE_7__["default"]({
+      geometry: new ol_geom_Point__WEBPACK_IMPORTED_MODULE_8__["default"](coordinates)
     });
-    const locationStyling = new ol_style__WEBPACK_IMPORTED_MODULE_6__["Style"]({
-      image: new ol_style__WEBPACK_IMPORTED_MODULE_6__["Icon"]({
+    const locationStyling = new ol_style__WEBPACK_IMPORTED_MODULE_5__["Style"]({
+      image: new ol_style__WEBPACK_IMPORTED_MODULE_5__["Icon"]({
         src: '/images/icons/person_pin_circle_48px.png'
       })
     });
@@ -69137,9 +69136,9 @@ $(document).ready(async () => {
   */
   // TODO: display information on map
 
-  map.addInteraction(new ol_interaction_DragAndDrop__WEBPACK_IMPORTED_MODULE_12__["default"]({
+  map.addInteraction(new ol_interaction_DragAndDrop__WEBPACK_IMPORTED_MODULE_11__["default"]({
     source,
-    formatConstructors: [ol_format__WEBPACK_IMPORTED_MODULE_13__["GPX"], ol_format__WEBPACK_IMPORTED_MODULE_13__["GeoJSON"], ol_format__WEBPACK_IMPORTED_MODULE_13__["IGC"], ol_format__WEBPACK_IMPORTED_MODULE_13__["KML"], ol_format__WEBPACK_IMPORTED_MODULE_13__["TopoJSON"]]
+    formatConstructors: [ol_format__WEBPACK_IMPORTED_MODULE_12__["GPX"], ol_format__WEBPACK_IMPORTED_MODULE_12__["GeoJSON"], ol_format__WEBPACK_IMPORTED_MODULE_12__["IGC"], ol_format__WEBPACK_IMPORTED_MODULE_12__["KML"], ol_format__WEBPACK_IMPORTED_MODULE_12__["TopoJSON"]]
   }));
   /*
    ===================================================================
@@ -69147,8 +69146,8 @@ $(document).ready(async () => {
    =====================================================================
    */
 
-  const mousePositionControl = new ol_control_MousePosition__WEBPACK_IMPORTED_MODULE_14__["default"]({
-    coordinateFormat: Object(ol_coordinate__WEBPACK_IMPORTED_MODULE_15__["createStringXY"])(4),
+  const mousePositionControl = new ol_control_MousePosition__WEBPACK_IMPORTED_MODULE_13__["default"]({
+    coordinateFormat: Object(ol_coordinate__WEBPACK_IMPORTED_MODULE_14__["createStringXY"])(4),
     projection: 'EPSG:4326',
     undefinedHTML: ''
   });
@@ -69161,16 +69160,16 @@ $(document).ready(async () => {
    */
 
   const selectDrawType = document.getElementById('draw-type');
-  let draw = Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_19__["createDraw"])(source, selectDrawType);
+  let draw = Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_18__["createDraw"])(source, selectDrawType);
 
   selectDrawType.onchange = () => {
     map.removeInteraction(draw);
-    draw = Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_19__["createDraw"])(source, selectDrawType);
-    Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_19__["addDrawInteraction"])(draw, map, selectDrawType.value);
+    draw = Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_18__["createDraw"])(source, selectDrawType);
+    Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_18__["addDrawInteraction"])(draw, map, selectDrawType.value);
   };
 
-  Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_19__["addDrawInteraction"])(draw, map, selectDrawType.value);
-  map.addControl(_mapModules_controls__WEBPACK_IMPORTED_MODULE_18__["selectYourDrawType"]);
+  Object(_mapModules_draw__WEBPACK_IMPORTED_MODULE_18__["addDrawInteraction"])(draw, map, selectDrawType.value);
+  map.addControl(_mapModules_controls__WEBPACK_IMPORTED_MODULE_17__["selectYourDrawType"]);
   /*
    ===================================================================
    Snap Interaction: needs to be added after the draw and modify interactions
@@ -69178,7 +69177,7 @@ $(document).ready(async () => {
    =====================================================================
    */
 
-  const snap = new ol_interaction_Snap__WEBPACK_IMPORTED_MODULE_3__["default"]({
+  const snap = new ol_interaction_Snap__WEBPACK_IMPORTED_MODULE_2__["default"]({
     source: layer.getSource()
   });
   map.addInteraction(snap);
@@ -69271,20 +69270,24 @@ const addDrawInteraction = (draw, map, type) => {
 /*!******************************************************!*\
   !*** ./public/javascripts/maps/mapModules/export.js ***!
   \******************************************************/
-/*! exports provided: default */
+/*! exports provided: downloadPNG, downloadGEO */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "downloadPNG", function() { return downloadPNG; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "downloadGEO", function() { return downloadGEO; });
 /* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! file-saver */ "./node_modules/file-saver/dist/FileSaver.min.js");
 /* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(file_saver__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var ol_format__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ol/format */ "./node_modules/ol/format.js");
 /*
  ===================================================================
  Export and Download as png
  =====================================================================
  */
 
-/* harmony default export */ __webpack_exports__["default"] = ((map, downloadElementId) => {
+
+const downloadPNG = (map, downloadElementId) => {
   const download = document.getElementById("".concat(downloadElementId));
   return download.addEventListener('click', () => {
     map.once('rendercomplete', event => {
@@ -69297,7 +69300,18 @@ __webpack_require__.r(__webpack_exports__);
     });
     map.renderSync();
   });
-});
+};
+const downloadGEO = (source, downloadElementId) => {
+  const format = new ol_format__WEBPACK_IMPORTED_MODULE_1__["GeoJSON"]({
+    featureProjection: 'EPSG: 3857'
+  });
+  const download = document.getElementById("".concat(downloadElementId));
+  source.on('change', () => {
+    const features = source.getFeatures();
+    const json = format.writeFeatures(features);
+    download.href = "data:text/json;charset=utf-8 ".concat(json);
+  });
+};
 
 /***/ }),
 
