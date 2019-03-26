@@ -69038,9 +69038,6 @@ $(document).ready(async () => {
 
   const layers = Object(_mapModules_layers__WEBPACK_IMPORTED_MODULE_17__["default"])(theseAwesomeLayers);
   const map = new ol_Map__WEBPACK_IMPORTED_MODULE_4__["default"]({
-    interactions: Object(ol_interaction__WEBPACK_IMPORTED_MODULE_2__["defaults"])({
-      onFocusOnly: true
-    }),
     target: 'map',
     layers,
     view: new ol_View__WEBPACK_IMPORTED_MODULE_16__["default"]({
@@ -69286,7 +69283,6 @@ __webpack_require__.r(__webpack_exports__);
  Export and Download as png
  =====================================================================
  */
- // import toBlob from 'canvas-toBlob';
 
 /* harmony default export */ __webpack_exports__["default"] = ((map, downloadElementId) => {
   const download = document.getElementById("".concat(downloadElementId));

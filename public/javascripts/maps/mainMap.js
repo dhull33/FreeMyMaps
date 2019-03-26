@@ -87,9 +87,6 @@ $(document).ready(async () => {
   const layers = makeTheseLayers(theseAwesomeLayers);
 
   const map = new Map({
-    interactions: defaultInteractions({
-      onFocusOnly: true
-    }),
     target: 'map',
     layers,
     view: new View({
