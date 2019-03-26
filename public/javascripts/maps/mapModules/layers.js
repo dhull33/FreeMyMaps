@@ -29,7 +29,8 @@ export default (myLayers) => {
           url: createURL(urlTpl, layerDesc),
           attributions:
             `Map Tiles &copy; ${new Date().getFullYear()} ` +
-            `<a href="http://developer.here.com">HERE</a>`
+            `<a href="http://developer.here.com">HERE</a>`,
+          crossOrigin: 'Anonymous'
         })
       })
     );
@@ -44,7 +45,8 @@ export default (myLayers) => {
           'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}',
         attributions:
           `Map Tiles &copy; ${new Date().getFullYear()} ` +
-          `<a href="https://viewer.nationalmap.gov/launch">The National Map</a>`
+          `<a href="https://viewer.nationalmap.gov/launch">The National Map</a>`,
+        crossOrigin: 'Anonymous'
       })
     })
   );
@@ -57,7 +59,8 @@ export default (myLayers) => {
           'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryTopo/MapServer/tile/{z}/{y}/{x}',
         attributions:
           `Map Tiles &copy; ${new Date().getFullYear()} ` +
-          `<a href="https://viewer.nationalmap.gov/launch">The National Map</a>`
+          `<a href="https://viewer.nationalmap.gov/launch">The National Map</a>`,
+        crossOrigin: 'Anonymous'
       })
     })
   );
