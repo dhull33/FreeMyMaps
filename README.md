@@ -25,7 +25,9 @@ https://freemymaps.com
    P.S. check out this fantastic example that helped me quite a bit: https://openlayers.org/en/latest/examples/here-maps.html
 
 2. OSM Geocoder
+
    - Uses Open Street Map Data and [ol-geocoder](https://github.com/jonataswalker/ol-geocoder)
+
 3. Geolocation
 
    - It's surprisingly easy to get someone's location. The following code is all that is needed (public/javascripts/maps/mainMap.js line 360):
@@ -46,15 +48,22 @@ https://freemymaps.com
 
 5. Accounts
 
-- Can create an account with a unique username
+   - Can create an account with a unique username
+
+6. Download
+
+   - As a png image
+   - GeoJSON data
 
 ## Features Soon to Be Added
 
 1. Distance and Area estimation
+
    - Distance Units:
      - centimeters, meters, kilometers, inches, feet, miles
    - Area Units
      - centimeters^2, meters^2, kilometers^2, inches^2, feet^2, miles^2, acres
+
 2. Editing
    - Erase anything that has been added to the map
    - Change line and fill colors
@@ -65,8 +74,6 @@ https://freemymaps.com
 3. Drag and Drop GPX, GeoJSON, IGC, KML, or TopoJSON data
    - Will be displayed over the current map
 4. Download and Saving
-   - As a png image
-   - or in GeoJSON format
    - Automatic saving to your account
 5. Accounts
    - You will be able to create a free account with:
