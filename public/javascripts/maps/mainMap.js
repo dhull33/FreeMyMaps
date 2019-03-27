@@ -4,7 +4,7 @@ import { defaults as defaultControls } from 'ol/control/util';
 import Snap from 'ol/interaction/Snap';
 import Map from 'ol/Map';
 import { fromLonLat, transform as Transform } from 'ol/proj';
-import { Icon, Stroke, Style } from 'ol/style';
+import { Icon, Stroke, Style, Fill } from 'ol/style';
 import Geocoder from 'ol-geocoder';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
@@ -21,6 +21,7 @@ import { selectYourMap, selectYourDrawType } from './mapModules/controls';
 import { createDraw, addDrawInteraction } from './mapModules/draw';
 import { Pops } from './mapModules/popUps';
 import { downloadPNG, downloadGEO } from './mapModules/export';
+import { getColor } from './mapModules/colors';
 
 const appId = process.env.HERE_APP_ID;
 const appCode = process.env.HERE_APP_CODE;
@@ -102,12 +103,17 @@ $(document).ready(async () => {
   const source = new VectorSource();
   const layer = new VectorLayer({
     source,
-    style: new Style({
-      stroke: new Stroke({
-        color: 'black',
-        width: 2
-      })
-    })
+    style: (feature) => {
+      return new Style({
+        stroke: new Stroke({
+          color: 'black',
+          width: 1.5
+        }),
+        fill: new Fill({
+          color: getColor(feature)
+        })
+      });
+    }
   });
   map.addLayer(layer);
 

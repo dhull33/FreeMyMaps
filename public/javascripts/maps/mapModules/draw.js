@@ -1,5 +1,14 @@
 import Draw from 'ol/interaction/Draw';
 
+// TODO: Can't set the fill of a polygon as it is being drawn. Have to do it afterwards.
+// const style = (feature) => {
+//   return new Style({
+//     fill: new Fill({
+//       color: getColor(feature)
+//     })
+//   });
+// };
+
 export const createDraw = (source, selectDrawType) => {
   let drawing;
   const drawValue = selectDrawType.value;
