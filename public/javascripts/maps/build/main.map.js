@@ -69553,14 +69553,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createDraw", function() { return createDraw; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addDrawInteraction", function() { return addDrawInteraction; });
 /* harmony import */ var ol_interaction_Draw__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ol/interaction/Draw */ "./node_modules/ol/interaction/Draw.js");
- // TODO: Can't set the fill of a polygon as it is being drawn. Have to do it afterwards.
-// const style = (feature) => {
-//   return new Style({
-//     fill: new Fill({
-//       color: getColor(feature)
-//     })
-//   });
-// };
 
 const createDraw = (source, selectDrawType) => {
   let drawing;
