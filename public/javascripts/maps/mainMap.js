@@ -119,11 +119,12 @@ $(document).ready(async () => {
 
   /*
  ============================
- CHANGES THE SELECTED LAYER
+ CHANGES THE SELECTED MAP LAYER
  ===========================
  */
 
-  // Enables the user to select which map to display on screen
+  // Enables the user to select which map to display
+  // mapModules/controls.js
   map.addControl(selectYourMap);
 
   const select = document.getElementById('layer-select');
