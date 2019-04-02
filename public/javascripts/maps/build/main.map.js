@@ -69343,10 +69343,11 @@ $(document).ready(async () => {
   map.addLayer(layer);
   /*
   ============================
-  CHANGES THE SELECTED LAYER
+  CHANGES THE SELECTED MAP LAYER
   ===========================
   */
-  // Enables the user to select which map to display on screen
+  // Enables the user to select which map to display
+  // mapModules/controls.js
 
   map.addControl(_mapModules_controls__WEBPACK_IMPORTED_MODULE_17__["selectYourMap"]);
   const select = document.getElementById('layer-select');

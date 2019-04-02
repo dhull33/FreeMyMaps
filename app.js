@@ -63,7 +63,7 @@ Raven.context(() => {
   const indexRouter = require('./routes/index');
   const signUpRouter = require('./routes/authentication/signup');
   const loginRouter = require('./routes/authentication/login');
-  const homeRouter = require('./routes/home');
+  const homeRouter = require('./routes/user/home');
   const logoutRouter = require('./routes/authentication/logout');
 
   app.use('/', indexRouter);

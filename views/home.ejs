@@ -33,10 +33,10 @@
 
 <!--Side navigation -->
 <!--<div class="sidenav">-->
-  <!--<a href="#">About</a>-->
-  <!--<a href="#">Services</a>-->
-  <!--<a href="#">Clients</a>-->
-  <!--<a href="#">Contact</a>-->
+<!--<a href="#">About</a>-->
+<!--<a href="#">Services</a>-->
+<!--<a href="#">Clients</a>-->
+<!--<a href="#">Contact</a>-->
 <!--</div>-->
 
 <!-- Page content -->
@@ -49,39 +49,50 @@
   <div id="popup"></div>
 
   <!--Selectors for Map Features -->
-    <!--Changes Type of Map-->
-    <div id="select-map" class="float-left">
-      <label for="layer-select" style="color: white;">Map</label>
-      <select id="layer-select">
-        <option value="normal.day" selected>Normal Day</option>
-        <option value="normal.day.transit">Normal Day Transit</option>
-        <option value="pedestrian.day">Pedestrian Day</option>
-        <option value="hybrid.day">Hybrid Day</option>
-        <option value="terrain.day">Terrain Day</option>
-        <option value="satellite.day">Satellite Day</option>
-        <option value="topo.image">Topographical w/ Satellite</option>
-        <option value="topo.day">Topographical</option>
-      </select>
-    </div>
+  <!--Changes Type of Map-->
+  <div id="select-map" class="float-left">
+    <label for="layer-select" style="color: white;">Map</label>
+    <select id="layer-select">
+      <option value="normal.day" selected>Normal Day</option>
+      <option value="normal.day.transit">Normal Day Transit</option>
+      <option value="pedestrian.day">Pedestrian Day</option>
+      <option value="hybrid.day">Hybrid Day</option>
+      <option value="terrain.day">Terrain Day</option>
+      <option value="satellite.day">Satellite Day</option>
+      <option value="topo.image">Topographical w/ Satellite</option>
+      <option value="topo.day">Topographical</option>
+    </select>
+  </div>
 
-    <!-- Changes Drawing Type -->
-    <div id="draw-geometry" class="">
-      <label for="draw-type" style="color: white;">Draw</label>
-      <select id="draw-type">
-        <option value="Circle">Circle</option>
-        <option value="LineString">LineString</option>
-        <option value="Polygon">Polygon</option>
-        <option value="FreeLine">Freehand</option>
-        <option value="FreePoly">Freehand Polygon</option>
-        <option value="None" selected>None</option>
-      </select>
-    </div>
+  <!-- Changes Drawing Type -->
+  <div id="draw-geometry">
+    <label for="draw-type" style="color: white;">Draw</label>
+    <select id="draw-type">
+      <option value="Circle">Circle</option>
+      <option value="LineString">LineString</option>
+      <option value="Polygon">Polygon</option>
+      <option value="FreeLine">Freehand</option>
+      <option value="FreePoly">Freehand Polygon</option>
+      <option value="None" selected>None</option>
+    </select>
+  </div>
 
-  <button id="saveMap" type="button" class="btn btn-secondary float-right">Save</button>
+  <!-- SAVE'S USERS MAP  -->
+  <button id="saveMap" type="button" class="btn btn-secondary float-right">
+    Save
+  </button>
+
+  <!-- DONWLOADS -->
+  <div id="download" class="float-right">
+    <!-- Downloads current map viewport as png -->
+    <a id="export-png" class="btn btn-outline-light" role="button" style="color: white"><i class="fas fa-download"  style="color: white"></i> Download PNG</a>
+    <!-- Download GeoJSON data -->
+    <a id="download-geo" class="btn btn-outline-light" style="color: white" download="features.json"><i class="fas fa-download"  style="color: white"></i> Download GeoJSON</a>
+  </div>
+
   </div>
 
 <% include partials/footer.ejs %>
-
 
 <script type="module" src="/javascripts/maps/build/main.map.js"></script>
 
