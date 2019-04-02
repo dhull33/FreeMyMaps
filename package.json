@@ -103,7 +103,7 @@
     "webpack-dev-middleware": "^3.6.1"
   },
   "engines": {
-    "node": "10.14.x"
+    "node": "10.15.x"
   },
   "husky": {
     "hooks": {
