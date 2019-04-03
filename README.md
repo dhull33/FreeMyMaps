@@ -67,7 +67,7 @@ https://freemymaps.com
 2. Editing
    - Erase anything that has been added to the map
    - Change line and fill colors
-   - Drag anything added to the map by you
+   - Drag features that were added to the map (such as markers/pins, drawings, etc.)
    - Modify lines and polygons
      - I like to think of this as 'stretching' or 'compressing' the feature
      - If you have a distance or area estimation attached to the modified line/polygon, that will also change
