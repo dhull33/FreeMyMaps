@@ -23,8 +23,8 @@ import { Pops } from './mapModules/popUps';
 import { downloadPNG, downloadGEO } from './mapModules/export';
 import { getColor } from './mapModules/colors';
 
-const appId = process.env.HERE_APP_ID;
-const appCode = process.env.HERE_APP_CODE;
+const appId = 'BLd5jWBS0s57akvRPg97';
+const appCode = 'hdgWeUmZ_Tqb2a2ymt3YbA';
 
 // eslint-disable-next-line consistent-return
 $(document).ready(async () => {
