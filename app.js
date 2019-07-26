@@ -1,4 +1,3 @@
-/* eslint-disable global-require,prettier/prettier */
 // configures sqreen in production mode
 require('dotenv').config();
 
