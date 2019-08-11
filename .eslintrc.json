@@ -15,6 +15,6 @@
     "arrow-body-style": ["error", "always"],
     "func-style": ["error", "expression", { "allowArrowFunctions": true }],
     "block-scoped-var": "error",
-    "np-plusplus": { "allowForLoopAfterthoughts": true }
+    "no-plusplus": "error"
   }
 }

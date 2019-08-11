@@ -46,6 +46,7 @@ $(document).ready(async () => {
       app_id: appId,
       app_code: appCode
     },
+
     {
       base: 'base',
       type: 'maptile',
