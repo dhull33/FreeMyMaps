@@ -64,7 +64,7 @@
     "source-map-loader": "^0.2.4",
     "sqreen": "^1.32.0",
     "uniqid": "^5.0.3",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
