@@ -1,6 +1,6 @@
 # FreeMyMaps
 
-[![dependencies Status](https://david-dm.org/dhull33/FreeMyMaps.svg)](https://david-dm.org/dhull33/FreeMyMaps)
+[![Known Vulnerabilities](https://snyk.io//test/github/dhull33/FreeMyMaps/badge.svg?targetFile=package.json)](https://snyk.io//test/github/dhull33/FreeMyMaps?targetFile=package.json)[![dependencies Status](https://david-dm.org/dhull33/FreeMyMaps.svg)](https://david-dm.org/dhull33/FreeMyMaps)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdhull33%2FFreeMyMaps.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdhull33%2FFreeMyMaps?ref=badge_shield)
 
 A completely free mapping application that you can use or modify for your own app! What could be better than that? I'll let you decide!
