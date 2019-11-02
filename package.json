@@ -43,7 +43,6 @@
     "json-loader": "^0.5.7",
     "moment": "^2.24.0",
     "morgan": "~1.9.1",
-    "ngrok": "^3.2.5",
     "numeral": "^2.0.6",
     "ol": "^5.3.3",
     "ol-geocoder": "^4.0.0",
