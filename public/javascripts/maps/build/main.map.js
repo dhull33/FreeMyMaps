@@ -212,13 +212,9 @@ function createColormap (spec) {
     /*
      * Default Options
      */
-    var indicies, rgba, fromrgba, torgba,
+    var indicies, fromrgba, torgba,
         nsteps, cmap, colormap, format,
-        nshades, colors, alpha, index, i,
-        r = [],
-        g = [],
-        b = [],
-        a = [];
+        nshades, colors, alpha, i;
 
     if ( !spec ) spec = {};
 
@@ -244,7 +240,7 @@ function createColormap (spec) {
         throw Error('unsupported colormap option', colormap);
     }
 
-    if (cmap.length > nshades) {
+    if (cmap.length > nshades + 1) {
         throw new Error(
             colormap+' map requires nshades to be at least size '+cmap.length
         );
@@ -347,109 +343,118 @@ function rgbaStr (rgba) {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js!./node_modules/ol/ol.css":
-/*!**********************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/ol/ol.css ***!
-  \**********************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/ol/ol.css":
+/*!**********************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/ol/ol.css ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(/*! ../css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
+exports = module.exports = __webpack_require__(/*! ../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
+// Module
 exports.push([module.i, ".ol-box {\n  box-sizing: border-box;\n  border-radius: 2px;\n  border: 2px solid blue;\n}\n\n.ol-mouse-position {\n  top: 8px;\n  right: 8px;\n  position: absolute;\n}\n\n.ol-scale-line {\n  background: rgba(0,60,136,0.3);\n  border-radius: 4px;\n  bottom: 8px;\n  left: 8px;\n  padding: 2px;\n  position: absolute;\n}\n.ol-scale-line-inner {\n  border: 1px solid #eee;\n  border-top: none;\n  color: #eee;\n  font-size: 10px;\n  text-align: center;\n  margin: 1px;\n  will-change: contents, width;\n}\n.ol-overlay-container {\n  will-change: left,right,top,bottom;\n}\n\n.ol-unsupported {\n  display: none;\n}\n.ol-viewport, .ol-unselectable {\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -webkit-tap-highlight-color: rgba(0,0,0,0);\n}\n.ol-selectable {\n  -webkit-touch-callout: default;\n  -webkit-user-select: text;\n  -moz-user-select: text;\n  -ms-user-select: text;\n  user-select: text;\n}\n.ol-grabbing {\n  cursor: -webkit-grabbing;\n  cursor: -moz-grabbing;\n  cursor: grabbing;\n}\n.ol-grab {\n  cursor: move;\n  cursor: -webkit-grab;\n  cursor: -moz-grab;\n  cursor: grab;\n}\n.ol-control {\n  position: absolute;\n  background-color: rgba(255,255,255,0.4);\n  border-radius: 4px;\n  padding: 2px;\n}\n.ol-control:hover {\n  background-color: rgba(255,255,255,0.6);\n}\n.ol-zoom {\n  top: .5em;\n  left: .5em;\n}\n.ol-rotate {\n  top: .5em;\n  right: .5em;\n  transition: opacity .25s linear, visibility 0s linear;\n}\n.ol-rotate.ol-hidden {\n  opacity: 0;\n  visibility: hidden;\n  transition: opacity .25s linear, visibility 0s linear .25s;\n}\n.ol-zoom-extent {\n  top: 4.643em;\n  left: .5em;\n}\n.ol-full-screen {\n  right: .5em;\n  top: .5em;\n}\n@media print {\n  .ol-control {\n    display: none;\n  }\n}\n\n.ol-control button {\n  display: block;\n  margin: 1px;\n  padding: 0;\n  color: white;\n  font-size: 1.14em;\n  font-weight: bold;\n  text-decoration: none;\n  text-align: center;\n  height: 1.375em;\n  width: 1.375em;\n  line-height: .4em;\n  background-color: rgba(0,60,136,0.5);\n  border: none;\n  border-radius: 2px;\n}\n.ol-control button::-moz-focus-inner {\n  border: none;\n  padding: 0;\n}\n.ol-zoom-extent button {\n  line-height: 1.4em;\n}\n.ol-compass {\n  display: block;\n  font-weight: normal;\n  font-size: 1.2em;\n  will-change: transform;\n}\n.ol-touch .ol-control button {\n  font-size: 1.5em;\n}\n.ol-touch .ol-zoom-extent {\n  top: 5.5em;\n}\n.ol-control button:hover,\n.ol-control button:focus {\n  text-decoration: none;\n  background-color: rgba(0,60,136,0.7);\n}\n.ol-zoom .ol-zoom-in {\n  border-radius: 2px 2px 0 0;\n}\n.ol-zoom .ol-zoom-out {\n  border-radius: 0 0 2px 2px;\n}\n\n\n.ol-attribution {\n  text-align: right;\n  bottom: .5em;\n  right: .5em;\n  max-width: calc(100% - 1.3em);\n}\n\n.ol-attribution ul {\n  margin: 0;\n  padding: 0 .5em;\n  font-size: .7rem;\n  line-height: 1.375em;\n  color: #000;\n  text-shadow: 0 0 2px #fff;\n}\n.ol-attribution li {\n  display: inline;\n  list-style: none;\n  line-height: inherit;\n}\n.ol-attribution li:not(:last-child):after {\n  content: \" \";\n}\n.ol-attribution img {\n  max-height: 2em;\n  max-width: inherit;\n  vertical-align: middle;\n}\n.ol-attribution ul, .ol-attribution button {\n  display: inline-block;\n}\n.ol-attribution.ol-collapsed ul {\n  display: none;\n}\n.ol-attribution:not(.ol-collapsed) {\n  background: rgba(255,255,255,0.8);\n}\n.ol-attribution.ol-uncollapsible {\n  bottom: 0;\n  right: 0;\n  border-radius: 4px 0 0;\n  height: 1.1em;\n  line-height: 1em;\n}\n.ol-attribution.ol-uncollapsible img {\n  margin-top: -.2em;\n  max-height: 1.6em;\n}\n.ol-attribution.ol-uncollapsible button {\n  display: none;\n}\n\n.ol-zoomslider {\n  top: 4.5em;\n  left: .5em;\n  height: 200px;\n}\n.ol-zoomslider button {\n  position: relative;\n  height: 10px;\n}\n\n.ol-touch .ol-zoomslider {\n  top: 5.5em;\n}\n\n.ol-overviewmap {\n  left: 0.5em;\n  bottom: 0.5em;\n}\n.ol-overviewmap.ol-uncollapsible {\n  bottom: 0;\n  left: 0;\n  border-radius: 0 4px 0 0;\n}\n.ol-overviewmap .ol-overviewmap-map,\n.ol-overviewmap button {\n  display: inline-block;\n}\n.ol-overviewmap .ol-overviewmap-map {\n  border: 1px solid #7b98bc;\n  height: 150px;\n  margin: 2px;\n  width: 150px;\n}\n.ol-overviewmap:not(.ol-collapsed) button{\n  bottom: 1px;\n  left: 2px;\n  position: absolute;\n}\n.ol-overviewmap.ol-collapsed .ol-overviewmap-map,\n.ol-overviewmap.ol-uncollapsible button {\n  display: none;\n}\n.ol-overviewmap:not(.ol-collapsed) {\n  background: rgba(255,255,255,0.8);\n}\n.ol-overviewmap-box {\n  border: 2px dotted rgba(0,60,136,0.7);\n}\n\n.ol-overviewmap .ol-overviewmap-box:hover {\n  cursor: move;\n}\n", ""]);
-
-// exports
 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/lib/css-base.js":
-/*!*************************************************!*\
-  !*** ./node_modules/css-loader/lib/css-base.js ***!
-  \*************************************************/
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 /*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
 */
 // css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
+// eslint-disable-next-line func-names
+module.exports = function (useSourceMap) {
+  var list = []; // return the list of modules as css string
 
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item, useSourceMap);
 
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
+      if (item[2]) {
+        return "@media ".concat(item[2], "{").concat(content, "}");
+      }
+
+      return content;
+    }).join('');
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery) {
+    if (typeof modules === 'string') {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, '']];
+    }
+
+    var alreadyImportedModules = {};
+
+    for (var i = 0; i < this.length; i++) {
+      // eslint-disable-next-line prefer-destructuring
+      var id = this[i][0];
+
+      if (id != null) {
+        alreadyImportedModules[id] = true;
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = modules[_i]; // skip already imported module
+      // this implementation is not 100% perfect for weird media query combinations
+      // when a module is imported multiple times with different media queries.
+      // I hope this will never occur (Hey this way we have smaller bundles)
+
+      if (item[0] == null || !alreadyImportedModules[item[0]]) {
+        if (mediaQuery && !item[2]) {
+          item[2] = mediaQuery;
+        } else if (mediaQuery) {
+          item[2] = "(".concat(item[2], ") and (").concat(mediaQuery, ")");
+        }
+
+        list.push(item);
+      }
+    }
+  };
+
+  return list;
 };
 
 function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
+  var content = item[1] || ''; // eslint-disable-next-line prefer-destructuring
 
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
+  var cssMapping = item[3];
 
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
+  if (!cssMapping) {
+    return content;
+  }
 
-	return [content].join('\n');
-}
+  if (useSourceMap && typeof btoa === 'function') {
+    var sourceMapping = toComment(cssMapping);
+    var sourceURLs = cssMapping.sources.map(function (source) {
+      return "/*# sourceURL=".concat(cssMapping.sourceRoot).concat(source, " */");
+    });
+    return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+  }
 
-// Adapted from convert-source-map (MIT)
+  return [content].join('\n');
+} // Adapted from convert-source-map (MIT)
+
+
 function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
+  // eslint-disable-next-line no-undef
+  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+  var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
+  return "/*# ".concat(data, " */");
 }
-
 
 /***/ }),
 
@@ -463,7 +468,7 @@ function toComment(sourceMap) {
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(a,b){if(true)!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (b),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else {}})(this,function(){"use strict";function b(a,b){return"undefined"==typeof b?b={autoBom:!1}:"object"!=typeof b&&(console.warn("Deprecated: Expected third argument to be a object"),b={autoBom:!b}),b.autoBom&&/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(a.type)?new Blob(["\uFEFF",a],{type:a.type}):a}function c(b,c,d){var e=new XMLHttpRequest;e.open("GET",b),e.responseType="blob",e.onload=function(){a(e.response,c,d)},e.onerror=function(){console.error("could not download file")},e.send()}function d(a){var b=new XMLHttpRequest;return b.open("HEAD",a,!1),b.send(),200<=b.status&&299>=b.status}function e(a){try{a.dispatchEvent(new MouseEvent("click"))}catch(c){var b=document.createEvent("MouseEvents");b.initMouseEvent("click",!0,!0,window,0,0,0,80,20,!1,!1,!1,!1,0,null),a.dispatchEvent(b)}}var f="object"==typeof window&&window.window===window?window:"object"==typeof self&&self.self===self?self:"object"==typeof global&&global.global===global?global:void 0,a=f.saveAs||("object"!=typeof window||window!==f?function(){}:"download"in HTMLAnchorElement.prototype?function(b,g,h){var i=f.URL||f.webkitURL,j=document.createElement("a");g=g||b.name||"download",j.download=g,j.rel="noopener","string"==typeof b?(j.href=b,j.origin===location.origin?e(j):d(j.href)?c(b,g,h):e(j,j.target="_blank")):(j.href=i.createObjectURL(b),setTimeout(function(){i.revokeObjectURL(j.href)},4E4),setTimeout(function(){e(j)},0))}:"msSaveOrOpenBlob"in navigator?function(f,g,h){if(g=g||f.name||"download","string"!=typeof f)navigator.msSaveOrOpenBlob(b(f,h),g);else if(d(f))c(f,g,h);else{var i=document.createElement("a");i.href=f,i.target="_blank",setTimeout(function(){e(i)})}}:function(a,b,d,e){if(e=e||open("","_blank"),e&&(e.document.title=e.document.body.innerText="downloading..."),"string"==typeof a)return c(a,b,d);var g="application/octet-stream"===a.type,h=/constructor/i.test(f.HTMLElement)||f.safari,i=/CriOS\/[\d]+/.test(navigator.userAgent);if((i||g&&h)&&"object"==typeof FileReader){var j=new FileReader;j.onloadend=function(){var a=j.result;a=i?a:a.replace(/^data:[^;]*;/,"data:attachment/file;"),e?e.location.href=a:location=a,e=null},j.readAsDataURL(a)}else{var k=f.URL||f.webkitURL,l=k.createObjectURL(a);e?e.location=l:location.href=l,e=null,setTimeout(function(){k.revokeObjectURL(l)},4E4)}});f.saveAs=a.saveAs=a, true&&(module.exports=a)});
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else {}})(this,function(){"use strict";function b(a,b){return"undefined"==typeof b?b={autoBom:!1}:"object"!=typeof b&&(console.warn("Deprecated: Expected third argument to be a object"),b={autoBom:!b}),b.autoBom&&/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(a.type)?new Blob(["\uFEFF",a],{type:a.type}):a}function c(b,c,d){var e=new XMLHttpRequest;e.open("GET",b),e.responseType="blob",e.onload=function(){a(e.response,c,d)},e.onerror=function(){console.error("could not download file")},e.send()}function d(a){var b=new XMLHttpRequest;b.open("HEAD",a,!1);try{b.send()}catch(a){}return 200<=b.status&&299>=b.status}function e(a){try{a.dispatchEvent(new MouseEvent("click"))}catch(c){var b=document.createEvent("MouseEvents");b.initMouseEvent("click",!0,!0,window,0,0,0,80,20,!1,!1,!1,!1,0,null),a.dispatchEvent(b)}}var f="object"==typeof window&&window.window===window?window:"object"==typeof self&&self.self===self?self:"object"==typeof global&&global.global===global?global:void 0,a=f.saveAs||("object"!=typeof window||window!==f?function(){}:"download"in HTMLAnchorElement.prototype?function(b,g,h){var i=f.URL||f.webkitURL,j=document.createElement("a");g=g||b.name||"download",j.download=g,j.rel="noopener","string"==typeof b?(j.href=b,j.origin===location.origin?e(j):d(j.href)?c(b,g,h):e(j,j.target="_blank")):(j.href=i.createObjectURL(b),setTimeout(function(){i.revokeObjectURL(j.href)},4E4),setTimeout(function(){e(j)},0))}:"msSaveOrOpenBlob"in navigator?function(f,g,h){if(g=g||f.name||"download","string"!=typeof f)navigator.msSaveOrOpenBlob(b(f,h),g);else if(d(f))c(f,g,h);else{var i=document.createElement("a");i.href=f,i.target="_blank",setTimeout(function(){e(i)})}}:function(a,b,d,e){if(e=e||open("","_blank"),e&&(e.document.title=e.document.body.innerText="downloading..."),"string"==typeof a)return c(a,b,d);var g="application/octet-stream"===a.type,h=/constructor/i.test(f.HTMLElement)||f.safari,i=/CriOS\/[\d]+/.test(navigator.userAgent);if((i||g&&h)&&"object"==typeof FileReader){var j=new FileReader;j.onloadend=function(){var a=j.result;a=i?a:a.replace(/^data:[^;]*;/,"data:attachment/file;"),e?e.location.href=a:location=a,e=null},j.readAsDataURL(a)}else{var k=f.URL||f.webkitURL,l=k.createObjectURL(a);e?e.location=l:location.href=l,e=null,setTimeout(function(){k.revokeObjectURL(l)},4E4)}});f.saveAs=a.saveAs=a, true&&(module.exports=a)});
 
 //# sourceMappingURL=FileSaver.min.js.map
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
@@ -587,12 +592,12 @@ module.exports = lerp
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
- * ol-geocoder - v3.2.0
+ * ol-geocoder - v4.0.0
  * A geocoder extension for OpenLayers.
  * https://github.com/jonataswalker/ol-geocoder
- * Built: Sat Jul 28 2018 15:24:01 GMT-0300 (Brasilia Standard Time)
+ * Built: Wed Oct 09 2019 11:36:42 GMT-0300 (Brasilia Standard Time)
  */
-!function(e,t){ true?module.exports=t(__webpack_require__(/*! ol/layer/Vector */ "./node_modules/ol/layer/Vector.js"),__webpack_require__(/*! ol/source/Vector */ "./node_modules/ol/source/Vector.js"),__webpack_require__(/*! ol/geom/Point */ "./node_modules/ol/geom/Point.js"),__webpack_require__(/*! ol/Feature */ "./node_modules/ol/Feature.js"),__webpack_require__(/*! ol/proj */ "./node_modules/ol/proj.js"),__webpack_require__(/*! ol/control/Control */ "./node_modules/ol/control/Control.js"),__webpack_require__(/*! ol/style/Style */ "./node_modules/ol/style/Style.js"),__webpack_require__(/*! ol/style/Icon */ "./node_modules/ol/style/Icon.js")):undefined}(this,function(e,t,s,n,r,o,a,i){"use strict";e=e&&e.hasOwnProperty("default")?e.default:e,t=t&&t.hasOwnProperty("default")?t.default:t,s=s&&s.hasOwnProperty("default")?s.default:s,n=n&&n.hasOwnProperty("default")?n.default:n,r=r&&r.hasOwnProperty("default")?r.default:r,o=o&&o.hasOwnProperty("default")?o.default:o,a=a&&a.hasOwnProperty("default")?a.default:a,i=i&&i.hasOwnProperty("default")?i.default:i;var l={namespace:"ol-geocoder",spin:"gcd-pseudo-rotate",hidden:"gcd-hidden",address:"gcd-address",country:"gcd-country",city:"gcd-city",road:"gcd-road",olControl:"ol-control",glass:{container:"gcd-gl-container",control:"gcd-gl-control",button:"gcd-gl-btn",input:"gcd-gl-input",expanded:"gcd-gl-expanded",reset:"gcd-gl-reset",result:"gcd-gl-result"},inputText:{container:"gcd-txt-container",control:"gcd-txt-control",input:"gcd-txt-input",reset:"gcd-txt-reset",icon:"gcd-txt-glass",result:"gcd-txt-result"}},c={containerId:"gcd-container",buttonControlId:"gcd-button-control",inputQueryId:"gcd-input-query",inputResetId:"gcd-input-reset",cssClasses:l};const u=Object.freeze({containerId:"gcd-container",buttonControlId:"gcd-button-control",inputQueryId:"gcd-input-query",inputResetId:"gcd-input-reset",cssClasses:l,default:c}),p="addresschosen",d={NOMINATIM:"nominatim",REVERSE:"reverse"},h="glass-button",m="text-input",g="//cdn.rawgit.com/jonataswalker/map-utils/master/images/marker.png",f="osm",y="mapquest",v="photon",b="bing",w="opencage",k="pelias",C={provider:f,placeholder:"Search for an address",featureStyle:null,targetType:h,lang:"en-US",limit:5,keepOpen:!1,preventDefault:!1,autoComplete:!1,autoCompleteMinLength:2,debug:!1};function x(e,t){if(void 0===t&&(t="Assertion failed"),!e){if("undefined"!=typeof Error)throw new Error(t);throw t}}function E(e){const t=function(){if("performance"in window==0&&(window.performance={}),Date.now=Date.now||function(){return(new Date).getTime()},"now"in window.performance==0){let e=Date.now();performance.timing&&performance.timing.navigationStart&&(e=performance.timing.navigationStart),window.performance.now=function(){return Date.now()-e}}return window.performance.now()}().toString(36);return e?e+t:t}function P(e){return/^\d+$/.test(e)}function R(e,t,s){if(Array.isArray(e))return void e.forEach(function(e){return R(e,t)});const n=Array.isArray(t)?t:t.split(/\s+/);let r=n.length;for(;r--;)q(e,n[r])||j(e,n[r],s)}function N(e,t,s){if(Array.isArray(e))return void e.forEach(function(e){return N(e,t,s)});const n=Array.isArray(t)?t:t.split(/\s+/);let r=n.length;for(;r--;)q(e,n[r])&&O(e,n[r],s)}function q(e,t){return e.classList?e.classList.contains(t):I(t).test(e.className)}function S(e,t,s){void 0===t&&(t=window.document);let n=/\./g,r=Array.prototype.slice,o=[];if(/^(#?[\w-]+|\.[\w-.]+)$/.test(e))switch(e[0]){case"#":o=[(a=e.substr(1),a="#"===a[0]?a.substr(1,a.length):a,document.getElementById(a))];break;case".":o=r.call(t.getElementsByClassName(e.substr(1).replace(n," ")));break;default:o=r.call(t.getElementsByTagName(e))}else o=r.call(t.querySelectorAll(e));var a;return s?o:o[0]}function T(e,t){return e.replace(/\{ *([\w_-]+) *\}/g,function(e,s){let n=void 0===t[s]?"":t[s];return String(n).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;")})}function L(e,t){let s;if(Array.isArray(e)){if(s=document.createElement(e[0]),e[1].id&&(s.id=e[1].id),e[1].classname&&(s.className=e[1].classname),e[1].attr){let t=e[1].attr;if(Array.isArray(t)){let e=-1;for(;++e<t.length;)s.setAttribute(t[e].name,t[e].value)}else s.setAttribute(t.name,t.value)}}else s=document.createElement(e);s.innerHTML=t;let n=document.createDocumentFragment();for(;s.childNodes[0];)n.appendChild(s.childNodes[0]);return s.appendChild(n),s}function I(e){return new RegExp("(^|\\s+) "+e+" (\\s+|$)")}function j(e,t,s){e.classList?e.classList.add(t):e.className=(e.className+" "+t).trim(),s&&P(s)&&window.setTimeout(function(){return O(e,t)},s)}function O(e,t,s){e.classList?e.classList.remove(t):e.className=e.className.replace(I(t)," ").trim(),s&&P(s)&&window.setTimeout(function(){return j(e,t)},s)}const A=u.cssClasses;var M=function(e){this.options=e.options,this.els=this.createControl()};M.prototype.createControl=function(){let e,t,s;return this.options.targetType===m?(t=A.namespace+" "+A.inputText.container,s={container:e=L(["div",{id:u.containerId,classname:t}],M.input),control:S("."+A.inputText.control,e),input:S("."+A.inputText.input,e),reset:S("."+A.inputText.reset,e),result:S("."+A.inputText.result,e)}):(t=A.namespace+" "+A.glass.container,s={container:e=L(["div",{id:u.containerId,classname:t}],M.glass),control:S("."+A.glass.control,e),button:S("."+A.glass.button,e),input:S("."+A.glass.input,e),reset:S("."+A.glass.reset,e),result:S("."+A.glass.result,e)}),s.input.placeholder=this.options.placeholder,s},M.glass=['<div class="',A.glass.control," ",A.olControl,'">','<button type="button"',' id="',u.buttonControlId,'"',' class="',A.glass.button,'"></button>','<input type="text"',' id="',u.inputQueryId,'"',' class="',A.glass.input,'"',' autocomplete="off" placeholder="Search ...">',"<a",' id="',u.inputResetId,'"',' class="',A.glass.reset," ",A.hidden,'"',"></a>","</div>",'<ul class="',A.glass.result,'"></ul>'].join(""),M.input=['<div class="',A.inputText.control,'">','<input type="text"',' id="',u.inputQueryId,'"',' class="',A.inputText.input,'"',' autocomplete="off" placeholder="Search ...">','<span class="',A.inputText.icon,'"></span>','<button type="button"',' id="',u.inputResetId,'"',' class="',A.inputText.reset," ",A.hidden,'"',"></button>","</div>",'<ul class="',A.inputText.result,'"></ul>'].join("");var _=function(){this.settings={url:"https://photon.komoot.de/api/",params:{q:"",limit:10,lang:"en"},langs:["de","it","fr","en"]}};_.prototype.getParameters=function(e){return e.lang=e.lang.toLowerCase(),{url:this.settings.url,params:{q:e.query,limit:e.limit||this.settings.params.limit,lang:this.settings.langs.indexOf(e.lang)>-1?e.lang:this.settings.params.lang}}},_.prototype.handleResponse=function(e){return e.map(function(e){return{lon:e.geometry.coordinates[0],lat:e.geometry.coordinates[1],address:{name:e.properties.name,postcode:e.properties.postcode,city:e.properties.city,state:e.properties.state,country:e.properties.country},original:{formatted:e.properties.name,details:e.properties}}})};var B=function(){this.settings={url:"https://nominatim.openstreetmap.org/search/",params:{q:"",format:"json",addressdetails:1,limit:10,countrycodes:"","accept-language":"en-US"}}};B.prototype.getParameters=function(e){return{url:this.settings.url,params:{q:e.query,format:this.settings.params.format,addressdetails:this.settings.params.addressdetails,limit:e.limit||this.settings.params.limit,countrycodes:e.countrycodes||this.settings.params.countrycodes,"accept-language":e.lang||this.settings.params["accept-language"]}}},B.prototype.handleResponse=function(e){return e.map(function(e){return{lon:e.lon,lat:e.lat,address:{name:e.display_name,road:e.address.road||"",houseNumber:e.address.house_number||"",postcode:e.address.postcode,city:e.address.city||e.address.town,state:e.address.state,country:e.address.country},original:{formatted:e.display_name,details:e.address}}})};var V=function(){this.settings={url:"http://open.mapquestapi.com/nominatim/v1/search.php",params:{q:"",key:"",format:"json",addressdetails:1,limit:10,countrycodes:"","accept-language":"en-US"}}};V.prototype.getParameters=function(e){return{url:this.settings.url,params:{q:e.query,key:e.key,format:"json",addressdetails:1,limit:e.limit||this.settings.params.limit,countrycodes:e.countrycodes||this.settings.params.countrycodes,"accept-language":e.lang||this.settings.params["accept-language"]}}},V.prototype.handleResponse=function(e){return e.map(function(e){return{lon:e.lon,lat:e.lat,address:{name:e.address.neighbourhood||"",road:e.address.road||"",postcode:e.address.postcode,city:e.address.city||e.address.town,state:e.address.state,country:e.address.country},original:{formatted:e.display_name,details:e.address}}})};var D=function(){this.settings={url:"http://search.mapzen.com/v1/search",params:{size:10}}};D.prototype.getParameters=function(e){return{url:this.settings.url,params:{text:e.query,api_key:e.key,size:e.limit||this.settings.params.size}}},D.prototype.handleResponse=function(e){return e.map(function(e){return{lon:e.geometry.coordinates[0],lat:e.geometry.coordinates[1],address:{name:e.properties.name,house_number:e.properties.housenumber,postcode:e.properties.postalcode,road:e.properties.street,city:e.properties.city,state:e.properties.region,country:e.properties.country},original:{formatted:e.properties.label,details:e.properties}}})};var Q=function(){this.settings={url:"https://dev.virtualearth.net/REST/v1/Locations",callbackName:"jsonp",params:{query:"",key:"",includeNeighborhood:0,maxResults:10}}};Q.prototype.getParameters=function(e){return{url:this.settings.url,callbackName:this.settings.callbackName,params:{query:e.query,key:e.key,includeNeighborhood:e.includeNeighborhood||this.settings.params.includeNeighborhood,maxResults:e.maxResults||this.settings.params.maxResults}}},Q.prototype.handleResponse=function(e){return e.map(function(e){return{lon:e.point.coordinates[1],lat:e.point.coordinates[0],address:{name:e.name},original:{formatted:e.address.formattedAddress,details:e.address}}})};var F=function(){this.settings={url:"https://api.opencagedata.com/geocode/v1/json?",params:{q:"",key:"",limit:10,countrycode:"",pretty:1,no_annotations:1}}};function z(e){return new Promise(function(t,s){const n=function(e,t){t&&"object"==typeof t&&(e+=(/\?/.test(e)?"&":"?")+function e(t){return Object.keys(t).reduce(function(s,n){return s.push("object"==typeof t[n]?e(t[n]):encodeURIComponent(n)+"="+encodeURIComponent(t[n])),s},[]).join("&")}(t));return e}(e.url,e.data),r={method:"GET",mode:"cors",credentials:"same-origin"};e.jsonp?function(e,t,s){let n=document.head,r=document.createElement("script"),o="f"+Math.round(Math.random()*Date.now());r.setAttribute("src",e+(e.indexOf("?")>0?"&":"?")+t+"="+o),window[o]=function(e){window[o]=void 0,setTimeout(function(){return n.removeChild(r)},0),s(e)},n.appendChild(r)}(n,e.callbackName,t):fetch(n,r).then(function(e){return e.json()}).then(t).catch(s)})}F.prototype.getParameters=function(e){return{url:this.settings.url,params:{q:e.query,key:e.key,limit:e.limit||this.settings.params.limit,countrycode:e.countrycodes||this.settings.params.countrycodes}}},F.prototype.handleResponse=function(e){return e.map(function(e){return{lon:e.geometry.lng,lat:e.geometry.lat,address:{name:e.components.house_number||"",road:e.components.road||"",postcode:e.components.postcode,city:e.components.city||e.components.town,state:e.components.state,country:e.components.country},original:{formatted:e.formatted,details:e.components}}})};const U=u.cssClasses;var G=function(s,n){this.Base=s,this.layerName=E("geocoder-layer-"),this.layer=new e({name:this.layerName,source:new t}),this.options=s.options,this.options.provider="string"==typeof this.options.provider?this.options.provider.toLowerCase():this.options.provider,this.els=n,this.lastQuery="",this.container=this.els.container,this.registeredListeners={mapClick:!1},this.setListeners(),this.Photon=new _,this.OpenStreet=new B,this.MapQuest=new V,this.Pelias=new D,this.Bing=new Q,this.OpenCage=new F};return G.prototype.setListeners=function(){var e=this;let t,s;const n=function(){q(e.els.control,U.glass.expanded)?e.collapse():e.expand()};this.els.input.addEventListener("keypress",function(t){const s=t.target.value.trim();(t.key?"Enter"===t.key:t.which?13===t.which:t.keyCode&&13===t.keyCode)&&(t.preventDefault(),e.query(s))},!1),this.els.input.addEventListener("input",function(n){const r=n.target.value.trim();r.length?N(e.els.reset,U.hidden):R(e.els.reset,U.hidden),e.options.autoComplete&&r!==s&&(s=r,t&&clearTimeout(t),t=setTimeout(function(){r.length>=e.options.autoCompleteMinLength&&e.query(r)},200))},!1),this.els.reset.addEventListener("click",function(t){e.els.input.focus(),e.els.input.value="",e.lastQuery="",R(e.els.reset,U.hidden),e.clearResults()},!1),this.options.targetType===h&&this.els.button.addEventListener("click",n,!1)},G.prototype.query=function(e){var t=this;const s=this.getProvider({query:e,provider:this.options.provider,key:this.options.key,lang:this.options.lang,countrycodes:this.options.countrycodes,limit:this.options.limit});if(this.lastQuery===e&&this.els.result.firstChild)return;this.lastQuery=e,this.clearResults(),R(this.els.reset,U.spin);let n={url:s.url,data:s.params};s.callbackName&&(n.jsonp=!0,n.callbackName=s.callbackName),z(n).then(function(e){let s;switch(t.options.debug&&console.info(e),N(t.els.reset,U.spin),t.options.provider){case f:s=e.length?t.OpenStreet.handleResponse(e):void 0;break;case y:s=e.length?t.MapQuest.handleResponse(e):void 0;break;case k:s=e.features.length?t.Pelias.handleResponse(e.features):void 0;break;case v:s=e.features.length?t.Photon.handleResponse(e.features):void 0;break;case b:s=e.resourceSets[0].resources.length?t.Bing.handleResponse(e.resourceSets[0].resources):void 0;break;case w:s=e.results.length?t.OpenCage.handleResponse(e.results):void 0;break;default:s=t.options.provider.handleResponse(e)}s&&(t.createList(s),t.listenMapClick())}).catch(function(e){N(t.els.reset,U.spin);const s=L("li","<h5>Error! No internet connection?</h5>");t.els.result.appendChild(s)})},G.prototype.createList=function(e){var t=this;const s=this.els.result;e.forEach(function(e){let n;switch(t.options.provider){case f:n='<span class="'+U.road+'">'+e.address.name+"</span>";break;default:n=t.addressTemplate(e.address)}const r=L("li",'<a href="#">'+n+"</a>");r.addEventListener("click",function(s){s.preventDefault(),t.chosen(e,n,e.address,e.original)},!1),s.appendChild(r)})},G.prototype.chosen=function(e,t,s,n){const o=this.Base.getMap(),a=[parseFloat(e.lon),parseFloat(e.lat)],i=o.getView().getProjection(),l=r.transform(a,"EPSG:4326",i);let c=e.bbox;c&&(c=r.transformExtent(c,"EPSG:4326",i));const u={formatted:t,details:s,original:n};if(!1===this.options.keepOpen&&this.clearResults(!0),!0===this.options.preventDefault)this.Base.dispatchEvent({type:p,address:u,coordinate:l,bbox:c});else{c?o.getView().fit(c,{duration:500}):function(e,t,s,n){n=n||2.388657133911758,s=s||500,e.getView().animate({duration:s,resolution:n},{duration:s,center:t})}(o,l);const e=this.createFeature(l,u);this.Base.dispatchEvent({type:p,address:u,feature:e,coordinate:l,bbox:c})}},G.prototype.createFeature=function(e){const t=new n(new s(e));return this.addLayer(),t.setStyle(this.options.featureStyle),t.setId(E("geocoder-ft-")),this.getSource().addFeature(t),t},G.prototype.addressTemplate=function(e){let t=[];return e.name&&t.push(['<span class="',U.road,'">{name}</span>'].join("")),(e.road||e.building||e.house_number)&&t.push(['<span class="',U.road,'">{building} {road} {house_number}</span>'].join("")),(e.city||e.town||e.village)&&t.push(['<span class="',U.city,'">{postcode} {city} {town} {village}</span>'].join("")),(e.state||e.country)&&t.push(['<span class="',U.country,'">{state} {country}</span>'].join("")),T(t.join("<br>"),e)},G.prototype.getProvider=function(e){let t;switch(e.provider){case f:t=this.OpenStreet.getParameters(e);break;case y:t=this.MapQuest.getParameters(e);break;case v:t=this.Photon.getParameters(e);break;case k:t=this.Pelias.getParameters(e);break;case b:t=this.Bing.getParameters(e);break;case w:t=this.OpenCage.getParameters(e);break;default:t=e.provider.getParameters(e)}return t},G.prototype.expand=function(){var e=this;N(this.els.input,U.spin),R(this.els.control,U.glass.expanded),window.setTimeout(function(){return e.els.input.focus()},100),this.listenMapClick()},G.prototype.collapse=function(){this.els.input.value="",this.els.input.blur(),R(this.els.reset,U.hidden),N(this.els.control,U.glass.expanded),this.clearResults()},G.prototype.listenMapClick=function(){if(this.registeredListeners.mapClick)return;const e=this,t=this.Base.getMap().getTargetElement();this.registeredListeners.mapClick=!0,t.addEventListener("click",{handleEvent:function(s){e.clearResults(!0),t.removeEventListener(s.type,this,!1),e.registeredListeners.mapClick=!1}},!1)},G.prototype.clearResults=function(e){e&&this.options.targetType===h?this.collapse():function(e){for(;e.firstChild;)e.removeChild(e.firstChild)}(this.els.result)},G.prototype.getSource=function(){return this.layer.getSource()},G.prototype.addLayer=function(){var e=this;let t=!1;const s=this.Base.getMap();s.getLayers().forEach(function(s){s===e.layer&&(t=!0)}),t||s.addLayer(this.layer)},function(e){function t(s,n){if(void 0===s&&(s=d.NOMINATIM),void 0===n&&(n={}),!(this instanceof t))return new t;let r;x("string"==typeof s,"@param `type` should be string!"),x(s===d.NOMINATIM||s===d.REVERSE,"@param 'type' should be '"+d.NOMINATIM+"'\n        or '"+d.REVERSE+"'!"),x("object"==typeof n,"@param `options` should be object!"),C.featureStyle=[new a({image:new i({scale:.7,src:g})})],this.options=function(e,t){let s={};for(let t in e)s[t]=e[t];for(let e in t)s[e]=t[e];return s}(C,n),this.container=void 0;const o=new M(this);s===d.NOMINATIM&&(this.container=o.els.container,r=new G(this,o.els),this.layer=r.layer),e.call(this,{element:this.container})}return e&&(t.__proto__=e),t.prototype=Object.create(e&&e.prototype),t.prototype.constructor=t,t.prototype.getLayer=function(){return this.layer},t.prototype.getSource=function(){return this.getLayer().getSource()},t.prototype.setProvider=function(e){this.options.provider=e},t.prototype.setProviderKey=function(e){this.options.key=e},t}(o)});
+!function(t,e){ true?module.exports=e(__webpack_require__(/*! ol/control/Control */ "./node_modules/ol/control/Control.js"),__webpack_require__(/*! ol/style/Style */ "./node_modules/ol/style/Style.js"),__webpack_require__(/*! ol/style/Icon */ "./node_modules/ol/style/Icon.js"),__webpack_require__(/*! ol/layer/Vector */ "./node_modules/ol/layer/Vector.js"),__webpack_require__(/*! ol/source/Vector */ "./node_modules/ol/source/Vector.js"),__webpack_require__(/*! ol/geom/Point */ "./node_modules/ol/geom/Point.js"),__webpack_require__(/*! ol/Feature */ "./node_modules/ol/Feature.js"),__webpack_require__(/*! ol/proj */ "./node_modules/ol/proj.js")):undefined}(this,function(t,a,i,n,s,r,o,d){"use strict";t=t&&t.hasOwnProperty("default")?t.default:t,a=a&&a.hasOwnProperty("default")?a.default:a,i=i&&i.hasOwnProperty("default")?i.default:i,n=n&&n.hasOwnProperty("default")?n.default:n,s=s&&s.hasOwnProperty("default")?s.default:s,r=r&&r.hasOwnProperty("default")?r.default:r,o=o&&o.hasOwnProperty("default")?o.default:o,d=d&&d.hasOwnProperty("default")?d.default:d;var e="gcd-container",l="gcd-button-control",c="gcd-input-query",u="gcd-input-reset",p={namespace:"ol-geocoder",spin:"gcd-pseudo-rotate",hidden:"gcd-hidden",address:"gcd-address",country:"gcd-country",city:"gcd-city",road:"gcd-road",olControl:"ol-control",glass:{container:"gcd-gl-container",control:"gcd-gl-control",button:"gcd-gl-btn",input:"gcd-gl-input",expanded:"gcd-gl-expanded",reset:"gcd-gl-reset",result:"gcd-gl-result"},inputText:{container:"gcd-txt-container",control:"gcd-txt-control",input:"gcd-txt-input",reset:"gcd-txt-reset",icon:"gcd-txt-glass",result:"gcd-txt-result"}},h={containerId:e,buttonControlId:l,inputQueryId:c,inputResetId:u,cssClasses:p},m=Object.freeze({__proto__:null,containerId:e,buttonControlId:l,inputQueryId:c,inputResetId:u,cssClasses:p,default:h}),g="addresschosen",f="nominatim",y="reverse",v="glass-button",w="text-input",b="osm",k="mapquest",C="photon",x="bing",L="opencage",q={provider:b,placeholder:"Search for an address",featureStyle:null,targetType:v,lang:"en-US",limit:5,keepOpen:!1,preventDefault:!1,autoComplete:!1,autoCompleteMinLength:2,debug:!1};function E(t,e){if(void 0===e&&(e="Assertion failed"),!t){if("undefined"!=typeof Error)throw new Error(e);throw e}}function j(t){var e=function(){if("performance"in window==!1&&(window.performance={}),Date.now=Date.now||function(){return(new Date).getTime()},"now"in window.performance==!1){var t=Date.now();performance.timing&&performance.timing.navigationStart&&(t=performance.timing.navigationStart),window.performance.now=function(){return Date.now()-t}}return window.performance.now()}().toString(36);return t?t+e:e}function T(t){return/^\d+$/.test(t)}function P(t,e,n){if(Array.isArray(t))t.forEach(function(t){return P(t,e)});else for(var s=Array.isArray(e)?e:e.split(/\s+/),r=s.length;r--;)N(t,s[r])||O(t,s[r],n)}function S(t,e,n){if(Array.isArray(t))t.forEach(function(t){return S(t,e,n)});else for(var s=Array.isArray(e)?e:e.split(/\s+/),r=s.length;r--;)N(t,s[r])&&D(t,s[r],n)}function N(t,e){return t.classList?t.classList.contains(e):_(e).test(t.className)}function R(t,e,n){void 0===e&&(e=window.document);var s=Array.prototype.slice,r=[];if(/^(#?[\w-]+|\.[\w-.]+)$/.test(t))switch(t[0]){case"#":r=[function(t){return t="#"===t[0]?t.substr(1,t.length):t,document.getElementById(t)}(t.substr(1))];break;case".":r=s.call(e.getElementsByClassName(t.substr(1).replace(/\./g," ")));break;default:r=s.call(e.getElementsByTagName(t))}else r=s.call(e.querySelectorAll(t));return n?r:r[0]}function I(t,n){return t.replace(/\{ *([\w_-]+) *\}/g,function(t,e){return function(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;")}(void 0===n[e]?"":n[e])})}function A(t,e){var n;if(Array.isArray(t)){if(n=document.createElement(t[0]),t[1].id&&(n.id=t[1].id),t[1].classname&&(n.className=t[1].classname),t[1].attr){var s=t[1].attr;if(Array.isArray(s))for(var r=-1;++r<s.length;)n.setAttribute(s[r].name,s[r].value);else n.setAttribute(s.name,s.value)}}else n=document.createElement(t);n.innerHTML=e;for(var o=document.createDocumentFragment();n.childNodes[0];)o.appendChild(n.childNodes[0]);return n.appendChild(o),n}function _(t){return new RegExp("(^|\\s+) "+t+" (\\s+|$)")}function O(t,e,n){t.classList?t.classList.add(e):t.className=(t.className+" "+e).trim(),n&&T(n)&&window.setTimeout(function(){return D(t,e)},n)}function D(t,e,n){t.classList?t.classList.remove(e):t.className=t.className.replace(_(e)," ").trim(),n&&T(n)&&window.setTimeout(function(){return O(t,e)},n)}function M(t){this.options=t.options,this.els=this.createControl()}var B=m.cssClasses;M.prototype.createControl=function(){var t,e,n;return(n=this.options.targetType===w?(e=B.namespace+" "+B.inputText.container,{container:t=A(["div",{id:m.containerId,classname:e}],M.input),control:R("."+B.inputText.control,t),input:R("."+B.inputText.input,t),reset:R("."+B.inputText.reset,t),result:R("."+B.inputText.result,t)}):(e=B.namespace+" "+B.glass.container,{container:t=A(["div",{id:m.containerId,classname:e}],M.glass),control:R("."+B.glass.control,t),button:R("."+B.glass.button,t),input:R("."+B.glass.input,t),reset:R("."+B.glass.reset,t),result:R("."+B.glass.result,t)})).input.placeholder=this.options.placeholder,n},M.glass=['<div class="',B.glass.control," ",B.olControl,'">','<button type="button"',' id="',m.buttonControlId,'"',' class="',B.glass.button,'"></button>','<input type="text"',' id="',m.inputQueryId,'"',' class="',B.glass.input,'"',' autocomplete="off" placeholder="Search ...">',"<a",' id="',m.inputResetId,'"',' class="',B.glass.reset," ",B.hidden,'"',"></a>","</div>",'<ul class="',B.glass.result,'"></ul>'].join(""),M.input=['<div class="',B.inputText.control,'">','<input type="text"',' id="',m.inputQueryId,'"',' class="',B.inputText.input,'"',' autocomplete="off" placeholder="Search ...">','<span class="',B.inputText.icon,'"></span>','<button type="button"',' id="',m.inputResetId,'"',' class="',B.inputText.reset," ",B.hidden,'"',"></button>","</div>",'<ul class="',B.inputText.result,'"></ul>'].join("");function F(){this.settings={url:"https://photon.komoot.de/api/",params:{q:"",limit:10,lang:"en"},langs:["de","it","fr","en"]}}F.prototype.getParameters=function(t){return t.lang=t.lang.toLowerCase(),{url:this.settings.url,params:{q:t.query,limit:t.limit||this.settings.params.limit,lang:-1<this.settings.langs.indexOf(t.lang)?t.lang:this.settings.params.lang}}},F.prototype.handleResponse=function(t){if(t.features.length)return t.features.map(function(t){return{lon:t.geometry.coordinates[0],lat:t.geometry.coordinates[1],address:{name:t.properties.name,postcode:t.properties.postcode,city:t.properties.city,state:t.properties.state,country:t.properties.country},original:{formatted:t.properties.name,details:t.properties}}})};function V(){this.settings={url:"https://nominatim.openstreetmap.org/search/",params:{q:"",format:"json",addressdetails:1,limit:10,countrycodes:"","accept-language":"en-US"}}}V.prototype.getParameters=function(t){return{url:this.settings.url,params:{q:t.query,format:this.settings.params.format,addressdetails:this.settings.params.addressdetails,limit:t.limit||this.settings.params.limit,countrycodes:t.countrycodes||this.settings.params.countrycodes,"accept-language":t.lang||this.settings.params["accept-language"]}}},V.prototype.handleResponse=function(t){if(t.length)return t.map(function(t){return{lon:t.lon,lat:t.lat,address:{name:t.display_name,road:t.address.road||"",houseNumber:t.address.house_number||"",postcode:t.address.postcode,city:t.address.city||t.address.town,state:t.address.state,country:t.address.country},original:{formatted:t.display_name,details:t.address}}})};function Q(){this.settings={url:"http://open.mapquestapi.com/nominatim/v1/search.php",params:{q:"",key:"",format:"json",addressdetails:1,limit:10,countrycodes:"","accept-language":"en-US"}}}Q.prototype.getParameters=function(t){return{url:this.settings.url,params:{q:t.query,key:t.key,format:"json",addressdetails:1,limit:t.limit||this.settings.params.limit,countrycodes:t.countrycodes||this.settings.params.countrycodes,"accept-language":t.lang||this.settings.params["accept-language"]}}},Q.prototype.handleResponse=function(t){if(t.length)return t.map(function(t){return{lon:t.lon,lat:t.lat,address:{name:t.address.neighbourhood||"",road:t.address.road||"",postcode:t.address.postcode,city:t.address.city||t.address.town,state:t.address.state,country:t.address.country},original:{formatted:t.display_name,details:t.address}}})};function U(){this.settings={url:"https://dev.virtualearth.net/REST/v1/Locations",callbackName:"jsonp",params:{query:"",key:"",includeNeighborhood:0,maxResults:10}}}U.prototype.getParameters=function(t){return{url:this.settings.url,callbackName:this.settings.callbackName,params:{query:t.query,key:t.key,includeNeighborhood:t.includeNeighborhood||this.settings.params.includeNeighborhood,maxResults:t.maxResults||this.settings.params.maxResults}}},U.prototype.handleResponse=function(t){var e=t.resourceSets[0].resources;if(e.length)return e.map(function(t){return{lon:t.point.coordinates[1],lat:t.point.coordinates[0],address:{name:t.name},original:{formatted:t.address.formattedAddress,details:t.address}}})};function G(){this.settings={url:"https://api.opencagedata.com/geocode/v1/json?",params:{q:"",key:"",limit:10,countrycode:"",pretty:1,no_annotations:1}}}function $(s){return new Promise(function(t,e){var n=function(t,e){e&&"object"==typeof e&&(t+=(/\?/.test(t)?"&":"?")+function n(s){return Object.keys(s).reduce(function(t,e){return t.push("object"==typeof s[e]?n(s[e]):encodeURIComponent(e)+"="+encodeURIComponent(s[e])),t},[]).join("&")}(e));return t}(s.url,s.data);s.jsonp?function(t,e,n){var s=document.head,r=document.createElement("script"),o="f"+Math.round(Math.random()*Date.now());r.setAttribute("src",t+(0<t.indexOf("?")?"&":"?")+e+"="+o),window[o]=function(t){window[o]=void 0,setTimeout(function(){return s.removeChild(r)},0),n(t)},s.appendChild(r)}(n,s.callbackName,t):fetch(n,{method:"GET",mode:"cors",credentials:"same-origin"}).then(function(t){return t.json()}).then(t).catch(e)})}G.prototype.getParameters=function(t){return{url:this.settings.url,params:{q:t.query,key:t.key,limit:t.limit||this.settings.params.limit,countrycode:t.countrycodes||this.settings.params.countrycodes}}},G.prototype.handleResponse=function(t){if(t.results.length)return t.results.map(function(t){return{lon:t.geometry.lng,lat:t.geometry.lat,address:{name:t.components.house_number||"",road:t.components.road||"",postcode:t.components.postcode,city:t.components.city||t.components.town,state:t.components.state,country:t.components.country},original:{formatted:t.formatted,details:t.components}}})};function z(t,e){this.Base=t,this.layerName=j("geocoder-layer-"),this.layer=new n({name:this.layerName,source:new s}),this.options=t.options,this.options.provider="string"==typeof this.options.provider?this.options.provider.toLowerCase():this.options.provider,this.provider=this.newProvider(),this.els=e,this.lastQuery="",this.container=this.els.container,this.registeredListeners={mapClick:!1},this.setListeners()}var H=m.cssClasses;return z.prototype.setListeners=function(){var n,s,r=this;this.els.input.addEventListener("keypress",function(t){var e=t.target.value.trim();(t.key?"Enter"!==t.key:t.which?13!==t.which:!t.keyCode||13!==t.keyCode)||(t.preventDefault(),r.query(e))},!1),this.els.input.addEventListener("click",function(t){t.stopPropagation()},!1),this.els.input.addEventListener("input",function(t){var e=t.target.value.trim();e.length?S(r.els.reset,H.hidden):P(r.els.reset,H.hidden),r.options.autoComplete&&e!==s&&(s=e,n&&clearTimeout(n),n=setTimeout(function(){e.length>=r.options.autoCompleteMinLength&&r.query(e)},200))},!1),this.els.reset.addEventListener("click",function(t){r.els.input.focus(),r.els.input.value="",r.lastQuery="",P(r.els.reset,H.hidden),r.clearResults()},!1),this.options.targetType===v&&this.els.button.addEventListener("click",function(t){t.stopPropagation(),N(r.els.control,H.glass.expanded)?r.collapse():r.expand()},!1)},z.prototype.query=function(t){var n=this;this.provider||(this.provider=this.newProvider());var e=this.provider.getParameters({query:t,key:this.options.key,lang:this.options.lang,countrycodes:this.options.countrycodes,limit:this.options.limit});if(this.lastQuery!==t||!this.els.result.firstChild){this.lastQuery=t,this.clearResults(),P(this.els.reset,H.spin);var s={url:e.url,data:e.params};e.callbackName&&(s.jsonp=!0,s.callbackName=e.callbackName),$(s).then(function(t){n.options.debug&&console.info(t),S(n.els.reset,H.spin);var e=n.provider.handleResponse(t);e&&(n.createList(e),n.listenMapClick())}).catch(function(t){S(n.els.reset,H.spin);var e=A("li","<h5>Error! No internet connection?</h5>");n.els.result.appendChild(e)})}},z.prototype.createList=function(t){var s=this,r=this.els.result;t.forEach(function(e){var n;switch(s.options.provider){case b:n='<span class="'+H.road+'">'+e.address.name+"</span>";break;default:n=s.addressTemplate(e.address)}var t=A("li",'<a href="#">'+n+"</a>");t.addEventListener("click",function(t){t.preventDefault(),s.chosen(e,n,e.address,e.original)},!1),r.appendChild(t)})},z.prototype.chosen=function(t,e,n,s){var r=this.Base.getMap(),o=[parseFloat(t.lon),parseFloat(t.lat)],a=r.getView().getProjection(),i=d.transform(o,"EPSG:4326",a),l=t.bbox;l=l&&d.transformExtent(l,"EPSG:4326",a);var c={formatted:e,details:n,original:s};if(!1===this.options.keepOpen&&this.clearResults(!0),!0===this.options.preventDefault)this.Base.dispatchEvent({type:g,address:c,coordinate:i,bbox:l});else{l?r.getView().fit(l,{duration:500}):function(t,e,n,s){s=s||2.388657133911758,n=n||500,t.getView().animate({duration:n,resolution:s},{duration:n,center:e})}(r,i);var u=this.createFeature(i,c);this.Base.dispatchEvent({type:g,address:c,feature:u,coordinate:i,bbox:l})}},z.prototype.createFeature=function(t){var e=new o(new r(t));return this.addLayer(),e.setStyle(this.options.featureStyle),e.setId(j("geocoder-ft-")),this.getSource().addFeature(e),e},z.prototype.addressTemplate=function(t){var e=[];return t.name&&e.push(['<span class="',H.road,'">{name}</span>'].join("")),(t.road||t.building||t.house_number)&&e.push(['<span class="',H.road,'">{building} {road} {house_number}</span>'].join("")),(t.city||t.town||t.village)&&e.push(['<span class="',H.city,'">{postcode} {city} {town} {village}</span>'].join("")),(t.state||t.country)&&e.push(['<span class="',H.country,'">{state} {country}</span>'].join("")),I(e.join("<br>"),t)},z.prototype.newProvider=function(){switch(this.options.provider){case b:return new V;case k:return new Q;case C:return new F;case x:return new U;case L:return new G;default:return this.options.provider}},z.prototype.expand=function(){var t=this;S(this.els.input,H.spin),P(this.els.control,H.glass.expanded),window.setTimeout(function(){return t.els.input.focus()},100),this.listenMapClick()},z.prototype.collapse=function(){this.els.input.value="",this.els.input.blur(),P(this.els.reset,H.hidden),S(this.els.control,H.glass.expanded),this.clearResults()},z.prototype.listenMapClick=function(){if(!this.registeredListeners.mapClick){var e=this,n=this.Base.getMap().getTargetElement();this.registeredListeners.mapClick=!0,n.addEventListener("click",{handleEvent:function(t){e.clearResults(!0),n.removeEventListener(t.type,this,!1),e.registeredListeners.mapClick=!1}},!1)}},z.prototype.clearResults=function(t){t&&this.options.targetType===v?this.collapse():function(t){for(;t.firstChild;)t.removeChild(t.firstChild)}(this.els.result)},z.prototype.getSource=function(){return this.layer.getSource()},z.prototype.addLayer=function(){var e=this,n=!1,t=this.Base.getMap();t.getLayers().forEach(function(t){t===e.layer&&(n=!0)}),n||t.addLayer(this.layer)},function(r){function o(t,e){if(void 0===t&&(t=f),void 0===e&&(e={}),!(this instanceof o))return new o;var n;E("string"==typeof t,"@param `type` should be string!"),E(t===f||t===y,"@param 'type' should be '"+f+"'\n        or '"+y+"'!"),E("object"==typeof e,"@param `options` should be object!"),q.featureStyle=[new a({image:new i({scale:.7,src:"//cdn.rawgit.com/jonataswalker/map-utils/master/images/marker.png"})})],this.options=function(t,e){var n={};for(var s in t)n[s]=t[s];for(var r in e)n[r]=e[r];return n}(q,e),this.container=void 0;var s=new M(this);t===f&&(this.container=s.els.container,n=new z(this,s.els),this.layer=n.layer),r.call(this,{element:this.container})}return r&&(o.__proto__=r),((o.prototype=Object.create(r&&r.prototype)).constructor=o).prototype.getLayer=function(){return this.layer},o.prototype.getSource=function(){return this.getLayer().getSource()},o.prototype.setProvider=function(t){this.options.provider=t},o.prototype.setProviderKey=function(t){this.options.key=t},o}(t)});
 
 
 /***/ }),
@@ -5153,7 +5158,7 @@ var PluggableMap = /*@__PURE__*/(function (BaseObject) {
 
       if (!this.handleResize_) {
         this.handleResize_ = this.updateSize.bind(this);
-        addEventListener(_events_EventType_js__WEBPACK_IMPORTED_MODULE_19__["default"].RESIZE, this.handleResize_, false);
+        window.addEventListener(_events_EventType_js__WEBPACK_IMPORTED_MODULE_19__["default"].RESIZE, this.handleResize_, false);
       }
     }
 
@@ -44565,26 +44570,23 @@ function isEmpty(object) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var content = __webpack_require__(/*! !../css-loader/dist/cjs.js!./ol.css */ "./node_modules/css-loader/dist/cjs.js!./node_modules/ol/ol.css");
 
-var content = __webpack_require__(/*! !../css-loader!./ol.css */ "./node_modules/css-loader/index.js!./node_modules/ol/ol.css");
+if (typeof content === 'string') {
+  content = [[module.i, content, '']];
+}
 
-if(typeof content === 'string') content = [[module.i, content, '']];
+var options = {}
 
-var transform;
-var insertInto;
+options.insert = "head";
+options.singleton = false;
 
+var update = __webpack_require__(/*! ../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js")(content, options);
 
+if (content.locals) {
+  module.exports = content.locals;
+}
 
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
 
 /***/ }),
 
@@ -54563,7 +54565,8 @@ var CanvasTileLayerRenderer = /*@__PURE__*/(function (IntermediateCanvasRenderer
           canvas.width = width;
           canvas.height = height;
         } else {
-          if (this.renderedExtent_ && !Object(_extent_js__WEBPACK_IMPORTED_MODULE_6__["equals"])(imageExtent, this.renderedExtent_)) {
+          if ((this.renderedExtent_ && !Object(_extent_js__WEBPACK_IMPORTED_MODULE_6__["equals"])(imageExtent, this.renderedExtent_)) ||
+              this.renderedRevision != sourceRevision) {
             context.clearRect(0, 0, width, height);
           }
           oversampling = this.oversampling_;
@@ -66456,7 +66459,7 @@ function getUid(obj) {
  * OpenLayers version.
  * @type {string}
  */
-var VERSION = '5.3.1';
+var VERSION = '5.3.3';
 
 //# sourceMappingURL=util.js.map
 
@@ -68665,512 +68668,296 @@ function multiSelect(arr, left, right, n, compare) {
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/lib/addStyles.js":
-/*!****************************************************!*\
-  !*** ./node_modules/style-loader/lib/addStyles.js ***!
-  \****************************************************/
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
+"use strict";
+
 
 var stylesInDom = {};
 
-var	memoize = function (fn) {
-	var memo;
+var isOldIE = function isOldIE() {
+  var memo;
+  return function memorize() {
+    if (typeof memo === 'undefined') {
+      // Test for IE <= 9 as proposed by Browserhacks
+      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+      // Tests for existence of standard globals is to allow style-loader
+      // to operate correctly into non-standard environments
+      // @see https://github.com/webpack-contrib/style-loader/issues/177
+      memo = Boolean(window && document && document.all && !window.atob);
+    }
 
-	return function () {
-		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-		return memo;
-	};
-};
+    return memo;
+  };
+}();
 
-var isOldIE = memoize(function () {
-	// Test for IE <= 9 as proposed by Browserhacks
-	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-	// Tests for existence of standard globals is to allow style-loader
-	// to operate correctly into non-standard environments
-	// @see https://github.com/webpack-contrib/style-loader/issues/177
-	return window && document && document.all && !window.atob;
-});
+var getTarget = function getTarget() {
+  var memo = {};
+  return function memorize(target) {
+    if (typeof memo[target] === 'undefined') {
+      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
 
-var getTarget = function (target, parent) {
-  if (parent){
-    return parent.querySelector(target);
+      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
+
+      memo[target] = styleTarget;
+    }
+
+    return memo[target];
+  };
+}();
+
+function listToStyles(list, options) {
+  var styles = [];
+  var newStyles = {};
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var css = item[1];
+    var media = item[2];
+    var sourceMap = item[3];
+    var part = {
+      css: css,
+      media: media,
+      sourceMap: sourceMap
+    };
+
+    if (!newStyles[id]) {
+      styles.push(newStyles[id] = {
+        id: id,
+        parts: [part]
+      });
+    } else {
+      newStyles[id].parts.push(part);
+    }
   }
-  return document.querySelector(target);
-};
 
-var getElement = (function (fn) {
-	var memo = {};
+  return styles;
+}
 
-	return function(target, parent) {
-                // If passing function in options, then use it for resolve "head" element.
-                // Useful for Shadow Root style i.e
-                // {
-                //   insertInto: function () { return document.querySelector("#foo").shadowRoot }
-                // }
-                if (typeof target === 'function') {
-                        return target();
-                }
-                if (typeof memo[target] === "undefined") {
-			var styleTarget = getTarget.call(this, target, parent);
-			// Special case to return head of iframe instead of iframe itself
-			if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
-				try {
-					// This will throw an exception if access to iframe is blocked
-					// due to cross-origin restrictions
-					styleTarget = styleTarget.contentDocument.head;
-				} catch(e) {
-					styleTarget = null;
-				}
-			}
-			memo[target] = styleTarget;
-		}
-		return memo[target]
-	};
-})();
+function addStylesToDom(styles, options) {
+  for (var i = 0; i < styles.length; i++) {
+    var item = styles[i];
+    var domStyle = stylesInDom[item.id];
+    var j = 0;
+
+    if (domStyle) {
+      domStyle.refs++;
+
+      for (; j < domStyle.parts.length; j++) {
+        domStyle.parts[j](item.parts[j]);
+      }
+
+      for (; j < item.parts.length; j++) {
+        domStyle.parts.push(addStyle(item.parts[j], options));
+      }
+    } else {
+      var parts = [];
+
+      for (; j < item.parts.length; j++) {
+        parts.push(addStyle(item.parts[j], options));
+      }
+
+      stylesInDom[item.id] = {
+        id: item.id,
+        refs: 1,
+        parts: parts
+      };
+    }
+  }
+}
+
+function insertStyleElement(options) {
+  var style = document.createElement('style');
+
+  if (typeof options.attributes.nonce === 'undefined') {
+    var nonce =  true ? __webpack_require__.nc : undefined;
+
+    if (nonce) {
+      options.attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(options.attributes).forEach(function (key) {
+    style.setAttribute(key, options.attributes[key]);
+  });
+
+  if (typeof options.insert === 'function') {
+    options.insert(style);
+  } else {
+    var target = getTarget(options.insert || 'head');
+
+    if (!target) {
+      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+    }
+
+    target.appendChild(style);
+  }
+
+  return style;
+}
+
+function removeStyleElement(style) {
+  // istanbul ignore if
+  if (style.parentNode === null) {
+    return false;
+  }
+
+  style.parentNode.removeChild(style);
+}
+/* istanbul ignore next  */
+
+
+var replaceText = function replaceText() {
+  var textStore = [];
+  return function replace(index, replacement) {
+    textStore[index] = replacement;
+    return textStore.filter(Boolean).join('\n');
+  };
+}();
+
+function applyToSingletonTag(style, index, remove, obj) {
+  var css = remove ? '' : obj.css; // For old IE
+
+  /* istanbul ignore if  */
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = replaceText(index, css);
+  } else {
+    var cssNode = document.createTextNode(css);
+    var childNodes = style.childNodes;
+
+    if (childNodes[index]) {
+      style.removeChild(childNodes[index]);
+    }
+
+    if (childNodes.length) {
+      style.insertBefore(cssNode, childNodes[index]);
+    } else {
+      style.appendChild(cssNode);
+    }
+  }
+}
+
+function applyToTag(style, options, obj) {
+  var css = obj.css;
+  var media = obj.media;
+  var sourceMap = obj.sourceMap;
+
+  if (media) {
+    style.setAttribute('media', media);
+  }
+
+  if (sourceMap && btoa) {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    while (style.firstChild) {
+      style.removeChild(style.firstChild);
+    }
+
+    style.appendChild(document.createTextNode(css));
+  }
+}
 
 var singleton = null;
-var	singletonCounter = 0;
-var	stylesInsertedAtTop = [];
-
-var	fixUrls = __webpack_require__(/*! ./urls */ "./node_modules/style-loader/lib/urls.js");
-
-module.exports = function(list, options) {
-	if (typeof DEBUG !== "undefined" && DEBUG) {
-		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-	}
-
-	options = options || {};
-
-	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
-
-	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-	// tags it will allow on a page
-	if (!options.singleton && typeof options.singleton !== "boolean") options.singleton = isOldIE();
-
-	// By default, add <style> tags to the <head> element
-        if (!options.insertInto) options.insertInto = "head";
-
-	// By default, add <style> tags to the bottom of the target
-	if (!options.insertAt) options.insertAt = "bottom";
-
-	var styles = listToStyles(list, options);
-
-	addStylesToDom(styles, options);
-
-	return function update (newList) {
-		var mayRemove = [];
-
-		for (var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-
-			domStyle.refs--;
-			mayRemove.push(domStyle);
-		}
-
-		if(newList) {
-			var newStyles = listToStyles(newList, options);
-			addStylesToDom(newStyles, options);
-		}
-
-		for (var i = 0; i < mayRemove.length; i++) {
-			var domStyle = mayRemove[i];
-
-			if(domStyle.refs === 0) {
-				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
-
-				delete stylesInDom[domStyle.id];
-			}
-		}
-	};
-};
-
-function addStylesToDom (styles, options) {
-	for (var i = 0; i < styles.length; i++) {
-		var item = styles[i];
-		var domStyle = stylesInDom[item.id];
-
-		if(domStyle) {
-			domStyle.refs++;
-
-			for(var j = 0; j < domStyle.parts.length; j++) {
-				domStyle.parts[j](item.parts[j]);
-			}
-
-			for(; j < item.parts.length; j++) {
-				domStyle.parts.push(addStyle(item.parts[j], options));
-			}
-		} else {
-			var parts = [];
-
-			for(var j = 0; j < item.parts.length; j++) {
-				parts.push(addStyle(item.parts[j], options));
-			}
-
-			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-		}
-	}
-}
-
-function listToStyles (list, options) {
-	var styles = [];
-	var newStyles = {};
-
-	for (var i = 0; i < list.length; i++) {
-		var item = list[i];
-		var id = options.base ? item[0] + options.base : item[0];
-		var css = item[1];
-		var media = item[2];
-		var sourceMap = item[3];
-		var part = {css: css, media: media, sourceMap: sourceMap};
-
-		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
-		else newStyles[id].parts.push(part);
-	}
-
-	return styles;
-}
-
-function insertStyleElement (options, style) {
-	var target = getElement(options.insertInto)
-
-	if (!target) {
-		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
-	}
-
-	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
-
-	if (options.insertAt === "top") {
-		if (!lastStyleElementInsertedAtTop) {
-			target.insertBefore(style, target.firstChild);
-		} else if (lastStyleElementInsertedAtTop.nextSibling) {
-			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
-		} else {
-			target.appendChild(style);
-		}
-		stylesInsertedAtTop.push(style);
-	} else if (options.insertAt === "bottom") {
-		target.appendChild(style);
-	} else if (typeof options.insertAt === "object" && options.insertAt.before) {
-		var nextSibling = getElement(options.insertAt.before, target);
-		target.insertBefore(style, nextSibling);
-	} else {
-		throw new Error("[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n");
-	}
-}
-
-function removeStyleElement (style) {
-	if (style.parentNode === null) return false;
-	style.parentNode.removeChild(style);
-
-	var idx = stylesInsertedAtTop.indexOf(style);
-	if(idx >= 0) {
-		stylesInsertedAtTop.splice(idx, 1);
-	}
-}
-
-function createStyleElement (options) {
-	var style = document.createElement("style");
-
-	if(options.attrs.type === undefined) {
-		options.attrs.type = "text/css";
-	}
-
-	if(options.attrs.nonce === undefined) {
-		var nonce = getNonce();
-		if (nonce) {
-			options.attrs.nonce = nonce;
-		}
-	}
-
-	addAttrs(style, options.attrs);
-	insertStyleElement(options, style);
-
-	return style;
-}
-
-function createLinkElement (options) {
-	var link = document.createElement("link");
-
-	if(options.attrs.type === undefined) {
-		options.attrs.type = "text/css";
-	}
-	options.attrs.rel = "stylesheet";
-
-	addAttrs(link, options.attrs);
-	insertStyleElement(options, link);
-
-	return link;
-}
-
-function addAttrs (el, attrs) {
-	Object.keys(attrs).forEach(function (key) {
-		el.setAttribute(key, attrs[key]);
-	});
-}
-
-function getNonce() {
-	if (false) {}
-
-	return __webpack_require__.nc;
-}
-
-function addStyle (obj, options) {
-	var style, update, remove, result;
-
-	// If a transform function was defined, run it on the css
-	if (options.transform && obj.css) {
-	    result = typeof options.transform === 'function'
-		 ? options.transform(obj.css) 
-		 : options.transform.default(obj.css);
-
-	    if (result) {
-	    	// If transform returns a value, use that instead of the original css.
-	    	// This allows running runtime transformations on the css.
-	    	obj.css = result;
-	    } else {
-	    	// If the transform function returns a falsy value, don't add this css.
-	    	// This allows conditional loading of css
-	    	return function() {
-	    		// noop
-	    	};
-	    }
-	}
-
-	if (options.singleton) {
-		var styleIndex = singletonCounter++;
-
-		style = singleton || (singleton = createStyleElement(options));
-
-		update = applyToSingletonTag.bind(null, style, styleIndex, false);
-		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-
-	} else if (
-		obj.sourceMap &&
-		typeof URL === "function" &&
-		typeof URL.createObjectURL === "function" &&
-		typeof URL.revokeObjectURL === "function" &&
-		typeof Blob === "function" &&
-		typeof btoa === "function"
-	) {
-		style = createLinkElement(options);
-		update = updateLink.bind(null, style, options);
-		remove = function () {
-			removeStyleElement(style);
-
-			if(style.href) URL.revokeObjectURL(style.href);
-		};
-	} else {
-		style = createStyleElement(options);
-		update = applyToTag.bind(null, style);
-		remove = function () {
-			removeStyleElement(style);
-		};
-	}
-
-	update(obj);
-
-	return function updateStyle (newObj) {
-		if (newObj) {
-			if (
-				newObj.css === obj.css &&
-				newObj.media === obj.media &&
-				newObj.sourceMap === obj.sourceMap
-			) {
-				return;
-			}
-
-			update(obj = newObj);
-		} else {
-			remove();
-		}
-	};
-}
-
-var replaceText = (function () {
-	var textStore = [];
-
-	return function (index, replacement) {
-		textStore[index] = replacement;
-
-		return textStore.filter(Boolean).join('\n');
-	};
-})();
-
-function applyToSingletonTag (style, index, remove, obj) {
-	var css = remove ? "" : obj.css;
-
-	if (style.styleSheet) {
-		style.styleSheet.cssText = replaceText(index, css);
-	} else {
-		var cssNode = document.createTextNode(css);
-		var childNodes = style.childNodes;
-
-		if (childNodes[index]) style.removeChild(childNodes[index]);
-
-		if (childNodes.length) {
-			style.insertBefore(cssNode, childNodes[index]);
-		} else {
-			style.appendChild(cssNode);
-		}
-	}
-}
-
-function applyToTag (style, obj) {
-	var css = obj.css;
-	var media = obj.media;
-
-	if(media) {
-		style.setAttribute("media", media)
-	}
-
-	if(style.styleSheet) {
-		style.styleSheet.cssText = css;
-	} else {
-		while(style.firstChild) {
-			style.removeChild(style.firstChild);
-		}
-
-		style.appendChild(document.createTextNode(css));
-	}
-}
-
-function updateLink (link, options, obj) {
-	var css = obj.css;
-	var sourceMap = obj.sourceMap;
-
-	/*
-		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
-		and there is no publicPath defined then lets turn convertToAbsoluteUrls
-		on by default.  Otherwise default to the convertToAbsoluteUrls option
-		directly
-	*/
-	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
-
-	if (options.convertToAbsoluteUrls || autoFixUrls) {
-		css = fixUrls(css);
-	}
-
-	if (sourceMap) {
-		// http://stackoverflow.com/a/26603875
-		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-	}
-
-	var blob = new Blob([css], { type: "text/css" });
-
-	var oldSrc = link.href;
-
-	link.href = URL.createObjectURL(blob);
-
-	if(oldSrc) URL.revokeObjectURL(oldSrc);
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/lib/urls.js":
-/*!***********************************************!*\
-  !*** ./node_modules/style-loader/lib/urls.js ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-/**
- * When source maps are enabled, `style-loader` uses a link element with a data-uri to
- * embed the css on the page. This breaks all relative urls because now they are relative to a
- * bundle instead of the current page.
- *
- * One solution is to only use full urls, but that may be impossible.
- *
- * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
- *
- * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
- *
- */
-
-module.exports = function (css) {
-  // get current location
-  var location = typeof window !== "undefined" && window.location;
-
-  if (!location) {
-    throw new Error("fixUrls requires window.location");
+var singletonCounter = 0;
+
+function addStyle(obj, options) {
+  var style;
+  var update;
+  var remove;
+
+  if (options.singleton) {
+    var styleIndex = singletonCounter++;
+    style = singleton || (singleton = insertStyleElement(options));
+    update = applyToSingletonTag.bind(null, style, styleIndex, false);
+    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+  } else {
+    style = insertStyleElement(options);
+    update = applyToTag.bind(null, style, options);
+
+    remove = function remove() {
+      removeStyleElement(style);
+    };
   }
 
-	// blank or null?
-	if (!css || typeof css !== "string") {
-	  return css;
+  update(obj);
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
+        return;
+      }
+
+      update(obj = newObj);
+    } else {
+      remove();
+    }
+  };
+}
+
+module.exports = function (list, options) {
+  options = options || {};
+  options.attributes = typeof options.attributes === 'object' ? options.attributes : {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+
+  if (!options.singleton && typeof options.singleton !== 'boolean') {
+    options.singleton = isOldIE();
   }
 
-  var baseUrl = location.protocol + "//" + location.host;
-  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+  var styles = listToStyles(list, options);
+  addStylesToDom(styles, options);
+  return function update(newList) {
+    var mayRemove = [];
 
-	// convert each url(...)
-	/*
-	This regular expression is just a way to recursively match brackets within
-	a string.
+    for (var i = 0; i < styles.length; i++) {
+      var item = styles[i];
+      var domStyle = stylesInDom[item.id];
 
-	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
-	   (  = Start a capturing group
-	     (?:  = Start a non-capturing group
-	         [^)(]  = Match anything that isn't a parentheses
-	         |  = OR
-	         \(  = Match a start parentheses
-	             (?:  = Start another non-capturing groups
-	                 [^)(]+  = Match anything that isn't a parentheses
-	                 |  = OR
-	                 \(  = Match a start parentheses
-	                     [^)(]*  = Match anything that isn't a parentheses
-	                 \)  = Match a end parentheses
-	             )  = End Group
-              *\) = Match anything and then a close parens
-          )  = Close non-capturing group
-          *  = Match anything
-       )  = Close capturing group
-	 \)  = Match a close parens
+      if (domStyle) {
+        domStyle.refs--;
+        mayRemove.push(domStyle);
+      }
+    }
 
-	 /gi  = Get all matches, not the first.  Be case insensitive.
-	 */
-	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
-		// strip quotes (if they exist)
-		var unquotedOrigUrl = origUrl
-			.trim()
-			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
-			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+    if (newList) {
+      var newStyles = listToStyles(newList, options);
+      addStylesToDom(newStyles, options);
+    }
 
-		// already a full url? no change
-		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(unquotedOrigUrl)) {
-		  return fullMatch;
-		}
+    for (var _i = 0; _i < mayRemove.length; _i++) {
+      var _domStyle = mayRemove[_i];
 
-		// convert the url to a full url
-		var newUrl;
+      if (_domStyle.refs === 0) {
+        for (var j = 0; j < _domStyle.parts.length; j++) {
+          _domStyle.parts[j]();
+        }
 
-		if (unquotedOrigUrl.indexOf("//") === 0) {
-		  	//TODO: should we add protocol?
-			newUrl = unquotedOrigUrl;
-		} else if (unquotedOrigUrl.indexOf("/") === 0) {
-			// path should be relative to the base url
-			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
-		} else {
-			// path should be relative to current directory
-			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
-		}
-
-		// send back the fixed url(...)
-		return "url(" + JSON.stringify(newUrl) + ")";
-	});
-
-	// send back the fixed css
-	return fixedCss;
+        delete stylesInDom[_domStyle.id];
+      }
+    }
+  };
 };
-
 
 /***/ }),
 
@@ -69262,8 +69049,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const appId = "BLd5jWBS0s57akvRPg97";
-const appCode = "hdgWeUmZ_Tqb2a2ymt3YbA"; // eslint-disable-next-line consistent-return
+const appId = 'BLd5jWBS0s57akvRPg97';
+const appCode = 'hdgWeUmZ_Tqb2a2ymt3YbA'; // eslint-disable-next-line consistent-return
 
 $(document).ready(async () => {
   // TODO: Load 1st saved map for user here
