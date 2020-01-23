@@ -112,8 +112,7 @@
   },
   "lint-staged": {
     "*.{js,json,css,md, ejs}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "babel": {
