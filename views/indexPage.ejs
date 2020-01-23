@@ -2,10 +2,13 @@
 <html lang="en">
   <head>
     <title><%= title %></title>
-    <% include partials/head.ejs %>
+
+    <%- include('./partials/head.ejs'); %>
+
+
+
   </head>
   <body class="h-100">
-
     <!--NavBar-->
     <div class="row mainNav">
       <div class="col-12">
@@ -26,9 +29,11 @@
       </div>
     </div>
 
-    <% include partials/authModals/signup.ejs %>
-    <% include partials/authModals/login.ejs %>
-    <% include partials/aboutModal.ejs %>
+    <%- include('./partials/authModals/signup.ejs'); -%>
+    <%- include('./partials/authModals/login.ejs'); -%>
+    <%- include('./partials/aboutModal.ejs'); -%>
+
+
 
      <!--Side navigation -->
     <!--<div class="sidenav">-->
@@ -85,8 +90,7 @@
       </div>
     </div>
 
-
-    <% include partials/footer.ejs %>
+    <%- include('./partials/footer.ejs'); -%>
 
     <script type="module" src="/javascripts/maps/build/main.map.js"></script>
 
