@@ -1,6 +1,6 @@
 /* eslint-disable prefer-destructuring,no-shadow,no-plusplus,no-undef,no-underscore-dangle,prettier/prettier */
 import 'ol/ol.css';
-import { defaults as defaultControls } from 'ol/control/util';
+import { defaults as defaultControls } from 'ol/control';
 import Snap from 'ol/interaction/Snap';
 import Map from 'ol/Map';
 import { fromLonLat, transform as Transform } from 'ol/proj';
