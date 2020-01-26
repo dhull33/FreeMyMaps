@@ -63245,7 +63245,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ol_ol_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ol/ol.css */ "./node_modules/ol/ol.css");
 /* harmony import */ var ol_ol_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(ol_ol_css__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var ol_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ol/control */ "./node_modules/ol/control.js");
-/* harmony import */ var ol_interaction_Snap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ol/interaction/Snap */ "./node_modules/ol/interaction/Snap.js");
+/* harmony import */ var ol_interaction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ol/interaction */ "./node_modules/ol/interaction.js");
 /* harmony import */ var ol_Map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ol/Map */ "./node_modules/ol/Map.js");
 /* harmony import */ var ol_proj__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ol/proj */ "./node_modules/ol/proj.js");
 /* harmony import */ var ol_style__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ol/style */ "./node_modules/ol/style.js");
@@ -63465,6 +63465,16 @@ $(document).ready(async () => {
   map.addControl(mousePositionControl);
   /*
    ===================================================================
+   Modify
+   =====================================================================
+   */
+
+  const modify = new ol_interaction__WEBPACK_IMPORTED_MODULE_2__["Modify"]({
+    source
+  });
+  map.addInteraction(modify);
+  /*
+   ===================================================================
    Drawing
    ./mapModules/draw.js
    =====================================================================
@@ -63488,7 +63498,7 @@ $(document).ready(async () => {
    =====================================================================
    */
 
-  const snap = new ol_interaction_Snap__WEBPACK_IMPORTED_MODULE_2__["default"]({
+  const snap = new ol_interaction__WEBPACK_IMPORTED_MODULE_2__["Snap"]({
     source: layer.getSource()
   });
   map.addInteraction(snap);
@@ -63581,14 +63591,14 @@ const addNewControl = (elementID, targetID) => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createDraw", function() { return createDraw; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addDrawInteraction", function() { return addDrawInteraction; });
-/* harmony import */ var ol_interaction_Draw__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ol/interaction/Draw */ "./node_modules/ol/interaction/Draw.js");
+/* harmony import */ var ol_interaction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ol/interaction */ "./node_modules/ol/interaction.js");
 
 const createDraw = (source, selectDrawType) => {
   let drawing;
   const drawValue = selectDrawType.value;
 
   if (drawValue === 'FreeLine') {
-    drawing = new ol_interaction_Draw__WEBPACK_IMPORTED_MODULE_0__["default"]({
+    drawing = new ol_interaction__WEBPACK_IMPORTED_MODULE_0__["Draw"]({
       source,
       type: 'LineString',
       freehand: true
@@ -63596,7 +63606,7 @@ const createDraw = (source, selectDrawType) => {
   }
 
   if (drawValue === 'FreePoly') {
-    drawing = new ol_interaction_Draw__WEBPACK_IMPORTED_MODULE_0__["default"]({
+    drawing = new ol_interaction__WEBPACK_IMPORTED_MODULE_0__["Draw"]({
       source,
       type: 'Polygon',
       freehand: true
@@ -63604,7 +63614,7 @@ const createDraw = (source, selectDrawType) => {
   }
 
   if (drawValue === 'LineString' || drawValue === 'Circle' || drawValue === 'Polygon') {
-    drawing = new ol_interaction_Draw__WEBPACK_IMPORTED_MODULE_0__["default"]({
+    drawing = new ol_interaction__WEBPACK_IMPORTED_MODULE_0__["Draw"]({
       source,
       type: drawValue
     });

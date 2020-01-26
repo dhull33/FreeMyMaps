@@ -1,7 +1,7 @@
 /* eslint-disable prefer-destructuring,no-shadow,no-plusplus,no-undef,no-underscore-dangle,prettier/prettier */
 import 'ol/ol.css';
 import { defaults as defaultControls } from 'ol/control';
-import Snap from 'ol/interaction/Snap';
+import { Modify, Snap } from 'ol/interaction';
 import Map from 'ol/Map';
 import { fromLonLat, transform as Transform } from 'ol/proj';
 import { Icon, Stroke, Style, Fill } from 'ol/style';
@@ -217,6 +217,14 @@ $(document).ready(async () => {
     undefinedHTML: ''
   });
   map.addControl(mousePositionControl);
+
+  /*
+   ===================================================================
+   Modify
+   =====================================================================
+   */
+  const modify = new Modify({ source });
+  map.addInteraction(modify);
 
   /*
    ===================================================================
