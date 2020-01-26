@@ -1,4 +1,4 @@
-import { Draw, Modify, Snap } from 'ol/interaction';
+import Draw from 'ol/interaction/Draw';
 
 export const createDraw = (source, selectDrawType) => {
   let drawing;
