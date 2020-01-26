@@ -63434,7 +63434,7 @@ $(document).ready(async () => {
     });
     const locationStyling = new ol_style__WEBPACK_IMPORTED_MODULE_5__["Style"]({
       image: new ol_style__WEBPACK_IMPORTED_MODULE_5__["Icon"]({
-        src: '/images/icons/person_pin_circle_48px.png'
+        src: '/images/icons/map_pin_48px.png'
       })
     });
     theirLocation.setStyle(locationStyling);

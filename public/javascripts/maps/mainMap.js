@@ -186,7 +186,7 @@ $(document).ready(async () => {
     });
     const locationStyling = new Style({
       image: new Icon({
-        src: '/images/icons/person_pin_circle_48px.png'
+        src: '/images/icons/map_pin_48px.png'
       })
     });
     theirLocation.setStyle(locationStyling);
