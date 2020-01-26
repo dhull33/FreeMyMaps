@@ -5,7 +5,7 @@
 
 A completely free mapping application that you can use or modify for your own app! What could be better than that? I'll let you decide!
 
-https://freemymaps.com
+https://freemymaps.herokuapp.com/
 
 ## Current Features
 
@@ -54,34 +54,6 @@ https://freemymaps.com
 
    - As a png image
    - GeoJSON data
-
-## Features Soon to Be Added
-
-1. Distance and Area estimation
-
-   - Distance Units:
-     - centimeters, meters, kilometers, inches, feet, miles
-   - Area Units
-     - centimeters^2, meters^2, kilometers^2, inches^2, feet^2, miles^2, acres
-
-2. Editing
-   - Erase anything that has been added to the map
-   - Change line and fill colors
-   - Drag features that were added to the map (such as markers/pins, drawings, etc.)
-   - Modify lines and polygons
-     - I like to think of this as 'stretching' or 'compressing' the feature
-     - If you have a distance or area estimation attached to the modified line/polygon, that will also change
-3. Drag and Drop GPX, GeoJSON, IGC, KML, or TopoJSON data
-   - Will be displayed over the current map
-4. Download and Saving
-   - Automatic saving to your account
-5. Accounts
-   - You will be able to create a free account with:
-     - Facebook
-     - Google
-   - Create and save as many maps as your heart desires!
-6. Docs and FAQ
-   - Will detail the current features and how to use all of them
 
 ## Bugs
 
