@@ -1,3 +1,4 @@
+/* eslint-disable global-require,no-debugger */
 // configures sqreen in production mode
 require('dotenv').config();
 
