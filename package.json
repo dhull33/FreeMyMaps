@@ -47,7 +47,7 @@
     "ol": "^6.2.1",
     "ol-geocoder": "^4.0.0",
     "ol-hashed": "^2.0.0",
-    "ol-mapbox-style": "^5.0.2",
+    "ol-mapbox-style": "^6.0.1",
     "ol-popup": "^4.0.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
@@ -62,15 +62,15 @@
     "source-map-loader": "^0.2.4",
     "sqreen": "^1.38.3",
     "uniqid": "^5.2.0",
-    "uuid": "^3.4.0"
+    "uuid": "^7.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.4",
+    "@babel/core": "^7.8.6",
     "@babel/node": "^7.8.4",
     "@babel/polyfill": "^7.8.3",
-    "@babel/preset-env": "^7.8.4",
-    "@babel/register": "^7.8.3",
+    "@babel/preset-env": "^7.8.6",
+    "@babel/register": "^7.8.6",
     "ajv": "^6.12.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -89,10 +89,10 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.3",
-    "eslint-plugin-react-hooks": "^2.4.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
-    "mocha": "^7.0.1",
+    "mocha": "^7.1.0",
     "nodemon": "^2.0.2",
     "npm-run-all": "^4.1.5",
     "onchange": "^6.1.0",
@@ -103,7 +103,7 @@
     "webpack-dev-middleware": "^3.7.2"
   },
   "engines": {
-    "node": "11.10.1"
+    "node": "12.16.1"
   },
   "husky": {
     "hooks": {
