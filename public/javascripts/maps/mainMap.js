@@ -23,8 +23,8 @@ import { Pops } from './mapModules/popUps';
 import { downloadPNG, downloadGEO } from './mapModules/export';
 import { getColor } from './mapModules/colors';
 
-const appId = 'BLd5jWBS0s57akvRPg97';
-const appCode = 'hdgWeUmZ_Tqb2a2ymt3YbA';
+const appId = process.env.HERE_APP_ID;
+const appCode = process.env.HERE_APP_CODE;
 
 // eslint-disable-next-line consistent-return
 $(document).ready(async () => {
@@ -37,14 +37,14 @@ $(document).ready(async () => {
       type: 'maptile',
       scheme: 'normal.day',
       app_id: appId,
-      app_code: appCode
+      app_code: appCode,
     },
     {
       base: 'base',
       type: 'maptile',
       scheme: 'normal.day.transit',
       app_id: appId,
-      app_code: appCode
+      app_code: appCode,
     },
 
     {
@@ -52,35 +52,35 @@ $(document).ready(async () => {
       type: 'maptile',
       scheme: 'pedestrian.day',
       app_id: appId,
-      app_code: appCode
+      app_code: appCode,
     },
     {
       base: 'aerial',
       type: 'maptile',
       scheme: 'hybrid.day',
       app_id: appId,
-      app_code: appCode
+      app_code: appCode,
     },
     {
       base: 'aerial',
       type: 'maptile',
       scheme: 'terrain.day',
       app_id: appId,
-      app_code: appCode
+      app_code: appCode,
     },
     {
       base: 'aerial',
       type: 'maptile',
       scheme: 'satellite.day',
       app_id: appId,
-      app_code: appCode
+      app_code: appCode,
     },
     {
-      scheme: 'topo.day'
+      scheme: 'topo.day',
     },
     {
-      scheme: 'topo.image'
-    }
+      scheme: 'topo.image',
+    },
   ];
 
   const coords = Transform([-98.569336, 39.774769], 'EPSG:4326', 'EPSG:3857');
@@ -92,12 +92,12 @@ $(document).ready(async () => {
     layers,
     view: new View({
       center: coords,
-      zoom: 5
+      zoom: 5,
     }),
     controls: defaultControls({
       zoom: true,
-      attribution: true
-    })
+      attribution: true,
+    }),
   });
 
   // Create source and layer for user location and drawings
@@ -108,13 +108,13 @@ $(document).ready(async () => {
       return new Style({
         stroke: new Stroke({
           color: 'black',
-          width: 1.5
+          width: 1.5,
         }),
         fill: new Fill({
-          color: getColor(feature)
-        })
+          color: getColor(feature),
+        }),
       });
-    }
+    },
   });
   map.addLayer(layer);
 
@@ -160,7 +160,7 @@ $(document).ready(async () => {
     placeholder: 'Search for ...',
     limit: 8,
     autoComplete: true,
-    keepOpen: true
+    keepOpen: true,
   });
   map.addControl(mapGeocoder);
 
@@ -182,12 +182,12 @@ $(document).ready(async () => {
   navigator.geolocation.getCurrentPosition((position) => {
     const coordinates = fromLonLat([position.coords.longitude, position.coords.latitude]);
     const theirLocation = new Feature({
-      geometry: new Point(coordinates)
+      geometry: new Point(coordinates),
     });
     const locationStyling = new Style({
       image: new Icon({
-        src: '/images/icons/map_pin_48px.png'
-      })
+        src: '/images/icons/map_pin_48px.png',
+      }),
     });
     theirLocation.setStyle(locationStyling);
     source.addFeature(theirLocation);
@@ -202,7 +202,7 @@ $(document).ready(async () => {
   map.addInteraction(
     new DragAndDrop({
       source,
-      formatConstructors: [GPX, GeoJSON, IGC, KML, TopoJSON]
+      formatConstructors: [GPX, GeoJSON, IGC, KML, TopoJSON],
     })
   );
 
@@ -214,7 +214,7 @@ $(document).ready(async () => {
   const mousePositionControl = new MousePosition({
     coordinateFormat: createStringXY(4),
     projection: 'EPSG:4326',
-    undefinedHTML: ''
+    undefinedHTML: '',
   });
   map.addControl(mousePositionControl);
 
@@ -251,7 +251,7 @@ $(document).ready(async () => {
    =====================================================================
    */
   const snap = new Snap({
-    source: layer.getSource()
+    source: layer.getSource(),
   });
   map.addInteraction(snap);
 });
