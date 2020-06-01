@@ -1,20 +1,46 @@
 {
-  "extends": ["airbnb", "prettier"],
-  "plugins": ["prettier"],
+  "plugins": ["prettier", "html"],
   "env": {
     "browser": true,
     "node": true,
     "es6": true,
-    "mocha": true,
     "jquery": true
   },
+  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 11
+  },
   "rules": {
-    "prettier/prettier": ["error"],
+    "prettier/prettier": [
+      "error",
+      {},
+      {
+        "usePrettierrc": true
+      }
+    ],
     "no-console": "off",
     "camelcase": "warn",
     "arrow-body-style": ["error", "always"],
-    "func-style": ["error", "expression", { "allowArrowFunctions": true }],
+    "func-style": [
+      "error",
+      "expression",
+      {
+        "allowArrowFunctions": true
+      }
+    ],
     "block-scoped-var": "error",
-    "no-plusplus": "error"
+    "no-plusplus": "warn",
+    "eqeqeq": ["error", "always"],
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": true,
+        "classes": true,
+        "variables": true
+      }
+    ],
+    "arrow-parens": ["error", "always"],
+    "prefer-arrow-callback": "error",
+    "prefer-const": "error"
   }
 }

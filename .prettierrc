@@ -1,7 +1,17 @@
 {
-  "printWidth": 100,
+  "printWidth": 80,
   "singleQuote": true,
   "semi": true,
   "bracketSpacing": true,
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "tabWidth": 2,
+  "trailingComma": "none",
+  "overrides": [
+    {
+      "files": "*.ejs",
+      "options": {
+        "parser": "html"
+      }
+    }
+  ]
 }

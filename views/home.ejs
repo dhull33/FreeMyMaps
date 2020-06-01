@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title><%= title %></title>
-  <% include partials/head.ejs %>
+  <%- include(partials/head) %>
 </head>
 <body class="h-100">
 
@@ -27,9 +27,9 @@
   </div>
 </div>
 
-<% include partials/authModals/signup.ejs %>
-<% include partials/authModals/login.ejs %>
-<% include partials/aboutModal.ejs %>
+<%- include(partials/authModals/signup) %>
+<%- include(partials/authModals/login) %>
+<%- include(partials/aboutModal) %>
 
 <!--Side navigation -->
 <!--<div class="sidenav">-->
@@ -92,7 +92,7 @@
 
   </div>
 
-<% include partials/footer.ejs %>
+<%- include(partials/footer) %>
 
 <script type="module" src="/javascripts/maps/build/main.map.js"></script>
 

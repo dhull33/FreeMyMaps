@@ -3,7 +3,7 @@
   <head>
     <title><%= title %></title>
 
-    <%- include('./partials/head.ejs'); %>
+    <%- include('partials/head'); %>
 
 
 
@@ -28,9 +28,9 @@
       </div>
     </div>
 
-    <%- include('./partials/authModals/signup.ejs'); -%>
-    <%- include('./partials/authModals/login.ejs'); -%>
-    <%- include('./partials/aboutModal.ejs'); -%>
+    <%- include('partials/authModals/signup'); -%>
+    <%- include('partials/authModals/login'); -%>
+    <%- include('partials/aboutModal'); -%>
 
 
 
@@ -89,7 +89,7 @@
       </div>
     </div>
 
-    <%- include('./partials/footer.ejs'); -%>
+    <%- include('partials/footer'); -%>
 
     <script type="module" src="/javascripts/maps/build/main.map.js"></script>
 
