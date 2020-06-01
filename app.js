@@ -23,12 +23,14 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const compression = require('compression');
+const cors = require('cors');
 const { connection } = require('./data/dataBase');
 
 const app = express();
 
 // The raven request handler must be the first middleware on the app
 // app.use(Raven.requestHandler());
+app.use(cors());
 app.use(compression());
 app.use(logger('dev'));
 app.use(express.json());
