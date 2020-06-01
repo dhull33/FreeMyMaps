@@ -14,7 +14,9 @@
     "start:dev": "run-s clean build open:src:dev",
     "open:src:dev": "nodemon app.js",
     "prettier-watch": "onchange '**/*.js' -- prettier --write {{changed}}",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -62,7 +64,8 @@
     "source-map-loader": "^1.0.0",
     "sqreen": "^1.41.3",
     "uniqid": "^5.2.0",
-    "uuid": "^8.1.0"
+    "uuid": "^8.1.0",
+    "snyk": "^1.334.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
@@ -131,5 +134,6 @@
     "plugins": [
       "babel-plugin-transform-class-properties"
     ]
-  }
+  },
+  "snyk": true
 }
