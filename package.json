@@ -61,7 +61,7 @@
     "raven": "^2.6.4",
     "rimraf": "^3.0.2",
     "source-map-loader": "^1.0.0",
-    "sqreen": "^1.41.3",
+    "sqreen": "^1.42.0",
     "uniqid": "^5.2.0",
     "uuid": "^8.1.0"
   },
@@ -79,7 +79,7 @@
     "babel-preset-airbnb": "^5.0.0",
     "chai": "^4.2.0",
     "chalk": "^4.0.0",
-    "copy-webpack-plugin": "^6.0.1",
+    "copy-webpack-plugin": "^6.0.2",
     "css-loader": "^3.5.3",
     "ejs-lint": "^1.1.0",
     "ejs-webpack-plugin": "^1.0.0",
@@ -93,7 +93,7 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.7",
+    "lint-staged": "^10.2.8",
     "mocha": "^7.2.0",
     "nodemon": "^2.0.4",
     "npm-run-all": "^4.1.5",
@@ -105,7 +105,7 @@
     "webpack-dev-middleware": "^3.7.2"
   },
   "engines": {
-    "node": "12.18.0"
+    "node": "current"
   },
   "husky": {
     "hooks": {
