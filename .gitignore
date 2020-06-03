@@ -19,7 +19,7 @@ gen
 .idea/**/dictionaries
 .idea/**/shelf
 
-./sqreen.json
+sqreen.json
 
 # Generated files
 .idea/**/contentModel.xml
