@@ -1,10 +1,9 @@
 /* eslint-disable global-require,no-debugger */
-// configures sqreen in production mode
-require('dotenv').config();
-
 if (process.env.NODE_ENV === 'production') {
   require('sqreen');
 }
+// configures sqreen in production mode
+require('dotenv').config();
 // Must configure Raven before doing anything else with it
 // const Raven = require('raven');
 
