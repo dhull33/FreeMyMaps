@@ -1,14 +1,15 @@
 {
+  "extends": ["eslint-config-airbnb", "prettier"],
   "plugins": ["prettier", "html"],
+  "parser": "babel-eslint",
   "env": {
     "browser": true,
     "node": true,
-    "es6": true,
+    "es2020": true,
     "jquery": true
   },
-  "extends": ["airbnb", "plugin:prettier/recommended"],
   "parserOptions": {
-    "ecmaVersion": 11
+    "ecmaVersion": 2020
   },
   "rules": {
     "prettier/prettier": [
@@ -29,7 +30,7 @@
       }
     ],
     "block-scoped-var": "error",
-    "no-plusplus": "warn",
+    "no-plusplus": "error",
     "eqeqeq": ["error", "always"],
     "no-use-before-define": [
       "error",
@@ -41,6 +42,8 @@
     ],
     "arrow-parens": ["error", "always"],
     "prefer-arrow-callback": "error",
-    "prefer-const": "error"
+    "prefer-const": "error",
+    "no-underscore-dangle": "off",
+    "class-methods-use-this": "off"
   }
 }

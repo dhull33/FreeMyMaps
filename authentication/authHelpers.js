@@ -27,7 +27,9 @@ const createNewUser = (req, res) => {
 // checks to see if user exists. Returns a boolean
 const doesUserExist = (username) => {
   return db
-    .one('SELECT exists(SELECT username FROM "user" WHERE username = $1)', [username])
+    .one('SELECT exists(SELECT username FROM "user" WHERE username = $1)', [
+      username
+    ])
     .then((result) => {
       return result.exists;
     })
