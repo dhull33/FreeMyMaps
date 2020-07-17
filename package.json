@@ -62,7 +62,7 @@
     "raven": "^2.6.4",
     "rimraf": "^3.0.2",
     "source-map-loader": "^1.0.0",
-    "sqreen": "^1.44.0",
+    "sqreen": "^1.45.0",
     "uniqid": "^5.2.0",
     "uuid": "^8.1.0",
     "snyk": "^1.346.0"
