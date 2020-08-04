@@ -45,7 +45,7 @@
     "moment": "^2.27.0",
     "morgan": "~1.10.0",
     "numeral": "^2.0.6",
-    "ol": "^6.4.2",
+    "ol": "^6.4.3",
     "ol-geocoder": "^4.0.0",
     "ol-hashed": "^2.0.0",
     "ol-mapbox-style": "^6.1.2",
