@@ -50,7 +50,7 @@
     "ol-hashed": "^2.0.0",
     "ol-mapbox-style": "^6.3.0",
     "ol-popup": "^4.0.0",
-    "passport": "^0.4.1",
+    "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "pg-monitor": "^1.4.1",
     "pg-promise": "^10.8.6",
