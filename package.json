@@ -54,7 +54,7 @@
     "passport-local": "^1.0.0",
     "pg-monitor": "^1.4.1",
     "pg-promise": "^10.8.6",
-    "pm2": "^4.5.1",
+    "pm2": "^5.0.0",
     "proj4": "^2.6.3",
     "randomstring": "^1.1.5",
     "raven": "^2.6.4",
