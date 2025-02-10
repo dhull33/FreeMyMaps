@@ -48,7 +48,7 @@
     "ol": "^6.5.0",
     "ol-geocoder": "^4.1.1",
     "ol-hashed": "^2.0.0",
-    "ol-mapbox-style": "^6.3.0",
+    "ol-mapbox-style": "^12.4.1",
     "ol-popup": "^4.0.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
