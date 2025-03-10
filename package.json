@@ -17,7 +17,7 @@
     "build": "webpack --config webpack.config.js"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^1.8.2",
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
@@ -54,7 +54,7 @@
     "passport-local": "^1.0.0",
     "pg-monitor": "^1.4.1",
     "pg-promise": "^10.8.6",
-    "pm2": "^4.5.1",
+    "pm2": "^5.3.1",
     "proj4": "^2.6.3",
     "randomstring": "^1.1.5",
     "raven": "^2.6.4",
